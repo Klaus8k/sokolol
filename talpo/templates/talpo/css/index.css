@@ -24,7 +24,8 @@ h6 {
 }
 
 .search-form__icon {
-    height: 46px;width: 46px;
+    height: 46px;
+    width: 46px;
     margin-left: 15px;
 }
 
@@ -35,8 +36,9 @@ h6 {
     height: 47px;
     width: 235px;
 }
+
 .resume-content {
-    margin-top: 70px;    
+    margin-top: 70px;
 }
 
 .resume-content__text {
@@ -45,26 +47,88 @@ h6 {
 
 .resume-content__dwnld {
     margin-top: 51px;
+    margin-bottom: 20px;
+
 }
 
 .explain {
     font-size: 15px;
     color: #7B7B7B;
+    letter-spacing: 0.03em;
 }
 
+
 .btn {
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    letter-spacing: 0.15em;
     color: azure;
     font-size: 26px;
-    background: #0f415e;
-    width: 235px;height: 50px;
+    background: #146B9C;
+    width: 235px;
+    height: 50px;
     border-radius: 0;
-    margin-bottom: 20px;
     transition: all 0, 5s ease;
 }
 
 .btn:hover {
     background: #071a25;
     color: azure;
+}
+
+.icon-dwn {
+    margin-left: 27px;
+}
+
+.icon-dwn img {
+    margin-left: 27px;
+}
+
+.resume-content__dwnld__btn {
+    margin-left: -27px;
+}
+
+.my_photo {
+    width: 405px;
+    height: 580px;
+}
+
+.title_project {
+    text-transform: uppercase;
+    margin-top: 100px;
+    font-weight: bold;
+}
+
+.order_cost {
+    margin-top: 116px;
+}
+
+.projects_img {
+    width: 405px;
+    height: 400px;
+}
+
+.projects_title {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.projects_text {
+    font-size: 26px;
+}
+
+.projects_dwnl {
+    margin-right: 27px;
+}
+
+.parser {
+    margin-top: 150px;
+}
+
+.evernotion {
+    margin-top: 150px;
+}
+
+.pdf-reader {
+    margin-top: 150px;
+    margin-bottom: 200px;
 }

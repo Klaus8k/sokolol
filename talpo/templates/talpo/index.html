@@ -27,7 +27,7 @@
                     <h1>Klaus8k</h1>
                 </div>
                 <div class="offset-lg-1 col-lg-4 d-flex search-form justify-content-end">
-                    <img class="search-form__icon" src="{% static '/static/download.svg' %}" alt="search">
+                    <img class="search-form__icon" src="{% static '/static/search.svg' %}" alt="search">
                     <!-- <form> FORM </form> -->
                     <img class="form_placeholder"></img>
                 </div>
@@ -37,8 +37,9 @@
 
     <div class="resume">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-7 resume-content">
+            <div class="row resume-content">
+                <div class="col-lg-7 ">
+                    <!-- resume text -->
                     <p class="resume-content__text">
                         Здравствуйте.
                         Меня зовут Соколов Олег. Я сделал этот сайт для того что бы собрать на нем свои проекты. Чем то
@@ -55,13 +56,140 @@
                     </p>
                     <div class="resume-content__dwnld">
                         <p class="explain">посмотреть полное резюме или скачать</p>
-                        <button class="resume-content__dwnld__btn btn">резюме</button>
+
+                        <div class="icon-dwn d-flex">
+                            <a href="#" class="resume-content__dwnld__btn btn">резюме</a>
+                            <img href="#" src="{% static '/static/download.svg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-flex justify-content-end">
+                    <img class="my_photo " src="{% static '/static/photo.jpg' %}" alt="my_photo">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="projects-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <h1 class="title_project">рабочие Проекты</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="order_cost">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <img class="projects_img" src="{% static '/static/plholder_project.jpg' %}" alt="order_cost_img">
+                </div>
+                <div class="offset-1 col-lg-6">
+                    <h1 class="projects_title">расчет себестоимости заказов</h1>
+                    <p class="projects_text">Сервис расчета себестоимости заказов в различных сферах полиграфии и
+                        печати, разными способами,
+                        на разных размерах.
+                        <br><br>
+                        Расчет расхода носителя, расходных материалов и амортизации.
+                    </p>
+                    <div class="projects__dwnl">
+                        <p class="explain">перейти на страницу проекта или скачать</p>
+
+                        <div class="projects__dwnl d-flex">
+                            <a href="#" class="projects__dwnl__btn btn">order_cost</a>
+                            <div class="icon-dwn">
+                                <img href="#" src="{% static '/static/download.svg' %}" alt="icon-dwn">
+                                <img href="#" src="{% static '/static/git.svg' %}" alt="icon-git">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="parser">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="projects_title">Парсеры</h1>
+                    <p class="projects_text">Здесь собраны различные парсеры с веб интерфейсом.
+                        Парсеры html, js. <br><br>
+                        С настройками параметров и паттернами для различных сайтов.
+                    </p>
+                    <div class="projects__dwnl">
+                        <p class="explain">перейти на страницу проекта или скачать</p>
+
+                        <div class="projects__dwnl d-flex ">
+                            <a href="#" class="projects__dwnl__btn btn">Parsers</a>
+                            <div class="icon-dwn">
+                                <img href="#" src="{% static '/static/download.svg' %}" alt="icon-dwn">
+                                <img href="#" src="{% static '/static/git.svg' %}" alt="icon-git">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="offset-1 col-lg-5 d-flex justify-content-end">
+                    <img class="projects_img " src="{% static '/static/plholder_project.jpg' %}" alt="parsers_img">
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="evernotion">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <img class="projects_img" src="{% static '/static/plholder_project.jpg' %}" alt="evernotion_img">
+                </div>
+                <div class="offset-1 col-lg-6">
+                    <h1 class="projects_title">Записки по типу evernote</h1>
+                    <p class="projects_text">После того как затруднилась оплата Evernote, появилась мысль сделать
+                        простейший аналог для себя. Что бы хранить всевозможные инструкции, шаблоны и т.п.
+                        <br><br>
+                        С прицелом на расширение функционала.
+                    </p>
+                    <div class="projects__dwnl">
+                        <p class="explain">перейти на страницу проекта или скачать</p>
+
+                        <div class="projects__dwnl d-flex">
+                            <a href="#" class="projects__dwnl__btn btn">evernotion</a>
+                            <div class="icon-dwn">
+                                <img href="#" src="{% static '/static/download.svg' %}" alt="icon-dwn">
+                                <img href="#" src="{% static '/static/git.svg' %}" alt="icon-git">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pdf-reader">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="projects_title">Ридер pdf с переводом</h1>
+                    <p class="projects_text">Домашний проект для чтения англоязычной литература в формате пдф, но с
+                        возможностью перевода отдельных слов, а не всего файла.
+                        С опцией создание пометок и закладок.
+                        <br><br>
+                        С прицелом на маленькие смартфонные экраны.
+
+                    <div class="projects__dwnl d-flex ">
+                        <a href="#" class="projects__dwnl__btn btn">pdf-reader</a>
+                        <div class="icon-dwn">
+                            <img href="#" src="{% static '/static/download.svg' %}" alt="icon-dwn">
+                            <img href="#" src="{% static '/static/git.svg' %}" alt="icon-git">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offset-1 col-lg-5 d-flex justify-content-end">
+                    <img class="projects_img " src="{% static '/static/plholder_project.jpg' %}" alt="pdf-reader_img">
+                </div>
+            </div>
+        </div>
     </div>
 
 
