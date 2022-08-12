@@ -35,3 +35,36 @@ h6 {
     height: 47px;
     width: 235px;
 }
+.resume-content {
+    margin-top: 70px;    
+}
+
+.resume-content__text {
+    font-size: 20px;
+}
+
+.resume-content__dwnld {
+    margin-top: 51px;
+}
+
+.explain {
+    font-size: 15px;
+    color: #7B7B7B;
+}
+
+.btn {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: azure;
+    font-size: 26px;
+    background: #0f415e;
+    width: 235px;height: 50px;
+    border-radius: 0;
+    margin-bottom: 20px;
+    transition: all 0, 5s ease;
+}
+
+.btn:hover {
+    background: #071a25;
+    color: azure;
+}
