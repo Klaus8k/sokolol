@@ -9,17 +9,32 @@
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- insert href of fonts -->
-    <!-- insert bootstrap css-->
-    <link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
 
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
 
 </head>
 
-<body>
-    <header>
-        <div class="xxx">
-            <img src="{% static '/static/download.svg'%}" alt="">
+<body class="body">
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 my-logo">
+                    <h1>logo</h1>
+                </div>
+                <div class="offset-lg-2 col-lg-3">
+                    <h1>Klaus8k</h1>
+                </div>
+                <div class="offset-lg-1 col-lg-4 d-flex search-form justify-content-end">
+                    <img class="search-form__icon" src="{% static '/static/download.svg' %}" alt="search">
+                    <!-- <form> FORM </form> -->
+                    <img class="form_placeholder"></img>
+                </div>
+
+            </div>
         </div>
+        
     </header>
 
 
@@ -27,9 +42,8 @@
 
 
 
-    <!-- <script src="../static/js/jquery-3.6.0.min.js"></script>
-    <script src="../static/js/owl.carousel.min.js"></script>
-    <script src="../static/js/base.js"></script> -->
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+
 </body>
 
 </html>

@@ -118,7 +118,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
+STATICFILES_DIRS = [  # dirs of static files
     BASE_DIR / "talpo/templates/talpo",  # for index page
 ]
 
