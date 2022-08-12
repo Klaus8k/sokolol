@@ -1,4 +1,5 @@
 {% load static %}
+<!-- insert static files with tag 'static' -->
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -16,7 +17,9 @@
 
 <body>
     <header>
-        <div class="xxx">hhhh</div>
+        <div class="xxx">
+            <img src="{% static '/static/download.svg'%}" alt="">
+        </div>
     </header>
 
 
