@@ -69,6 +69,7 @@
             </div>
         </div>
     </div>
+
     <div class="projects-title">
         <div class="container">
             <div class="row">
@@ -78,6 +79,7 @@
             </div>
         </div>
     </div>
+
     <div class="order_cost">
         <div class="container">
             <div class="row">
@@ -174,26 +176,57 @@
                         возможностью перевода отдельных слов, а не всего файла.
                         С опцией создание пометок и закладок.
                         <br><br>
-                        С прицелом на маленькие смартфонные экраны.
-
-                    <div class="projects__dwnl d-flex ">
-                        <a href="#" class="projects__dwnl__btn btn">pdf-reader</a>
-                        <div class="icon-dwn">
-                            <img href="#" src="{% static '/static/download.svg' %}" alt="icon-dwn">
-                            <img href="#" src="{% static '/static/git.svg' %}" alt="icon-git">
+                        С прицелом на маленькие смартфонные экраны
+                    </p>
+                    <div class="projects__dwnl">
+                        <p class="explain">перейти на страницу проекта или скачать</p>
+                        <div class="projects__dwnl d-flex ">
+                            <a href="#" class="projects__dwnl__btn btn">pdf-reader</a>
+                            <div class="icon-dwn">
+                                <img href="#" src="{% static '/static/download.svg' %}" alt="icon-dwn">
+                                <img href="#" src="{% static '/static/git.svg' %}" alt="icon-git">
+                            </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="offset-1 col-lg-5 d-flex justify-content-end">
                     <img class="projects_img " src="{% static '/static/plholder_project.jpg' %}" alt="pdf-reader_img">
                 </div>
+
             </div>
         </div>
     </div>
 
+    <div class="other_projects__title">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <h1 class="title_project">другое</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- carousel_other -->
+    <div class="carousel_other">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="other-ph">
+                        <img src="{% static '/static/other_ph.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="offset-1 col-lg-6">
+                    <p class="other-ph_title">название</p>
+                    <p class="other-ph_text">Краткое описание проекта или что это вообще такое</p>
+                    <div class="other-ph_link d-flex align-items-center ">
+                        <img src="{% static '/static/open_other.svg' %}" alt="">
+                        <a href="#" target="_blank" rel="noopener noreferrer">Ссылка</a>
+                    </div>
+                </div>
 
-
+            </div>
+        </div>
+    </div>
 
 
     <script src="{% static '/js/bootstrap.min.js' %}"></script>

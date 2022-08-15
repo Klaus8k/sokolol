@@ -76,11 +76,15 @@ h6 {
 }
 
 .icon-dwn {
+
     margin-left: 27px;
 }
 
 .icon-dwn img {
     margin-left: 27px;
+    width: 50px;
+    height: 50px;
+    color: #146B9C;
 }
 
 .resume-content__dwnld__btn {
@@ -95,12 +99,12 @@ h6 {
 .title_project {
     text-transform: uppercase;
     margin-top: 100px;
+    margin-bottom: 60px;
     font-weight: bold;
+    font-size: 60px;
 }
 
-.order_cost {
-    margin-top: 116px;
-}
+.order_cost {}
 
 .projects_img {
     width: 405px;
@@ -130,5 +134,36 @@ h6 {
 
 .pdf-reader {
     margin-top: 150px;
-    margin-bottom: 200px;
+}
+
+.other_projects__title {
+    margin-top: 92px;
+}
+
+.other-ph {
+    width: 404px;
+    height: 303px;
+}
+
+.other-ph_title {
+    text-transform: capitalize;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.other-ph_text {
+    font-size: 26px;
+}
+
+.other-ph_link {
+    margin-top: 60px;
+}
+
+.other-ph_link img {
+    height: 30px;
+    width: 30px;
+}
+
+.other-ph_link a {
+    font-size: 30px;
 }
