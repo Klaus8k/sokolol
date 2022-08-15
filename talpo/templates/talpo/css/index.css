@@ -174,3 +174,19 @@ h6 {
     padding-top: 30px;
 
 }
+
+/* Media requests */
+@media screen and (max-width: 1000px) {
+    .my_photo {
+        display: none;
+    }
+
+    .projects_img {
+        display: none;
+    }
+
+    .container > .offset-1 {
+        offset: none;
+    }
+    
+}
