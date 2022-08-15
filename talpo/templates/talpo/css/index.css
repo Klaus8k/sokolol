@@ -136,10 +136,6 @@ h6 {
     margin-top: 150px;
 }
 
-.other_projects__title {
-    margin-top: 92px;
-}
-
 .other-ph {
     width: 404px;
     height: 303px;
@@ -148,6 +144,7 @@ h6 {
 .other-ph_title {
     text-transform: capitalize;
     font-size: 30px;
+    display: block;
     font-weight: bold;
 }
 
@@ -166,4 +163,14 @@ h6 {
 
 .other-ph_link a {
     font-size: 30px;
+}
+
+.footer {
+    background-color: rgb(132, 216, 241);
+    height: 200px;
+}
+
+.footer_content {
+    padding-top: 30px;
+
 }
