@@ -1,7 +1,9 @@
 from django.views.generic.base import TemplateView
 from django.urls import path
+from .views import order_cost
 
 
+app_name = 'order_cost'
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='order_cost_index.html')),
+    path('', order_cost, name='order_cost'),
 ]

@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -19,13 +20,12 @@
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-5 border-bottom">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                <img class="bi me-2" width="40" height="32"></img>
+                <img class="me-3" width="40" height="32"></img>
                 <span class="fs-3">order_cost</span>
             </a>
 
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Main</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">offset</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">offset</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">solvent</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">riso</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">stamp</a></li>
@@ -34,27 +34,37 @@
         </header>
     </div>
 
+    <!-- form for offset -->
     <div class="container">
-        <div class="tabs">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Активная</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Ссылка</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Ссылка</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled">Отключенная</a>
-                </li>
-              </ul>
+        <div class="offset">
+            <div class="row">
 
+                <form action="{% url 'order_cost:order_cost' %}" method="get">
+                    <div class="mb-3">                        
+                        <label for="OffsetForm" class="form-label">Размер</label>
+                        <div class="d-flex">
+                            <input type="wigth" class="form-control" id="OffsetForm"/>
+                            <p class="px-3">X</p>
+                            <input type="wigth" class="form-control" id="OffsetForm"/>
+                        </div>
+                        <div class="form-text">укажите размер в миллиметрах</div>
+                    </div>
+
+                    <select class="form-select" aria-label="Пример выбора по умолчанию">
+                        <option selected>4+4</option>
+                        <option value="1">4+0</option>
+                    </select>
+
+                    <div class="my-3">
+                        <label for="OffsetOrderForm" class="form-label">Тираж</label>
+                        <input type="order" class="form-control" id="OffsetOrderForm" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Расчет</button>
+                </form>
+
+            </div>
         </div>
     </div>
-
-
 
 </body>
 
