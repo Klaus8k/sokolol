@@ -7,3 +7,4 @@ app_name = 'order_cost'
 urlpatterns = [
     path('', order_cost, name='order_cost'),
 ]
+# Add path's for other page in app order_cost
