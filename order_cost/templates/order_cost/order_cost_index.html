@@ -33,44 +33,26 @@
             </ul>
         </header>
     </div>
-
+    <!-- https://kmv-it.ru/blog/django/bootstrap4-i-formy-v-django/ -->
     <!-- form for offset -->
     <div class="container">
         <div class="offset">
             <div class="row">
+                <div class="col-6">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, nostrum.</p>
+                    <form class="col-1" action="{% url 'order_cost:order_cost' %}" method="get">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary" value="offset">Расчет</button>
+                    </form>
 
-                <form action="{% url 'order_cost:order_cost' %}" method="get">
-                    <div class="mb-3">
-                        <label for="OffsetForm" class="form-label">Размер</label>
-                        <div class="d-flex">
-                            <input type="width" class="form-control" id="OffsetForm" />
-                            <p class="px-3">X</p>
-                            <input type="higth" class="form-control" id="OffsetForm" />
-                        </div>
-                        <div class="form-text">укажите размер в миллиметрах</div>
-                    </div>
+                </div>
+                <div class="offset_result col-6">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum error nemo quasi sequi
+                        explicabo sunt aperiam provident maxime voluptate amet?</p>
 
-                    <select class="form-select" aria-label="Пример выбора по умолчанию">
-                        <option selected>4+4</option>
-                        <option value="1">4+0</option>
-                    </select>
-
-                    <div class="my-3">
-                        <label for="OffsetOrderForm" class="form-label">Тираж</label>
-                        <input type="order" class="form-control" id="OffsetOrderForm" />
-                    </div>
-                    <button type="submit" class="btn btn-primary">Расчет</button>
-                </form>
-
-                <form action="{% url 'order_cost:order_cost' %}" method="get">
-
-                    {% csrf_token %}
-                    {{ form }}
-                    <button type="submit" class="btn btn-primary">Расчет</button>
-                </form>
-
-
-            </div>
+                </div>
+            </div> 
         </div>
     </div>
 

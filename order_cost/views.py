@@ -5,15 +5,25 @@ from .forms import OffsetForm
 # Create your views here.
 
 
-def offset(request):
-    context = {'current_name': '1111111111'}
-    form = OffsetForm()
-    context['form'] = form
-    return render(request=request, template_name='order_cost_index.html', context=context)
+def offset_cost(request):
+    print(request)
+    if request.method == 'GET':
+        form = OffsetForm(request.GET)
+        if form.is_valid():
+            print(form.cleaned_data)
+
+
+
+    return render(request, template_name='order_cost_index.html', context={'form': form})
+
+
+
+
+
+
+
 
 
 def order_cost(request):
-
-    print(request)
-    return offset(request)
+    return offset_cost(request)
     
