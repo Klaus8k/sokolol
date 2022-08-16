@@ -29,7 +29,8 @@ def result(data: dict):
         print(i, result)
         if isinstance(i, int):
             result += i
-    
+    if data['dublicate']:
+        result *= 1.5
     return result
 
 

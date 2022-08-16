@@ -8,11 +8,11 @@ form_wiget = NumberInput(attrs={'class': 'offset_form'})
 
 class OffsetForm(forms.Form):
     width = forms.IntegerField(required=None, min_value=0, max_value=1000,
-                                label='Ширина', widget=form_wiget)
+                                label='Ширина (мм)', widget=form_wiget)
     higth = forms.IntegerField(required=None, min_value=0, max_value=1000,
-                                label='Высота', widget=form_wiget)
+                                label='Высота (мм)', widget=form_wiget)
     weigh = forms.ChoiceField(required=None,
-                                label='Плотность', choices=paper_weigh)
+                                label='Плотность (г/м)', choices=paper_weigh)
     order = forms.IntegerField(required=None, min_value=0, max_value=100000,
-                                label='Тираж', widget=form_wiget)
+                                label='Тираж (шт)', widget=form_wiget)
     dublicate = forms.BooleanField(required=None, widget=RadioSelect(choices=dublicate_choise))
