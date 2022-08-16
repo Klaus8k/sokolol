@@ -55,7 +55,7 @@ ROOT_URLCONF = 'talpo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'talpo/templates/talpo', ],
+        'DIRS': [BASE_DIR / 'talpo/templates/talpo', BASE_DIR / 'order_cost/templates/order_cost'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,6 +120,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [  # dirs of static files
     BASE_DIR / "talpo/templates/talpo",  # for index page
+    BASE_DIR / "order_cost/templates/order_cost",  # for order_cost_index page
 ]
 
 # Default primary key field type
