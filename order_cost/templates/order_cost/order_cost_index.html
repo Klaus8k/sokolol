@@ -40,19 +40,23 @@
             <div class="row">
                 <div class="col-6">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, nostrum.</p>
-                    <form class="col-1" action="{% url 'order_cost:order_cost' %}" method="get">
+                    <form class="col-6 ml-auto" action="{% url 'order_cost:order_cost' %}" method="get">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button type="submit" class="btn btn-primary" value="offset">Расчет</button>
+                        <a href="{% url 'order_cost:order_cost' %}" class="btn btn-danger">Сброс</a>
                     </form>
-
                 </div>
                 <div class="offset_result col-6">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum error nemo quasi sequi
                         explicabo sunt aperiam provident maxime voluptate amet?</p>
 
+                    <div class="offset_result">
+                        <h1>{{ result }}</h1>
+                    </div>
+
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
 
