@@ -6,16 +6,7 @@ from .forms import OffsetForm, SolventForm
 # Create your views here.
 
 
-def offset_cost(request):
-    pass
-
-
-def result(data: dict):
-    return data
-
-
-def order_cost(request):
-    print('-----', request, '-----')
+def offset(request):
     if request.method == 'GET':
         form = OffsetForm(request.GET)
         if form.is_valid():
@@ -24,7 +15,21 @@ def order_cost(request):
             context['result'] = result(data)
             context['form'] = form
             print(context)
-    else:
-        context = {}
-        context['form'] = OffsetForm()
-    return render(request, template_name='order_cost_index.html', context=context)
+        else:
+            context = {}
+            context['form'] = OffsetForm()
+    return render(request, template_name='order_cost/offset.html', context=context)
+
+def solvent(request):
+    if request.method == 'GET':
+        form = OffsetForm(request.GET)
+        if form.is_valid():
+            data = form.cleaned_data
+            context = data
+            context['result'] = result(data)
+            context['form'] = form
+            print(context)
+        else:
+            context = {}
+            context['form'] = OffsetForm()
+    return render(request, template_name='order_cost/solvent.html', context=context)

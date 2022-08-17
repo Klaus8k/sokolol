@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>talpo.ru</title>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- insert href of fonts -->
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/order_cost_index.css' %}">
+
+</head>
+
+<body>
+    <!-- https://kmv-it.ru/blog/django/bootstrap4-i-formy-v-django/ -->
+    <!-- form for offset -->
+    <div class="container">
+        <div class="offset">
+            <div class="row">
+                <h1>Расчет заказов на оффсетную печать</h1>
+                <div class="col-lg-6">
+                    <h4>Расчет заказ печати у партнеров. Срок поставки 1-2 дня</h4>
+                    <form class="col-6 ml-auto" action="{% url 'order_cost:offset' %}" method="get">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary" value="offset">Расчет</button>
+                        <a href="{% url 'order_cost:offset' %}" class="btn btn-danger">Сброс</a>
+                    </form>
+                </div>
+                <div class="offset_result col-6">
+                    <p>Себестоимость заказа:</p>
+                    <div class="offset_result">
+                        <h1>{{ result }} руб.</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

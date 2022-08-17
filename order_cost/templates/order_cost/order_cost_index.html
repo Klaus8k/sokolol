@@ -25,37 +25,13 @@
             </a>
 
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">offset</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">solvent</a></li>
+                <li class="nav-item"><a href="offset" class="nav-link active" aria-current="page">offset</a></li>
+                <li class="nav-item"><a href="solvent" class="nav-link">solvent</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">riso</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">stamp</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">oki</a></li>
             </ul>
         </header>
-    </div>
-    <!-- https://kmv-it.ru/blog/django/bootstrap4-i-formy-v-django/ -->
-    <!-- form for offset -->
-    <div class="container">
-        <div class="offset">
-            <div class="row">
-                <h1>Расчет заказов на оффсетную печать</h1>
-                <div class="col-lg-6">
-                    <h4>Расчет заказ печати у партнеров. Срок поставки 1-2 дня</h4>
-                    <form class="col-6 ml-auto" action="{% url 'order_cost:order_cost' %}" method="get">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit" class="btn btn-primary" value="offset">Расчет</button>
-                        <a href="{% url 'order_cost:order_cost' %}" class="btn btn-danger">Сброс</a>
-                    </form>
-                </div>
-                <div class="offset_result col-6">
-                    <p>Себестоимость заказа:</p>
-                    <div class="offset_result">
-                        <h1>{{ result }} руб.</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 
