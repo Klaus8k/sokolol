@@ -12,7 +12,7 @@ def offset(request):
         if form.is_valid():
             data = form.cleaned_data
             context = data
-            context['result'] = result(data)
+            context['result'] = data
             context['form'] = form
             print(context)
         else:
@@ -26,7 +26,7 @@ def solvent(request):
         if form.is_valid():
             data = form.cleaned_data
             context = data
-            context['result'] = result(data)
+            context['result'] = data
             context['form'] = form
             print(context)
         else:

@@ -25,8 +25,9 @@
             </a>
 
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="offset" class="nav-link active" aria-current="page">offset</a></li>
-                <li class="nav-item"><a href="solvent" class="nav-link">solvent</a></li>
+                <li class="nav-item"><a href="/order_cost" class="nav-link active">main</a></li>
+                <li class="nav-item"><a href="{% url 'order_cost:offset' %}" class="nav-link " aria-current="page">offset</a></li>
+                <li class="nav-item"><a href="{% url 'order_cost:solvent' %}" class="nav-link">solvent</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">riso</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">stamp</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">oki</a></li>
