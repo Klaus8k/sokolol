@@ -38,8 +38,9 @@
     <div class="container">
         <div class="offset">
             <div class="row">
-                <div class="col-6">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, nostrum.</p>
+                <h1>Расчет заказов на оффсетную печать</h1>
+                <div class="col-lg-6">
+                    <h4>Расчет заказ печати у партнеров. Срок поставки 1-2 дня</h4>
                     <form class="col-6 ml-auto" action="{% url 'order_cost:order_cost' %}" method="get">
                         {% csrf_token %}
                         {{ form.as_p }}
@@ -48,17 +49,17 @@
                     </form>
                 </div>
                 <div class="offset_result col-6">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum error nemo quasi sequi
-                        explicabo sunt aperiam provident maxime voluptate amet?</p>
-
+                    <p>Себестоимость заказа:</p>
                     <div class="offset_result">
                         <h1>{{ result }} руб.</h1>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
+
+
+
 
 </body>
 
