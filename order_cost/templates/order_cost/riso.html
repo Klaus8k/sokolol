@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -17,6 +18,7 @@
 </head>
 
 <body>
+
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-5 border-bottom">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
@@ -25,15 +27,18 @@
             </a>
 
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="/order_cost" class="nav-link active">main</a></li>
+                <li class="nav-item"><a href="/order_cost" class="nav-link ">main</a></li>
                 <li class="nav-item"><a href="{% url 'order_cost:offset' %}" class="nav-link " aria-current="page">offset</a></li>
-                <li class="nav-item"><a href="{% url 'order_cost:solvent' %}" class="nav-link">solvent</a></li>
+                <li class="nav-item"><a href="{% url 'order_cost:solvent' %}" class="nav-link ">solvent</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">riso</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">stamp</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">oki</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active">oki</a></li>
             </ul>
         </header>
     </div>
+
+<h1 style="font-size: 60px; text-align: center;">solvent</h1>
+
 
 </body>
 
