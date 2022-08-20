@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from .forms import OffsetForm, SolventForm
 
 # Create your views here.
-
+pages = ['main', 'offset', 'solvent', 'riso', 'stamp', 'oki']
 
 def offset(request):
     if request.method == 'GET':
@@ -32,4 +32,15 @@ def solvent(request):
         else:
             context = {}
             context['form'] = OffsetForm()
+    context['pages'] = pages
+    context['active'] = 'active'
+    context['page_name']  = 'solvent'
     return render(request, template_name='order_cost/solvent.html', context=context)
+
+
+def oki(request):
+    context = {}
+    context['pages'] = pages
+    context['active'] = 'active'
+    context['page_name']  = 'oki'
+    return render(request, template_name='order_cost/oki.html', context=context)

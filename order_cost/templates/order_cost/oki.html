@@ -1,45 +1,44 @@
+{% extends 'base_tmp.html' %}
+{% firstof page_name %}
 {% load static %}
-{% extends {% static 'base_tmp.html'%} %}
 
-<!DOCTYPE html>
-<html lang="ru">
 
-<head>
-    <title>talpo.ru</title>
-    <meta charset="UTF-8">
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- insert href of fonts -->
+{% block content %}
+<!-- <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-5 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <img class="me-3" width="40" height="32"></img>
+            <span class="fs-3">order_cost</span>
+        </a>
 
-    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/css/order_cost_index.css' %}">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="/order_cost" class="nav-link ">main</a></li>
+            <li class="nav-item"><a href="{% url 'order_cost:offset' %}" class="nav-link ">offset</a></li>
+            <li class="nav-item"><a href="{% url 'order_cost:solvent' %}" class="nav-link active">solvent</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">riso</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">stamp</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">oki</a></li>
+        </ul>
+    </header>
+</div> -->
 
-</head>
+<div class="row">
+    <div class="d-flex justify-content-center">
 
-<body>
-
-    <div class="container">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-5 border-bottom">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                <img class="me-3" width="40" height="32"></img>
-                <span class="fs-3">order_cost</span>
-            </a>
-
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="/order_cost" class="nav-link ">main</a></li>
-                <li class="nav-item"><a href="{% url 'order_cost:offset' %}" class="nav-link " aria-current="page">offset</a></li>
-                <li class="nav-item"><a href="{% url 'order_cost:solvent' %}" class="nav-link ">solvent</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">riso</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">stamp</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active">oki</a></li>
-            </ul>
-        </header>
+        <ul class="nav nav-pills">
+            {% for i in pages %}
+            <li class="nav-item">
+                {% if i == page_name %}
+                <a class="nav-link {{ active }}" href="../{{ i }}">{{ i }}</a>
+                {% else %}
+                <!-- add active -->
+                <a class="nav-link" href="../{{ i }}">{{ i }}</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
     </div>
+</div>
 
-<h1 style="font-size: 60px; text-align: center;">solvent</h1>
-
-
-</body>
-
-</html>
+<h1 style="font-size: 60px; text-align: center;">{{ page_name }}</h1>
+{% endblock %}
