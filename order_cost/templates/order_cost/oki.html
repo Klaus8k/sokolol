@@ -1,44 +1,9 @@
 {% extends 'base_tmp.html' %}
-{% firstof page_name %}
 {% load static %}
 
 
 {% block content %}
-<!-- <div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-5 border-bottom">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <img class="me-3" width="40" height="32"></img>
-            <span class="fs-3">order_cost</span>
-        </a>
-
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a href="/order_cost" class="nav-link ">main</a></li>
-            <li class="nav-item"><a href="{% url 'order_cost:offset' %}" class="nav-link ">offset</a></li>
-            <li class="nav-item"><a href="{% url 'order_cost:solvent' %}" class="nav-link active">solvent</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">riso</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">stamp</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">oki</a></li>
-        </ul>
-    </header>
-</div> -->
-
-<div class="row">
-    <div class="d-flex justify-content-center">
-
-        <ul class="nav nav-pills">
-            {% for i in pages %}
-            <li class="nav-item">
-                {% if i == page_name %}
-                <a class="nav-link {{ active }}" href="../{{ i }}">{{ i }}</a>
-                {% else %}
-                <!-- add active -->
-                <a class="nav-link" href="../{{ i }}">{{ i }}</a>
-                {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
 
 <h1 style="font-size: 60px; text-align: center;">{{ page_name }}</h1>
+
 {% endblock %}
