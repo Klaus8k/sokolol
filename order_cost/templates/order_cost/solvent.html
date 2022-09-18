@@ -4,6 +4,29 @@
 
 {% block content %}
 
-<h1 style="font-size: 60px; text-align: center;">{{ page_name }}</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h1>Расчет заказ широкоформатной печати</h1>
+            <form action="{% url 'order_cost:solvent' %}" method="get">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary" value="offset">Расчет</button>
+                <a href="{% url 'order_cost:solvent' %}" class="btn btn-danger">Сброс</a>
+            </form>
+        </div>
+        <div class="col-6">
+            <h1>Изменение себестоимости</h1>
+            <form action="{% url 'order_cost:solvent' %}" method="get">
+                {% csrf_token %}
+                {{ form_set.as_p }}
+                <button type="submit" class="btn btn-primary" value="offset">Расчет</button>
+                <a href="{% url 'order_cost:solvent' %}" class="btn btn-danger">Сброс</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 
 {% endblock %}

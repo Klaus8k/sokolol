@@ -20,6 +20,8 @@ class OffsetForm(forms.Form):
     dublicate = forms.BooleanField(required=None,
                                    widget=widgets.RadioSelect(choices=dublicate_choise))
 
+    
+
 
 material_choise = [('banner', 'Баннер'), ('sticker', 'Наклейка'), ('tabl', 'Табличка')]
 
@@ -32,3 +34,11 @@ class SolventForm(forms.Form):
                                label='Высота (м)', widget=form_wiget)
     weigh = forms.ChoiceField(required=None,
                               label='Материал (г/м)', choices=material_choise)
+
+class SolventSetForm(forms.Form):
+    weigh = forms.ChoiceField(required=None,
+                                label='Материал (г/м)', choices=material_choise)
+    price = forms.IntegerField(required=None, label='Цена закупки')
+
+
+

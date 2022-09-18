@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
-from .forms import OffsetForm, SolventForm
+from .forms import OffsetForm, SolventForm, SolventSetForm
 
 # Create your views here.
 pages = [ 'offset', 'solvent', 'riso', 'stamp', 'oki']
@@ -25,9 +25,11 @@ def offset(request):
     context['page_name']  = 'offset'
     return render(request, template_name='order_cost/offset.html', context=context)
 
+
+# Block for reset price and stuff price
 def solvent(request):
     if request.method == 'GET':
-        form = OffsetForm(request.GET)
+        form = SolventForm(request.GET)
         if form.is_valid():
             data = form.cleaned_data
             context = data
@@ -36,10 +38,14 @@ def solvent(request):
             print(context)
         else:
             context = {}
-            context['form'] = OffsetForm()
+            context['form'] = SolventForm()
     context['pages'] = pages
     context['active'] = 'active'
     context['page_name']  = 'solvent'
+
+
+    form_set = SolventSetForm()
+    context['form_set'] = form_set
     return render(request, template_name='order_cost/solvent.html', context=context)
 
 
