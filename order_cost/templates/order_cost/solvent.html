@@ -16,17 +16,18 @@
                     <a href="{% url 'order_cost:solvent' %}" class="btn btn-danger">Сброс</a>
                 </form>
             </div>
-            <div class="col-xl-6">
+            <div class="col">
 
                 <h3>Изменение себестоимости</h3>
                 <form action="{% url 'order_cost:solvent' %}" method="get">
                     {% csrf_token %}
                     {{ form_set.as_p }}
+                    <!-- Кнопка записи новой себестоимости -->
                     <button type="submit" class="btn btn-primary" value="offset">Расчет</button>
                     <a href="{% url 'order_cost:solvent' %}" class="btn btn-danger">Сброс</a>
                 </form>
                 <br>
-                <h5>{{ page_name }}</h5>
+                <h5>{{ request }}</h5>
             </div>
         </div>
     </div>
