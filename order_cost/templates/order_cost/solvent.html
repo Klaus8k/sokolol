@@ -18,17 +18,16 @@
             </div>
             <div class="col">
                 <h3>Текущие значения расходников</h3>
-                <h4>{{ pref }}</h4>
+                <!-- сюда цикл для обхода по словарю себестоимости -->
+                <h4> {{ pref }}</h4>
 
-
-
-
+                <br><br>
                 <h3>Изменение себестоимости</h3>
                 <form action="{% url 'order_cost:solvent' %}" method="get">
                     {% csrf_token %}
                     {{ form_set.as_p }}
                     <!-- Кнопка записи новой себестоимости -->
-                    <button type="submit" class="btn btn-primary" value="offset">Изменить</button>
+                    <button type="submit" class="btn btn-primary">Изменить</button>
                 </form>
                 <br>
                 <h5>{{ page_name }}</h5>

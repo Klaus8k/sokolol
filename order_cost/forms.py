@@ -35,11 +35,9 @@ class SolventForm(forms.Form):
     weigh = forms.ChoiceField(required=None,
                               label='Материал', choices=material_choise)
 
+
 class SolventSetForm(forms.Form):
-    
+
     weigh = forms.ChoiceField(required=None,
                                 label='Материал (квм)', choices=material_choise)
     price = forms.IntegerField(required=None, label='Цена закупки')
-
-
-
