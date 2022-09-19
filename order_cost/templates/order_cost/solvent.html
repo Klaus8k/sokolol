@@ -17,17 +17,21 @@
                 </form>
             </div>
             <div class="col">
+                <h3>Текущие значения расходников</h3>
+                <h4>{{ pref }}</h4>
+
+
+
 
                 <h3>Изменение себестоимости</h3>
                 <form action="{% url 'order_cost:solvent' %}" method="get">
                     {% csrf_token %}
                     {{ form_set.as_p }}
                     <!-- Кнопка записи новой себестоимости -->
-                    <button type="submit" class="btn btn-primary" value="offset">Расчет</button>
-                    <a href="{% url 'order_cost:solvent' %}" class="btn btn-danger">Сброс</a>
+                    <button type="submit" class="btn btn-primary" value="offset">Изменить</button>
                 </form>
                 <br>
-                <h5>{{ request }}</h5>
+                <h5>{{ page_name }}</h5>
             </div>
         </div>
     </div>

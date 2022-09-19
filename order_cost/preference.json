@@ -1,0 +1,8 @@
+{
+    "order_type": "solvent",
+    "pref_cost": {
+        "banner": 350,
+        "sticker": 400,
+        "tabl": 2500
+    }
+}
