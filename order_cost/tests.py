@@ -42,6 +42,10 @@ class Json_obj():
         else:
             return 'Неверный ключ'
 
+    # check and update json file object
+    def write(data):
+        pass
+
 
 a = Json_obj('order_cost/preference.json')
 print(a.read())
