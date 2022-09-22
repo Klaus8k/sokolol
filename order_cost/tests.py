@@ -1,8 +1,12 @@
 # Create your tests here.
-import requests
+import requests #type: ignore
 import json
+import os
+
+print(os.getcwd())
 
 
-with open('preference.json', 'r') as file:
-    print(json.loads(file.read()), sep='4')
-
+with open('order_cost/preference.json', 'r') as file:
+    jsonString = json.load(file)
+    
+    print(jsonString)
