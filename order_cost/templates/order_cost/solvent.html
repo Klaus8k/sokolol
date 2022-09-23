@@ -18,15 +18,18 @@
             </div>
             <div class="col">
                 <h3>Текущие значения расходников</h3>
-                <!-- сюда цикл для обхода по словарю себестоимости -->
+
+                <!-- Здесь что в джейсоне -->
                 <h4> {{ result }}</h4>
 
-                <br><br>
+                <br><br><br>
+
                 <h3>Изменение себестоимости</h3>
+                
+                <!-- Что меняем должно записываться в джейсон -->
                 <form action="{% url 'order_cost:solvent' %}" method="get">
                     {% csrf_token %}
                     {{ form_set.as_p }}
-                    <!-- Кнопка записи новой себестоимости -->
                     <button type="submit" class="btn btn-danger">Изменить</button>
                 </form>
                 <br>

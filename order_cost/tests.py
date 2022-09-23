@@ -10,6 +10,8 @@ class Json_obj():
     def read(self):
         return self.j_str
 
+
+
     def search(self, search_key):
 
         if search_key in self.j_str.keys():
@@ -17,8 +19,9 @@ class Json_obj():
         else:
             return 'Неверный ключ'
 
-    # check and update json file object
+    # Здесь проверку содержания и запись обновленных значений
     def write(self, data):
+
         if data:
             with open(self.file_json, 'w') as file:
                 result = json.dump(data, file)
