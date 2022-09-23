@@ -1,12 +1,15 @@
-from django.shortcuts import render #type: ignore
-from django.http import HttpResponseRedirect #type: ignore
-import json
+from django.shortcuts import render 
+from django.http import HttpResponseRedirect 
+from .tests import Json_obj
+
 
 from .forms import OffsetForm, SolventForm, SolventSetForm
 
 # Create your views here.
 pages = ['offset', 'solvent', 'riso', 'stamp', 'oki']
 pages_serv = {'pages': pages, 'active': 'active', 'page_name': None}
+preference = 'order_cost/preference.json'
+
 
 # decorator for send page info
 
@@ -41,18 +44,21 @@ def solvent(request):
             context = {}
             context['form'] = SolventForm()
 
-    if request.method == 'GET':
-        form = SolventSetForm(request.GET)
-        if form.is_valid():
-            data = form.cleaned_data
 
-            json_write(data)
-
-            form_set = SolventSetForm()
-            context['form_set'] = form_set
 
     context.update(pages_serv)
     context['page_name'] = 'solvent'
+
+    if request.method == 'GET':
+        form_set = SolventSetForm(request.GET)
+        if form_set.is_valid():
+            data = form_set.cleaned_data
+            print(data)
+            a = Json_obj(preference)
+            a.write(data)
+            context['form_set'] = form_set
+            context['result'] = a
+
     return render(request, template_name='order_cost/solvent.html', context=context)
 
 

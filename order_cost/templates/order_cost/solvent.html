@@ -19,7 +19,7 @@
             <div class="col">
                 <h3>Текущие значения расходников</h3>
                 <!-- сюда цикл для обхода по словарю себестоимости -->
-                <h4> {{ pref }}</h4>
+                <h4> {{ result }}</h4>
 
                 <br><br>
                 <h3>Изменение себестоимости</h3>
@@ -27,7 +27,7 @@
                     {% csrf_token %}
                     {{ form_set.as_p }}
                     <!-- Кнопка записи новой себестоимости -->
-                    <button type="submit" class="btn btn-primary">Изменить</button>
+                    <button type="submit" class="btn btn-danger">Изменить</button>
                 </form>
                 <br>
                 <h5>{{ page_name }}</h5>
