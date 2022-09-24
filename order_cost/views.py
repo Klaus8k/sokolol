@@ -12,19 +12,18 @@ preference = 'order_cost/preference.json'
 
 
 # decorator for send page info
-
+context = {}
 
 def offset(request):
     if request.method == 'GET':
         form = OffsetForm(request.GET)
         if form.is_valid():
             data = form.cleaned_data
-            context = data
-            context['result'] = data
+            context.update(data)
+            context['result'] = data # выполняестя расчет заказа
             context['form'] = form
             print(context)
         else:
-            context = {}
             context['form'] = OffsetForm()
     context.update(pages_serv)
     context['page_name'] = 'offset'
@@ -37,27 +36,27 @@ def solvent(request):
         form = SolventForm(request.GET)
         if form.is_valid():
             data = form.cleaned_data
-            context = data
-            context['result'] = data
+            context.update(data)
+            context['result'] = data # выполняестя расчет заказа
             context['form'] = form
         else:
-            context = {}
             context['form'] = SolventForm()
-
-
 
     context.update(pages_serv)
     context['page_name'] = 'solvent'
+
+    # Если есть новые данные передаем в джейсон. Он обновляется.
+    # И в конце добавляем из файла реалные знаечение (что в файле сейчас есть)
+    cost = Json_obj(preference)
+    context['cost'] = cost.read()
 
     if request.method == 'GET':
         form_set = SolventSetForm(request.GET)
         if form_set.is_valid():
             data = form_set.cleaned_data
-            print(data)
-            a = Json_obj(preference)
-            a.write(data)
             context['form_set'] = form_set
-            context['result'] = a
+            cost.write(data)
+            context['cost'] = cost.read()
 
     return render(request, template_name='order_cost/solvent.html', context=context)
 
