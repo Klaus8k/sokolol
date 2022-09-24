@@ -12,11 +12,18 @@ class Json_obj():
 
     def write(self, data, order_type):
         cost = self.read()
-        if order_type in cost.keys():
+        if None not in data.values():
             cost[order_type].update(data)
         
         with open(self.file_json, 'w') as file:
             json.dump(cost, file, indent=4)
+
+
+def calc_solvent(order_info: dict, cost):
+    square = order_info['width'] * order_info['higth']
+    result = square * cost.read()['solvent'][order_info['material']]
+    return result
+
 
             
 

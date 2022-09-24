@@ -28,11 +28,11 @@ material_choise = [('banner', 'Баннер'), ('sticker', 'Наклейка'), 
 class SolventForm(forms.Form):
     type_order = forms.CharField(initial='solvent', label='Широкоформатная печать',
                                  widget=widgets.TextInput(attrs={'style': 'display: none'}))
-    width = forms.IntegerField(required=None, min_value=0, max_value=100,
+    width = forms.FloatField(required=None, min_value=0, max_value=100,
                                label='Ширина (м)', widget=form_wiget)
-    higth = forms.IntegerField(required=None, min_value=0, max_value=100,
+    higth = forms.FloatField(required=None, min_value=0, max_value=100,
                                label='Высота (м)', widget=form_wiget)
-    weigh = forms.ChoiceField(required=None,
+    material = forms.ChoiceField(required=None,
                               label='Материал', choices=material_choise)
 
 

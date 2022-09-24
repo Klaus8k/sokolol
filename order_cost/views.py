@@ -1,6 +1,6 @@
 from django.shortcuts import render 
 from django.http import HttpResponseRedirect 
-from .logic import Json_obj
+from .logic import Json_obj, calc_solvent
 
 from .forms import OffsetForm, SolventForm, SolventSetForm
 
@@ -31,22 +31,19 @@ def offset(request):
 
 # Block for reset price and stuff price
 def solvent(request):
+    cost = Json_obj(preference)
+    context.update(pages_serv)
+    context['page_name'] = 'solvent'
+
     if request.method == 'GET':
         form = SolventForm(request.GET)
         if form.is_valid():
             data = form.cleaned_data
             context.update(data)
-            context['result'] = data # выполняестя расчет заказа
+            context['result'] = calc_solvent(data, cost)
             context['form'] = form
         else:
             context['form'] = SolventForm()
-
-    context.update(pages_serv)
-    context['page_name'] = 'solvent'
-
-    # Если есть новые данные передаем в джейсон. Он обновляется.
-    # И в конце добавляем из файла реалные знаечение (что в файле сейчас есть)
-    cost = Json_obj(preference)
 
     if request.method == 'GET':
         form_set = SolventSetForm(request.GET)
@@ -55,8 +52,13 @@ def solvent(request):
             new_cost = {data['material']: data['price']}
             context['form_set'] = form_set
             cost.write(new_cost, 'solvent')
-            
+    else:
+        form_set = SolventSetForm()
+
     context['cost'] = cost.read()
+
+
+
     return render(request, template_name='order_cost/solvent.html', context=context)
 
 

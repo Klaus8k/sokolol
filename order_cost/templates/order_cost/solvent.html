@@ -30,7 +30,7 @@
                 <h4>Текущие значения расходников</h4>
                 <h4> {{ cost }}</h4>
                 <h4>Изменение себестоимости</h4>
-                
+                <br>
                 <form action="{% url 'order_cost:solvent' %}" method="get">
                     {% csrf_token %}
                     {{ form_set.as_p }}
