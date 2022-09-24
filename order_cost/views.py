@@ -54,8 +54,9 @@ def solvent(request):
         form_set = SolventSetForm(request.GET)
         if form_set.is_valid():
             data = form_set.cleaned_data
+            new_cost = {data['material']: data['price']}
             context['form_set'] = form_set
-            cost.write(data)
+            cost.write(new_cost, 'solvent')
             context['cost'] = cost.read()
 
     return render(request, template_name='order_cost/solvent.html', context=context)
