@@ -1,7 +1,6 @@
 from django.shortcuts import render 
 from django.http import HttpResponseRedirect 
-from .tests import Json_obj
-
+from .logic import Json_obj
 
 from .forms import OffsetForm, SolventForm, SolventSetForm
 
