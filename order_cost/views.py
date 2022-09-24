@@ -48,7 +48,6 @@ def solvent(request):
     # Если есть новые данные передаем в джейсон. Он обновляется.
     # И в конце добавляем из файла реалные знаечение (что в файле сейчас есть)
     cost = Json_obj(preference)
-    context['cost'] = cost.read()
 
     if request.method == 'GET':
         form_set = SolventSetForm(request.GET)
@@ -57,8 +56,8 @@ def solvent(request):
             new_cost = {data['material']: data['price']}
             context['form_set'] = form_set
             cost.write(new_cost, 'solvent')
-            context['cost'] = cost.read()
-
+            
+    context['cost'] = cost.read()
     return render(request, template_name='order_cost/solvent.html', context=context)
 
 
