@@ -10,6 +10,8 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='order_cost_index.html')),
     path('offset/', views.offset, name='offset'),
     path('solvent/', views.solvent, name='solvent'),
+    path('riso/', views.riso, name='riso'),
+    path('stamp/', views.stamp, name='stamp'),
     path('oki/', views.oki, name='oki'),
 
 

@@ -7,9 +7,10 @@
 <div class="container">
     <div class="offset">
         <div class="row">
-            <h1>Расчет заказов на оффсетную печать</h1>
+            <h2>Расчет заказов на оффсетную печать</h2>
+            <br>
             <div class="col-lg-6">
-                <h4>Расчет заказ печати у партнеров. Срок поставки 1-2 дня</h4>
+                <h5>Расчет заказ печати у партнеров. Срок поставки 1-2 дня</h5>
                 <form class="col-6 ml-auto" action="{% url 'order_cost:offset' %}" method="get">
                     {% csrf_token %}
                     {{ form.as_p }}
@@ -17,11 +18,26 @@
                     <a href="{% url 'order_cost:offset' %}" class="btn btn-danger">Сброс</a>
                 </form>
             </div>
+
+
             <div class="offset_result col-6">
-                <p>Себестоимость заказа:</p>
-                <div class="offset_result">
-                    <h1>{{ result }} руб.</h1>
-                </div>
+                <h2>Себестоимость заказа:</h2>
+                <h2> {{ result }} руб.</h2>
+
+
+                <br>
+                <br>
+                <h4>Текущие значения расходников</h4>
+                <h4> {{ cost.offset }}</h4>
+                <h4>Изменение себестоимости</h4>
+                <br>
+                <!-- <form action="{% url 'order_cost:solvent' %}" method="get">
+                    {% csrf_token %}
+                    {{ form_set.as_p }}
+                    <button type="submit" class="btn btn-danger">Изменить</button>
+                </form> -->
+                <br>
+                <h5>{{ page_name }}</h5>
             </div>
         </div>
     </div>

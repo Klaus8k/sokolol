@@ -3,7 +3,7 @@ from django.forms import widgets
 
 paper_weigh = [(130, 130), (170, 170), (300, 300)]
 dublicate_choise = [(True, '4+4'), (False, '4+0')]
-form_wiget = widgets.NumberInput(attrs={'class': 'offset_form'})
+form_wiget = widgets.NumberInput(attrs={'class': 'offset_form'}) # class html for css preference 'offset_form'
 
 
 class OffsetForm(forms.Form):
@@ -17,7 +17,7 @@ class OffsetForm(forms.Form):
                               label='Плотность (г/м)', choices=paper_weigh)
     order = forms.IntegerField(required=None, min_value=0, max_value=100000,
                                label='Тираж (шт)', widget=form_wiget)
-    dublicate = forms.BooleanField(required=None,
+    dublicate = forms.BooleanField(required=None, label='4+4/4+0',
                                    widget=widgets.RadioSelect(choices=dublicate_choise))
 
     

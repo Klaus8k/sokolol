@@ -63,10 +63,14 @@ def solvent(request, context, cost_settings):
     context['cost'] = cost_settings.read()
     return render(request, template_name='order_cost/solvent.html', context=context)
 
+@view_decorator
+def riso(request, context, cost_settings):
+    return render(request, template_name='order_cost/riso.html', context=context)
 
-def oki(request):
-    context = {}
-    context.update(pages_serv)
-    context['page_name'] = 'oki'
+@view_decorator
+def stamp(request, context, cost_settings):
+    return render(request, template_name='order_cost/stamp.html', context=context)
 
+@view_decorator
+def oki(request, context, cost_settings):
     return render(request, template_name='order_cost/oki.html', context=context)
