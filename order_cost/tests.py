@@ -11,11 +11,31 @@ import json
 
 # c = os.path.split(os.getcwd())
 
+
 # print(c)
 
+def decor(fn):
+    def wrapp(*args, **kwargs):
+        x = str(fn(*args, **kwargs)) + str(f' {fn.__name__}')
+        return x
+    return wrapp
 
-a = time.gmtime()
 
-print(a)
+# @decor
+def subject(a : int):
+    """test function"""
+    x = 0
+    return x + a
 
-print()
+@decor
+def folk(i = 'my name'):
+    return i
+
+
+print(folk())
+
+# print(subject(1))
+
+# subject = decor(subject)
+
+# print(subject(1))
