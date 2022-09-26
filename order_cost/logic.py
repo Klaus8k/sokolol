@@ -2,6 +2,7 @@ import json
 
 
 class Json_obj():
+    """Class for work with order settings"""
     def __init__(self, file_json) -> None:
         self.file_json = file_json
         
@@ -19,6 +20,8 @@ class Json_obj():
             json.dump(cost, file, indent=4)
 
 
+
+# Calculation order solvent print
 def calc_solvent(order_info: dict, cost):
     square = order_info['width'] * order_info['higth']
     result = square * cost.read()['solvent'][order_info['material']]
