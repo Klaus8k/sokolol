@@ -25,9 +25,6 @@ class Json_obj():
 def calc_solvent(order_info: dict, cost):
     square = order_info['width'] * order_info['higth']
     result = square * cost.read()['solvent'][order_info['material']]
-    return result
-
-
-            
+    return round(result, 2)            
 
                 
