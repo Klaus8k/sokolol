@@ -1,3 +1,4 @@
-import selenium
+import selenium 
 
+parser = selenium.web
 

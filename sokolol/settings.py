@@ -30,7 +30,7 @@ SECRET_KEY = 'dddddddddddddddwvberbwerbwfbw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['37.230.141.81', 'sokolol.ru']
+ALLOWED_HOSTS = ['37.230.141.81', 'sokolol.ru', '*']
 
 
 # Application definition
