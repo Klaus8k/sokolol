@@ -122,8 +122,8 @@ STATIC_ROOT = BASE_DIR / 'static'
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [  # dirs of static files
-    BASE_DIR / "sokolol/templates/sokolol",  # for index page
-    BASE_DIR / "order_cost/templates/order_cost",  # for order_cost_index page
+    BASE_DIR / "sokolol/templates",  # for index page
+    BASE_DIR / "order_cost/templates",  # for order_cost_index page
 ]
 
 # Default primary key field type

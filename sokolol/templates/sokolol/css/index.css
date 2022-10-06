@@ -84,7 +84,6 @@ h6 {
     margin-left: 27px;
     width: 50px;
     height: 50px;
-    color: #146B9C;
 }
 
 .resume-content__dwnld__btn {
@@ -168,6 +167,11 @@ h6 {
 .footer {
     background-color: rgb(132, 216, 241);
     height: 200px;
+}
+
+.other-ph img {
+    height: 150px;
+    width: 300px;
 }
 
 .footer_content {
