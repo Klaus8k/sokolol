@@ -1,4 +1,7 @@
-import selenium 
+import os
+from selenium import webdriver
 
-parser = selenium.web
+os.environ['PATH'] += r"C:/Selenium_drivers"
+print(os.environ.get('PATH'), os.getcwd())
 
+driver = webdriver.Chrome()
