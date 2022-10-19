@@ -7,11 +7,12 @@
 <div class="container">
     <div class="offset">
         <div class="row">
-            <h2>Расчет заказов на оффсетную печать</h2>
-            <br>
-            <div class="col-lg-6">
+            <div class="offset_order_in col-lg-5 shadow p-3 mb-5 bg-body rounded">
+                <h2>Расчет заказов на оффсетную печать</h2>
+                <br>
+
                 <h5>Расчет заказ печати у партнеров. Срок поставки 1-2 дня</h5>
-                <form class="col-6 ml-auto" action="{% url 'order_cost:offset' %}" method="get">
+                <form class="ml-auto" action="{% url 'order_cost:offset' %}" method="get">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit" class="btn btn-primary" value="offset">Расчет</button>
@@ -20,7 +21,8 @@
             </div>
 
 
-            <div class="offset_result col-6">
+
+            <div class="offset_input offset-1 col-lg-5 shadow p-3 mb-5 bg-body rounded">
                 <h2>Себестоимость заказа:</h2>
                 <h2> {{ result }} руб.</h2>
 
