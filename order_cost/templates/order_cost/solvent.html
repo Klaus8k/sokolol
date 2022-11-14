@@ -1,14 +1,18 @@
 {% extends 'base_tmp.html' %}
 {% load static %}
 
-
 {% block content %}
 
-<div class="container">
-    <div class="solvent">
-        <div class="row d-flex">
-            <div class="col-6">
-                <h3>Расчет заказ широкоформатной печати</h3>
+<div class="solvent p-4">
+    <div class="row">
+        <div class="result col-12  pb-3">
+            <h3 style="color: rgb(117, 15, 15);">Себестоимость заказа: {{ result }} руб.</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="content_block me-4 col-md-6 shadow rounded">
+            <div class="solvent_order_in p-3">
+                <h4>Расчет заказ широкоформатной печати</h4>
                 <form action="{% url 'order_cost:solvent' %}" method="get">
                     {% csrf_token %}
                     {{ form.as_p }}
@@ -16,17 +20,10 @@
                     <a href="{% url 'order_cost:solvent' %}" class="btn btn-danger">Сброс</a>
                 </form>
             </div>
-            <div class="col">
+        </div>
 
-                <h2>Себестоимость заказа:</h2>
-                <h2> {{ result }} руб.</h2>
-
-
-                <br>
-                <br>
-
-
-
+        <div class="content_block col shadow rounded">
+            <div class="solvent_input p-3">
                 <h4>Текущие значения расходников</h4>
                 <!-- Точечная тотация для значений словаря. Списком с жесткой версткой пока -->
                 <h4> {{ cost.solvent }}</h4>

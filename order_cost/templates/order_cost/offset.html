@@ -1,41 +1,42 @@
 {% extends 'base_tmp.html' %}
 {% load static %}
 
-
-
 {% block content %}
 
 <div class="offset p-4">
-    <div class="row">
 
-        <div class="me-4 offset_order_in col-md-6 shadow rounded">
-            <h2>Расчет заказов на оффсетную печать</h2>
-            <br>
-            <h5>Расчет заказ печати у партнеров. Срок поставки 1-2 дня</h5>
-            <form class="ml-auto pb-3" action="{% url 'order_cost:offset' %}" method="get">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-primary" value="offset">Расчет</button>
-                <a href="{% url 'order_cost:offset' %}" class="btn btn-danger">Сброс</a>
-            </form>
+    <div class="row">
+        <div class="result col-12  pb-3">
+            <h3 style="color: rgb(117, 15, 15);">Себестоимость заказа: {{ result }} руб.</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="content_block me-4 col-md-6 shadow rounded">
+            <div class="offset_order_in p-3">
+                <h4>Расчет заказов на оффсетную печать</h4>
+                <br>
+                <h5>Расчет заказ печати у партнеров. Срок поставки 1-2 дня</h5>
+                <form class="ml-auto pb-3" action="{% url 'order_cost:offset' %}" method="get">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary" value="offset">Расчет</button>
+                    <a href="{% url 'order_cost:offset' %}" class="btn btn-danger">Сброс</a>
+                </form>
+            </div>
         </div>
 
-        <div class="offset_input col shadow rounded">
-            <h2>Себестоимость заказа:</h2>
-            <h2> {{ result }} руб.</h2>
-            <br>
-            <br>
-            <h4>Текущие значения расходников</h4>
-            <h4> {{ cost.offset }}</h4>
-            <h4>Изменение себестоимости</h4>
-            <br>
-            <!-- <form action="{% url 'order_cost:solvent' %}" method="get">
-                    {% csrf_token %}
-                    {{ form_set.as_p }}
-                    <button type="submit" class="btn btn-danger">Изменить</button>
-                </form> -->
-            <br>
-            <h5>{{ page_name }}</h5>
+        <div class="content_block col shadow rounded">
+            <div class="offset_input p-3">
+                <h4>Текущие значения расходников</h4>
+                <br>
+                <br>
+                <h4 style="color: rgb(3, 154, 8);">Здесь вывод цены заказа у партнеров</h4>
+                <br>
+                <br>
+
+                <h4>Изменение себестоимости</h4>
+            </div>
         </div>
     </div>
 </div>
