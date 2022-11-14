@@ -73,4 +73,9 @@ def stamp(request, context, cost_settings):
 
 @view_decorator
 def oki(request, context, cost_settings):
+    
+
+
+
+
     return render(request, template_name='order_cost/oki.html', context=context)
