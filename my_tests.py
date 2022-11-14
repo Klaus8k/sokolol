@@ -7,10 +7,12 @@ cur = con.cursor()
 # cur.executemany('insert into test_table values(?,?)', data)
 # con.commit()
 
+def show_test_table():
+    print(cur.execute('select * from test_table').fetchall())
 
-print(cur.execute('select * from test_table').fetchall())
-con.close()
 
+show_test_table()
+# fff
 
 
 
