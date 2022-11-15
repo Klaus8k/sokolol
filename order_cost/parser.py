@@ -10,6 +10,7 @@ target_url = r'https://gmprint.ru/'
 options = Options()
 options.add_argument('--ignore-certificate-errors')
 driver = webdriver.Chrome(options=options)
+
 driver.get(target_url)
 
 def press_btn(driver, id : str):
