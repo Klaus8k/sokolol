@@ -1,10 +1,17 @@
 import os
+
+from pyvirtualdisplay import Display
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
+
+
+
+
 
 # os.environ['PATH'] += r";C:/Selenium_drivers"
 os.environ['PATH'] += r":/home/klaus8/www/Selenium_drivers"
@@ -34,6 +41,9 @@ driver.get(target_url)
 
 
 if __name__ == '__main__':
+    disp = Display(visible=False, backend='xvfb')
+    disp.start()
+
     sum1 = driver.find_element(By.ID, 'sum1')
     sum2 = driver.find_element(By.ID, 'sum2')
     driver.implicitly_wait(6)
@@ -43,4 +53,6 @@ if __name__ == '__main__':
     btn = driver.find_element(By.CSS_SELECTOR, 'button[onclick="return total()"]').click()
 
     print(driver.find_element(By.ID, 'displayvalue').text)
+
+    disp.stop()
     
