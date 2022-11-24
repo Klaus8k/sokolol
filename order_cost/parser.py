@@ -6,14 +6,16 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 
-os.environ['PATH'] += r";C:/Selenium_drivers"
+# os.environ['PATH'] += r";C:/Selenium_drivers"
+os.environ['PATH'] += r":/home/klaus8/www/Selenium_drivers"
+
 # target_url = r'https://demo.seleniumeasy.com/jquery-download-progress-bar-demo.html'
 target_url = r'https://demo.seleniumeasy.com/basic-first-form-demo.html'
 
 options = Options()
-options.add_argument('--ignore-certificate-errors-spki-list')
-options.add_argument('--ignore-ssl-errors')
-driver = webdriver.Chrome()
+# options.add_argument('--ignore-certificate-errors-spki-list')
+# options.add_argument('--ignore-ssl-errors')
+driver = webdriver.Firefox()
 
 driver.get(target_url)
 
