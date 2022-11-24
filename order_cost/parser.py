@@ -5,13 +5,9 @@ from pyvirtualdisplay import Display
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
-
-
-
-
+from selenium.webdriver.firefox.options import Options
 
 # os.environ['PATH'] += r";C:/Selenium_drivers"
 os.environ['PATH'] += r":/home/klaus8/www/Selenium_drivers"
@@ -19,12 +15,6 @@ os.environ['PATH'] += r":/home/klaus8/www/Selenium_drivers"
 # target_url = r'https://demo.seleniumeasy.com/jquery-download-progress-bar-demo.html'
 target_url = r'https://demo.seleniumeasy.com/basic-first-form-demo.html'
 
-options = Options()
-# options.add_argument('--ignore-certificate-errors-spki-list')
-# options.add_argument('--ignore-ssl-errors')
-driver = webdriver.Firefox()
-
-driver.get(target_url)
 
 
 # def press_btn(target: str, driver=driver):
@@ -43,6 +33,10 @@ driver.get(target_url)
 if __name__ == '__main__':
     disp = Display(visible=False, backend='xvfb')
     disp.start()
+
+    driver = webdriver.Firefox()
+    driver.get(target_url)
+
 
     sum1 = driver.find_element(By.ID, 'sum1')
     sum2 = driver.find_element(By.ID, 'sum2')
