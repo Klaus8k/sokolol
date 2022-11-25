@@ -33,6 +33,9 @@ class Parse_unit(webdriver.Firefox):
 
     def land_first_page(self):
         self.get(target_url)
+        print(self.print_page())
+
+
 
 
 
