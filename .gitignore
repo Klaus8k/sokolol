@@ -12,6 +12,7 @@ source_for_talpo
 *.jpg
 *.json
 /static/
+*.py.sw[op]
 # media
 
 # # Backup files #
