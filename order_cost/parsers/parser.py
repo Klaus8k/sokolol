@@ -24,6 +24,7 @@ class Parse_unit(webdriver.Firefox):
         else:
             os.environ['PATH'] += r";C:/Selenium_drivers"
             options=Options()
+            options.headless = True
             options.binary_location = r'C:/Program Files/Mozilla Firefox/firefox.exe'
             super(Parse_unit, self).__init__(options = options)
 
