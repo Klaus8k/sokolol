@@ -12,33 +12,30 @@ from selenium.webdriver.firefox.options import Options
 # target_url = r'https://demo.seleniumeasy.com/jquery-download-progress-bar-demo.html'
 target_url = r'https://demo.seleniumeasy.com/basic-first-form-demo.html'
 
-print(os.name, '============', os.getlogin())
+def parce(options = ''):
+    driver = webdriver.Firefox(options=options)
+    driver.get(target_url)
+    sum1 = driver.find_element(By.ID, 'sum1')
+    sum2 = driver.find_element(By.ID, 'sum2')
+    driver.implicitly_wait(6)
+    sum1.send_keys(Keys.NUMPAD4, Keys.NUMPAD4)
+    sum2.send_keys(1651)
+
+    btn = driver.find_element(By.CSS_SELECTOR, 'button[onclick="return total()"]').click()
+
+    print(driver.find_element(By.ID, 'displayvalue').text)
+
+
+
 if os.name == 'posix':
     os.environ['PATH'] += f":/home/{os.getlogin()}/www/Selenium_drivers"
+    with Display(visible=False, backend='xvfb') as disp:
+        parce()
 else:
     os.environ['PATH'] += r";C:/Selenium_drivers"
-
-print(os.environ['PATH'])
-
-disp = Display(visible=False, backend='xvfb')
-disp.start()
-
-driver = webdriver.Firefox()
-driver.get(target_url)
-
-
-sum1 = driver.find_element(By.ID, 'sum1')
-sum2 = driver.find_element(By.ID, 'sum2')
-driver.implicitly_wait(6)
-sum1.send_keys(Keys.NUMPAD4, Keys.NUMPAD4)
-sum2.send_keys(1651)
-
-btn = driver.find_element(By.CSS_SELECTOR, 'button[onclick="return total()"]').click()
-
-print(driver.find_element(By.ID, 'displayvalue').text)
-
-disp.stop()
-
+    options=Options()
+    options.binary_location = r'C:/Program Files/Mozilla Firefox/firefox.exe'
+    parce(options=options)
 
 
 # def press_btn(target: str, driver=driver):
