@@ -9,13 +9,13 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
 
-# os.environ['PATH'] += r";C:/Selenium_drivers"
-os.environ['PATH'] += r":/home/klaus8/www/Selenium_drivers"
-
 # target_url = r'https://demo.seleniumeasy.com/jquery-download-progress-bar-demo.html'
 target_url = r'https://demo.seleniumeasy.com/basic-first-form-demo.html'
 
-
+if os.name == 'nt':
+    os.environ['PATH'] += r";C:/Selenium_drivers"
+else:
+    os.environ['PATH'] += r":/home/klaus8/www/Selenium_drivers"
 
 # def press_btn(target: str, driver=driver):
 #     driver.implicitly_wait(3)
@@ -26,9 +26,6 @@ target_url = r'https://demo.seleniumeasy.com/basic-first-form-demo.html'
 # def id_ex_select(driver: driver, id: str):
 #     result = WebDriverWait(driver, 30).until(lambda d: d.find_element(By.ID, id))
 #     return result
-
-
-
 
 if __name__ == '__main__':
     disp = Display(visible=False, backend='xvfb')
