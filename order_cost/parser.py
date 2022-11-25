@@ -15,7 +15,7 @@ target_url = r'https://demo.seleniumeasy.com/basic-first-form-demo.html'
 if os.name == 'nt':
     os.environ['PATH'] += r";C:/Selenium_drivers"
 else:
-    os.environ['PATH'] += r":/home/klaus8/www/Selenium_drivers"
+    os.environ['PATH'] += f":/home/{os.getlogin()}]/www/Selenium_drivers"
 
 # def press_btn(target: str, driver=driver):
 #     driver.implicitly_wait(3)
