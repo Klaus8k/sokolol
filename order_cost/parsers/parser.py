@@ -39,12 +39,8 @@ class Parse_unit(webdriver.Firefox):
 
 
 
-
-
-
 if __name__ == '__main__':
     def parce(options = ''):
-        m_grup = Parse_unit()
-        m_grup.land_first_page()
-
+        with Parse_unit() as m_grup:
+            m_grup.land_first_page()
     parce()
