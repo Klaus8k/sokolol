@@ -19,15 +19,17 @@ class Parse_unit(webdriver.Firefox):
         # Check the system and add path and driver options
         if os.name == 'posix':
             os.environ['PATH'] += f":/home/{os.getlogin()}/www/Selenium_drivers"
-            with Display(visible=False, backend='xvfb') as disp:
-                super(Parse_unit, self).__init__()
+            self.run_in_xvfb()
+            super(Parse_unit, self).__init__()
         else:
             os.environ['PATH'] += r";C:/Selenium_drivers"
             options=Options()
             options.binary_location = r'C:/Program Files/Mozilla Firefox/firefox.exe'
             super(Parse_unit, self).__init__(options = options)
 
-        
+    def run_in_xvfb(self):
+        display = Display(visible=False, backend='xvfb')
+        display.start()
 
     def land_first_page(self):
         self.get(target_url)
