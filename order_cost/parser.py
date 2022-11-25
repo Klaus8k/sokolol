@@ -12,10 +12,32 @@ from selenium.webdriver.firefox.options import Options
 # target_url = r'https://demo.seleniumeasy.com/jquery-download-progress-bar-demo.html'
 target_url = r'https://demo.seleniumeasy.com/basic-first-form-demo.html'
 
+print(os.name, '============', os.getlogin())
 if os.name == 'nt':
     os.environ['PATH'] += r";C:/Selenium_drivers"
 else:
-    os.environ['PATH'] += f":/home/{os.getlogin()}]/www/Selenium_drivers"
+    os.environ['PATH'] += f":/home/{os.getlogin()}/www/Selenium_drivers"
+    
+disp = Display(visible=False, backend='xvfb')
+disp.start()
+
+driver = webdriver.Firefox()
+driver.get(target_url)
+
+
+sum1 = driver.find_element(By.ID, 'sum1')
+sum2 = driver.find_element(By.ID, 'sum2')
+driver.implicitly_wait(6)
+sum1.send_keys(Keys.NUMPAD4, Keys.NUMPAD4)
+sum2.send_keys(1651)
+
+btn = driver.find_element(By.CSS_SELECTOR, 'button[onclick="return total()"]').click()
+
+print(driver.find_element(By.ID, 'displayvalue').text)
+
+disp.stop()
+
+
 
 # def press_btn(target: str, driver=driver):
 #     driver.implicitly_wait(3)
@@ -26,24 +48,3 @@ else:
 # def id_ex_select(driver: driver, id: str):
 #     result = WebDriverWait(driver, 30).until(lambda d: d.find_element(By.ID, id))
 #     return result
-
-if __name__ == '__main__':
-    disp = Display(visible=False, backend='xvfb')
-    disp.start()
-
-    driver = webdriver.Firefox()
-    driver.get(target_url)
-
-
-    sum1 = driver.find_element(By.ID, 'sum1')
-    sum2 = driver.find_element(By.ID, 'sum2')
-    driver.implicitly_wait(6)
-    sum1.send_keys(Keys.NUMPAD4, Keys.NUMPAD4)
-    sum2.send_keys(1651)
-
-    btn = driver.find_element(By.CSS_SELECTOR, 'button[onclick="return total()"]').click()
-
-    print(driver.find_element(By.ID, 'displayvalue').text)
-
-    disp.stop()
-    
