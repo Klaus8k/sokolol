@@ -13,11 +13,13 @@ from selenium.webdriver.firefox.options import Options
 target_url = r'https://demo.seleniumeasy.com/basic-first-form-demo.html'
 
 print(os.name, '============', os.getlogin())
-if os.name == 'nt':
-    os.environ['PATH'] += r";C:/Selenium_drivers"
-else:
+if os.name == 'posix':
     os.environ['PATH'] += f":/home/{os.getlogin()}/www/Selenium_drivers"
-    
+else:
+    os.environ['PATH'] += r";C:/Selenium_drivers"
+
+print(os.environ['PATH'])
+
 disp = Display(visible=False, backend='xvfb')
 disp.start()
 
