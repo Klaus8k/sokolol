@@ -25,7 +25,7 @@ class Parse_unit(webdriver.Firefox):
         # Check the system and add path and driver options
         if os.name == 'posix':
             os.environ['PATH'] += f":/home/{os.getlogin()}/www/Selenium_drivers"
-            self.run_in_xvfb()
+            # self.run_in_xvfb()
             super(Parse_unit, self).__init__()
         else:
             os.environ['PATH'] += r";C:/Selenium_drivers"
@@ -69,17 +69,27 @@ if __name__ == '__main__':
             m_grup.find_element(By.CSS_SELECTOR, 'span[id^="select2-density"]').click()
             destiny = m_grup.find_element(By.CLASS_NAME, 'select2-results__options')
             destiny_list = destiny.find_elements(By.CSS_SELECTOR, 'li[role="option"]')
+
+            x = None
             for i in destiny_list:
                 if i.text == '170 г/м² бумага глянц.':
-                    i.click()
+                    x = i
+                    break
+            
+            x.click()
+            
 
             other_format = m_grup.find_element(By.ID, 'other_format_button')
             other_format.click()
-            # other_format.find_element(By.ID, 'formatX').send_keys(100)
-            # other_format.find_element(By.ID, 'formatY').send_keys(100)
+            m_grup.find_element(By.CSS_SELECTOR, 'input[name="formatX"]').send_keys(100)
+            m_grup.find_element(By.CSS_SELECTOR, 'input[name="formatY"]').send_keys(100)
+            m_grup.implicitly_wait(10)
+# TODO УСЛОВНОЕ ОЖИДАНИЕ ДЛЯ РЕЗУЛЬТАТА, ВОЗМОЖНА ПРОКРУТКА НУЖНА
+            result = WebDriverWait(m_grup, 20).until(
+                EC.text_to_be_present_in_element((
+                By.CLASS_NAME, 'b-price__text')))
 
-
-            # print(m_grup.find_element(By.CLASS_NAME, 'b-price__text').text)
+            print(result)
                     
 
     parce_m_grup()
