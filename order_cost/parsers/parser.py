@@ -25,7 +25,7 @@ class Parse_unit(webdriver.Firefox):
         # Check the system and add path and driver options
         if os.name == 'posix':
             os.environ['PATH'] += f":/home/{os.getlogin()}/www/Selenium_drivers"
-            # self.run_in_xvfb()
+            self.run_in_xvfb()
             super(Parse_unit, self).__init__()
         else:
             os.environ['PATH'] += r";C:/Selenium_drivers"
