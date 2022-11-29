@@ -29,7 +29,7 @@ class Parse_unit(webdriver.Firefox):
         else:
             os.environ['PATH'] += r";C:/Selenium_drivers"
             options = Options()
-            options.headless = True
+            # options.headless = True
             options.binary_location = r'C:/Program Files/Mozilla Firefox/firefox.exe'
             super(Parse_unit, self).__init__(options=options)
 
@@ -57,12 +57,17 @@ if __name__ == '__main__':
             m_grup.find_element(By.CSS_SELECTOR, 'span[id^="select2-density"]').click()
             destiny = m_grup.find_element(By.CLASS_NAME, 'select2-results__options')
             destiny_list = destiny.find_elements(By.CSS_SELECTOR, 'li[role="option"]')
-            print([i.text for i in destiny_list])
-        
+            for i in destiny_list:
+                if i.text == '170 г/м² бумага глянц.':
+                    i.click()
+
+            other_format = m_grup.find_element(By.ID, 'other_format_button')
+            other_format.click()
+            # other_format.find_element(By.ID, 'formatX').send_keys(100)
+            # other_format.find_element(By.ID, 'formatY').send_keys(100)
 
 
-
-
+            # print(m_grup.find_element(By.CLASS_NAME, 'b-price__text').text)
                     
 
     parce_m_grup()
