@@ -4,6 +4,7 @@ from pyvirtualdisplay import Display
 
 import logging
 
+
 from selenium import webdriver
 from selenium.webdriver.remote.command import Command
 from selenium.webdriver.common.by import By
@@ -14,7 +15,7 @@ from selenium.webdriver.firefox.options import Options
 
 from constants import *
 
-logging.basicConfig(level=logging.WARNING)
+# logging.basicConfig(level=logging.WARNING)
 
 target_url = url_m_grup
 
@@ -34,12 +35,12 @@ class Parse_unit(webdriver.Firefox):
             super(Parse_unit, self).__init__(options=options)
 
     def run_in_xvfb(self):
-        self.display = Display(visible=False, backend='xvfb')
+        self.display = Display(visible=False)
         self.display.start()
 
     def land_first_page(self):
         self.get(target_url)
-        logging.error(self.title)
+        print(self.title)
 
     def __del__(self):  # stop display if on linux, and quit from webdriver
         if self.__dict__['caps']['platformName'] != 'windows':
@@ -52,7 +53,18 @@ if __name__ == '__main__':
         with Parse_unit() as m_grup:
             m_grup.land_first_page()
             m_grup.find_element(By.ID, 'its_my_city').click()
-            m_grup.find_element(By.CLASS_NAME, 'menu_leaflets').click()
+ 
+# TODO js hack method, bug. Must be search other way
+
+            btn_leaflets = m_grup.find_element(By.CLASS_NAME, 'menu_leaflets')
+            print(btn_leaflets.is_enabled())
+            m_grup.execute_script("arguments[0].click();", btn_leaflets)
+            # btn_leaflets.click()
+
+            # element = WebDriverWait(m_grup, 20).until(EC.visibility_of_element_located((By.CLASS_NAME, 'menu_leaflets')))
+            # m_grup.execute_script("arguments[0].click();", element)
+
+            
 
             m_grup.find_element(By.CSS_SELECTOR, 'span[id^="select2-density"]').click()
             destiny = m_grup.find_element(By.CLASS_NAME, 'select2-results__options')
