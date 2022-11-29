@@ -1,0 +1,50 @@
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:52047/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, "moz:debuggerAddress": true, "pageLoadStrategy": "normal", "moz:firefoxOptions": {"binary": "C:/Program Files/Mozilla Firefox/firefox.exe"}}}}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:52047
+DEBUG:urllib3.connectionpool:http://localhost:52047 "POST /session HTTP/1.1" 200 787
+DEBUG:selenium.webdriver.remote.remote_connection:Remote response: status=200 | data={"value":{"sessionId":"882bbb19-0118-441d-a970-80700cc9e691","capabilities":{"acceptInsecureCerts":true,"browserName":"firefox","browserVersion":"107.0","moz:accessibilityChecks":false,"moz:buildID":"20221110173214","moz:debuggerAddress":"127.0.0.1:52048","moz:geckodriverVersion":"0.32.0","moz:headless":false,"moz:platformVersion":"6.1","moz:processID":14228,"moz:profile":"C:\\Users\\Copy\\AppData\\Local\\Temp\\rust_mozprofileYTBVwR","moz:shutdownTimeout":60000,"moz:useNonSpecCompliantPointerOrigin":false,"moz:webdriverClick":true,"moz:windowless":false,"pageLoadStrategy":"normal","platformName":"windows","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify"}}} | headers=HTTPHeaderDict({'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache', 'content-length': '787', 'date': 'Tue, 29 Nov 2022 13:37:22 GMT'})
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:52047/session/882bbb19-0118-441d-a970-80700cc9e691/url {"url": "https://gmprint.ru/calc/leaflets"}
+DEBUG:urllib3.connectionpool:http://localhost:52047 "POST /session/882bbb19-0118-441d-a970-80700cc9e691/url HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache', 'content-length': '14', 'date': 'Tue, 29 Nov 2022 13:37:26 GMT'})
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:root:START_1st_PAGE
+
+DEBUG:selenium.webdriver.remote.remote_connection:GET http://localhost:52047/session/882bbb19-0118-441d-a970-80700cc9e691/title {}
+DEBUG:urllib3.connectionpool:http://localhost:52047 "GET /session/882bbb19-0118-441d-a970-80700cc9e691/title HTTP/1.1" 200 129
+DEBUG:selenium.webdriver.remote.remote_connection:Remote response: status=200 | data={"value":"Листовки - недорогая печать и онлайн заказ в типографии Группа М"} | headers=HTTPHeaderDict({'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache', 'content-length': '129', 'date': 'Tue, 29 Nov 2022 13:37:33 GMT'})
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:52047/session/882bbb19-0118-441d-a970-80700cc9e691/element {"using": "css selector", "value": "[id=\"its_my_city\"]"}
+DEBUG:urllib3.connectionpool:http://localhost:52047 "POST /session/882bbb19-0118-441d-a970-80700cc9e691/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"a5ad2b27-379e-4bc1-8d77-ba8a76ba8833"}} | headers=HTTPHeaderDict({'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache', 'content-length': '88', 'date': 'Tue, 29 Nov 2022 13:37:33 GMT'})
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:52047/session/882bbb19-0118-441d-a970-80700cc9e691/element/a5ad2b27-379e-4bc1-8d77-ba8a76ba8833/click {"id": "a5ad2b27-379e-4bc1-8d77-ba8a76ba8833"}
+DEBUG:urllib3.connectionpool:http://localhost:52047 "POST /session/882bbb19-0118-441d-a970-80700cc9e691/element/a5ad2b27-379e-4bc1-8d77-ba8a76ba8833/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache', 'content-length': '14', 'date': 'Tue, 29 Nov 2022 13:37:33 GMT'})
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:52047/session/882bbb19-0118-441d-a970-80700cc9e691/element {"using": "css selector", "value": ".menu_leaflets"}
+DEBUG:urllib3.connectionpool:http://localhost:52047 "POST /session/882bbb19-0118-441d-a970-80700cc9e691/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"d3d5e2db-2b58-42ca-8b0d-46f902eae4e7"}} | headers=HTTPHeaderDict({'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache', 'content-length': '88', 'date': 'Tue, 29 Nov 2022 13:37:33 GMT'})
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:52047/session/882bbb19-0118-441d-a970-80700cc9e691/element/d3d5e2db-2b58-42ca-8b0d-46f902eae4e7/click {"id": "d3d5e2db-2b58-42ca-8b0d-46f902eae4e7"}
+DEBUG:urllib3.connectionpool:http://localhost:52047 "POST /session/882bbb19-0118-441d-a970-80700cc9e691/element/d3d5e2db-2b58-42ca-8b0d-46f902eae4e7/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache', 'content-length': '14', 'date': 'Tue, 29 Nov 2022 13:37:33 GMT'})
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:52047/session/882bbb19-0118-441d-a970-80700cc9e691/elements {"using": "css selector", "value": ".b-field-composition b-field-composition_content_buisnescards"}
+DEBUG:urllib3.connectionpool:http://localhost:52047 "POST /session/882bbb19-0118-441d-a970-80700cc9e691/elements HTTP/1.1" 200 12
+DEBUG:selenium.webdriver.remote.remote_connection:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache', 'content-length': '12', 'date': 'Tue, 29 Nov 2022 13:37:36 GMT'})
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:DELETE http://localhost:52047/session/882bbb19-0118-441d-a970-80700cc9e691 {}
+DEBUG:urllib3.connectionpool:http://localhost:52047 "DELETE /session/882bbb19-0118-441d-a970-80700cc9e691 HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache', 'content-length': '14', 'date': 'Tue, 29 Nov 2022 13:37:36 GMT'})
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:DELETE http://localhost:52047/session/882bbb19-0118-441d-a970-80700cc9e691 {}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:52047
+DEBUG:urllib3.util.retry:Incremented Retry for (url='/session/882bbb19-0118-441d-a970-80700cc9e691'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x02BF6FA0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/882bbb19-0118-441d-a970-80700cc9e691
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (2): localhost:52047
+DEBUG:urllib3.util.retry:Incremented Retry for (url='/session/882bbb19-0118-441d-a970-80700cc9e691'): Retry(total=1, connect=None, read=None, redirect=None, status=None)
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x02C260B8>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/882bbb19-0118-441d-a970-80700cc9e691
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (3): localhost:52047
+DEBUG:urllib3.util.retry:Incremented Retry for (url='/session/882bbb19-0118-441d-a970-80700cc9e691'): Retry(total=0, connect=None, read=None, redirect=None, status=None)
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x02C260D0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/882bbb19-0118-441d-a970-80700cc9e691
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (4): localhost:52047
