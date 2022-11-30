@@ -31,7 +31,7 @@ class Parse_unit(webdriver.Firefox):
             os.environ['PATH'] += r";C:/Selenium_drivers"
             options = Options()
             options.page_load_strategy = 'normal'
-            options.headless = True
+            # options.headless = True
             options.binary_location = r'C:/Program Files/Mozilla Firefox/firefox.exe'
             super(Parse_unit, self).__init__(options=options)
 
@@ -43,6 +43,9 @@ class Parse_unit(webdriver.Firefox):
         self.get(target_url)
         print(self.title)
 
+    def click_on_element(self, element: object):
+        self.execute_script("arguments[0].click();", element)
+
     def __del__(self):  # stop display if on linux, and quit from webdriver
         if self.__dict__['caps']['platformName'] != 'windows':
             self.display.stop()
@@ -50,42 +53,84 @@ class Parse_unit(webdriver.Firefox):
 
 
 if __name__ == '__main__':
+    # TODO из объекта заказа берем данные по заказу
+    density_order = 300
+    formatX = 90
+    formatY = 50
+    color_duplex = False
+    pressrun = 1000
+
     def parce_m_grup(options=''):
         with Parse_unit() as m_grup:
+
+            # Главная страница
             m_grup.land_first_page()
+
+            # Проверка города
             m_grup.find_element(By.ID, 'its_my_city').click()
 
-# TODO js hack method, bug. Must be search other way
+            # Переход в меню листовок
             btn_leaflets = m_grup.find_element(By.CLASS_NAME, 'menu_leaflets')
-            print(btn_leaflets.is_enabled())
-            m_grup.execute_script("arguments[0].click();", btn_leaflets)
+            m_grup.click_on_element(btn_leaflets)
 
+            # Выбор бумаги
             m_grup.find_element(
                 By.CSS_SELECTOR, 'span[id^="select2-density"]').click()
-            destiny = m_grup.find_element(
-                By.CLASS_NAME, 'select2-results__options')
-            destiny_list = destiny.find_elements(
+            choise_density = m_grup.find_element(By.CSS_SELECTOR, 'ul[id^="select2-density"]')
+            # choise_density = m_grup.find_element(
+            #     By.CLASS_NAME, 'select2-results__options')
+            density_list = choise_density.find_elements(
                 By.CSS_SELECTOR, 'li[role="option"]')
 
-            x = None
-            for i in destiny_list:
-                if i.text == '170 г/м² бумага глянц.':
-                    x = i
+            for i in density_list:
+                if i.text.startswith(str(density_order)):
+                    density_paper = i
                     break
+            density_paper.click()
 
-            x.click()
-
+            # Установка формата изделия
             other_format = m_grup.find_element(By.ID, 'other_format_button')
             other_format.click()
-            m_grup.find_element(
-                By.CSS_SELECTOR, 'input[name="formatX"]').send_keys(200)
-            m_grup.find_element(
-                By.CSS_SELECTOR, 'input[name="formatY"]').send_keys(200)
+            x = m_grup.find_element(
+                By.CSS_SELECTOR, 'input[name="formatX"]')
+            y = m_grup.find_element(
+                By.CSS_SELECTOR, 'input[name="formatY"]')
+            x.send_keys(formatX)
+            y.send_keys(formatY)
+            y.send_keys(Keys.TAB)
 
-# TODO УСЛОВНОЕ ОЖИДАНИЕ ДЛЯ РЕЗУЛЬТАТА, ВОЗМОЖНА ПРОКРУТКА НУЖНА
+            # Выбор 4+4 или 4+0
+
+            # TODO форма выбора цветности печати 4+4 видит но не кликает. Нужно оттрасировать что происходит. 
+            a = WebDriverWait(m_grup, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'span[aria-labelledby^="select2-color"]')))
+            m_grup.click_on_element(a)
+
+            # a = m_grup.find_element(
+            #      By.CSS_SELECTOR, 'span[id^="select2-color"]')
+            # choise_duplex = m_grup.find_element(By.CSS_SELECTOR, 'ul[id^="select2-color"]')
+
+            # -------------> browsingContext.currentWindowGlobal is null
+            duplex_list = m_grup.find_elements(
+                By.CSS_SELECTOR, 'li[data-select2-id^="select2-data-select2"]')
+
+            print(duplex_list)
+            for i in duplex_list:
+                m_grup.implicitly_wait(2)
+                if color_duplex == True and i.text == 'С двух сторон':
+                    
+                    btn_duplex = i
+                    break
+                elif color_duplex == False and i.text == 'С одной стороны':
+                    btn_duplex = i
+                    break
+
+            btn_duplex.click()
+
+            # Итоговая цена тиража
             WebDriverWait(m_grup, 20).until(EC.visibility_of_element_located(
                 (By.CSS_SELECTOR, 'span[class="b-price__text"')))
 
-            print('result ------->', m_grup.find_element(By.CSS_SELECTOR, 'span[class="b-price__text"').text)
+            print('result ------->', m_grup.find_element(By.CSS_SELECTOR,
+                  'span[class="b-price__text"').text)
 
     parce_m_grup()
