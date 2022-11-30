@@ -103,6 +103,7 @@ if __name__ == '__main__':
 
             # TODO форма выбора цветности печати 4+4 видит но не кликает. Нужно оттрасировать что происходит. 
             a = WebDriverWait(m_grup, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'span[aria-labelledby^="select2-color"]')))
+            print(a.text)
             m_grup.click_on_element(a)
 
             # a = m_grup.find_element(
