@@ -86,6 +86,6 @@ if __name__ == '__main__':
             WebDriverWait(m_grup, 20).until(EC.visibility_of_element_located(
                 (By.CSS_SELECTOR, 'span[class="b-price__text"')))
 
-            print('result ------->', m_grup.find_element(By.CSS_SELECTOR, 'span[class="b-price__text"').text)
+            print('result ------->', m_grup.find_element(By.CSS_SELECTOR, 'span[class="b-price__text"'))
 
     parce_m_grup()
