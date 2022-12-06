@@ -15,7 +15,8 @@ from selenium.webdriver.firefox.options import Options
 
 # from .constants import url_m_grup
 
-# logging.basicConfig(level=logging.WARNING)
+logging.basicConfig(level=logging.WARNING, filename='log_parser.txt')
+
 
 url_m_grup = r'https://gmprint.ru/calc/leaflets'
 
