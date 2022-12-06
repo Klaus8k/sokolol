@@ -30,6 +30,7 @@ class Parse_unit(webdriver.Firefox):
             os.environ['PATH'] += f":/home/{getpass.getuser()}/www/Selenium_drivers"
             self.run_in_xvfb()
             super(Parse_unit, self).__init__()
+            logging.warning('------------------->' + os.environ['PATH'])
         else:
             os.environ['PATH'] += r";C:/Selenium_drivers"
             options = Options()
