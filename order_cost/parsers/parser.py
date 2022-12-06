@@ -13,9 +13,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
 
-from .constants import *
+# from .constants import url_m_grup
 
 # logging.basicConfig(level=logging.WARNING)
+
+url_m_grup = r'https://gmprint.ru/calc/leaflets'
 
 target_url = url_m_grup
 
