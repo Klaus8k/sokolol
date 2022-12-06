@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .logic import Json_obj, calc_solvent
+from .parsers.parser import parce_m_grup
 
 from .forms import OffsetForm, SolventForm, SolventSetForm
 
@@ -30,7 +31,7 @@ def offset(request, context, cost_settings):
         if form.is_valid():
             data = form.cleaned_data
             context.update(data)
-            context['result'] = data  # выполняестя расчет заказа
+            context['result'] = parce_m_grup(data)  # выполняестя расчет заказа
             context['form'] = form
             print(context)
         else:

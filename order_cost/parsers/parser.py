@@ -13,7 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
 
-from constants import *
+from .constants import *
 
 # logging.basicConfig(level=logging.WARNING)
 
@@ -52,89 +52,89 @@ class Parse_unit(webdriver.Firefox):
         self.quit()
 
 
-if __name__ == '__main__':
-    # TODO из объекта заказа берем данные по заказу
-    density_order = 300
-    formatX = 90
-    formatY = 50
-    color_duplex = False
-    pressrun = 10000
+# TODO из объекта заказа берем данные по заказу
 
-    def parce_m_grup(options=''):
-        with Parse_unit() as m_grup:
+def parce_m_grup(offset_obj: dict):
 
-            # Главная страница
-            m_grup.land_first_page()
+    density_order = int(offset_obj['weigh'])
+    formatX = offset_obj['width']
+    formatY = offset_obj['higth']
+    color_duplex = False # offset_obj.__dict__['dublicate']
+    pressrun = offset_obj['order']
 
-            m_grup.implicitly_wait(10)
+    with Parse_unit() as m_grup:
 
+        # Главная страница
+        m_grup.land_first_page()
 
-            # Проверка города
-            m_grup.find_element(By.ID, 'its_my_city').click()
-
-            # Переход в меню листовок
-            btn_leaflets = m_grup.find_element(By.CLASS_NAME, 'menu_leaflets')
-            m_grup.click_on_element(btn_leaflets)
-
-            # Выбор 4+4 или 4+0
-            # TODO Кликает через раз.
-            # a = m_grup.find_element(
-            #     By.CSS_SELECTOR, 'span[aria-labelledby^="select2-color"]')
-            # a.click()
-            # b = m_grup.find_element(By.CSS_SELECTOR, 'ul[id^="select2-color"]')
-
-            # duplex_list = b.find_elements(
-            #     By.CSS_SELECTOR, 'li[role="option"]')
-
-            # for i in duplex_list:
-            #     if color_duplex == True and i.text == 'С двух сторон':
-                    
-            #         btn_duplex = i
-            #         break
-            #     elif color_duplex == False and i.text == 'С одной стороны':
-            #         btn_duplex = i
-            #         break
-            # btn_duplex.click()
-
-            # # Выбор бумаги
-            # m_grup.find_element(
-            #     By.CSS_SELECTOR, 'span[id^="select2-density"]').click()
-            # choise_density = m_grup.find_element(By.CSS_SELECTOR, 'ul[id^="select2-density"]')
-            # density_list = choise_density.find_elements(
-            #     By.CSS_SELECTOR, 'li[role="option"]')
-
-            # for i in density_list:
-            #     if i.text.startswith(str(density_order)):
-            #         density_paper = i
-            #         break
-            # density_paper.click()
-
-            # Установка формата изделия
-            other_format = m_grup.find_element(By.ID, 'other_format_button')
-            other_format.click()
-            x = m_grup.find_element(
-                By.CSS_SELECTOR, 'input[name="formatX"]')
-            y = m_grup.find_element(
-                By.CSS_SELECTOR, 'input[name="formatY"]')
-            x.send_keys(formatX)
-            y.send_keys(formatY)
-
-            # Установка своего тиража
-            other_pressrun = m_grup.find_element(By.ID, 'other_circul_button')
-            other_pressrun.click()
-            x = m_grup.find_element(
-                By.CSS_SELECTOR, 'input[name="circulation_other"]')
-            x.clear()
-            x.send_keys(pressrun)
+        m_grup.implicitly_wait(10)
 
 
+        # Проверка города
+        m_grup.find_element(By.ID, 'its_my_city').click()
 
-            # Итоговая цена тиража
-            WebDriverWait(m_grup, 20).until(EC.visibility_of_element_located(
-                (By.CSS_SELECTOR, 'span[class="b-price__text"')))
-            
+        # Переход в меню листовок
+        btn_leaflets = m_grup.find_element(By.CLASS_NAME, 'menu_leaflets')
+        m_grup.click_on_element(btn_leaflets)
 
-            print('result ------->', m_grup.find_element(By.CSS_SELECTOR,
-                  'span[class="b-price__text"').text)
+        # Выбор 4+4 или 4+0
+        # TODO Кликает через раз.
+        # a = m_grup.find_element(
+        #     By.CSS_SELECTOR, 'span[aria-labelledby^="select2-color"]')
+        # a.click()
+        # b = m_grup.find_element(By.CSS_SELECTOR, 'ul[id^="select2-color"]')
 
-    parce_m_grup()
+        # duplex_list = b.find_elements(
+        #     By.CSS_SELECTOR, 'li[role="option"]')
+
+        # for i in duplex_list:
+        #     if color_duplex == True and i.text == 'С двух сторон':
+                
+        #         btn_duplex = i
+        #         break
+        #     elif color_duplex == False and i.text == 'С одной стороны':
+        #         btn_duplex = i
+        #         break
+        # btn_duplex.click()
+
+        # Выбор бумаги
+        m_grup.find_element(
+            By.CSS_SELECTOR, 'span[id^="select2-density"]').click()
+        choise_density = m_grup.find_element(By.CSS_SELECTOR, 'ul[id^="select2-density"]')
+        density_list = choise_density.find_elements(
+            By.CSS_SELECTOR, 'li[role="option"]')
+
+        for i in density_list:
+            if i.text.startswith(str(density_order)):
+                density_paper = i
+                break
+        density_paper.click()
+
+        # Установка формата изделия
+        other_format = m_grup.find_element(By.ID, 'other_format_button')
+        other_format.click()
+        x = m_grup.find_element(
+            By.CSS_SELECTOR, 'input[name="formatX"]')
+        y = m_grup.find_element(
+            By.CSS_SELECTOR, 'input[name="formatY"]')
+        x.send_keys(formatX)
+        y.send_keys(formatY)
+
+        # Установка своего тиража
+        other_pressrun = m_grup.find_element(By.ID, 'other_circul_button')
+        other_pressrun.click()
+        x = m_grup.find_element(
+            By.CSS_SELECTOR, 'input[name="circulation_other"]')
+        x.clear()
+        x.send_keys(pressrun)
+
+        # Итоговая цена тиража
+        WebDriverWait(m_grup, 20).until(EC.visibility_of_element_located(
+            (By.CSS_SELECTOR, 'span[class="b-price__text"')))
+        
+
+        print('result ------->', m_grup.find_element(By.CSS_SELECTOR,
+                'span[class="b-price__text"').text)
+        return(m_grup.find_element(By.CSS_SELECTOR,
+                'span[class="b-price__text"').text)
+
