@@ -36,7 +36,7 @@ class Parse_unit(webdriver.Firefox):
             super(Parse_unit, self).__init__(options=options)
 
     def run_in_xvfb(self):
-        self.display = Display(visible=False)
+        self.display = Display(visible=True)
         self.display.start()
 
     def land_first_page(self):
@@ -58,7 +58,7 @@ if __name__ == '__main__':
     formatX = 90
     formatY = 50
     color_duplex = False
-    pressrun = 1000
+    pressrun = 10000
 
     def parce_m_grup(options=''):
         with Parse_unit() as m_grup:
@@ -97,26 +97,36 @@ if __name__ == '__main__':
                 By.CSS_SELECTOR, 'input[name="formatY"]')
             x.send_keys(formatX)
             y.send_keys(formatY)
-            y.send_keys(Keys.TAB)
 
-            # Выбор 4+4 или 4+0
+           
 
-            # TODO форма выбора цветности печати 4+4 видит но не кликает. Нужно оттрасировать что происходит. 
-            a = WebDriverWait(m_grup, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'span[aria-labelledby^="select2-color"]')))
-            print(a.text)
-            m_grup.click_on_element(a)
+            # Установка своего тиража
+            other_pressrun = m_grup.find_element(By.ID, 'other_circul_button')
+            other_pressrun.click()
+            x = m_grup.find_element(
+                By.CSS_SELECTOR, 'input[name="circulation_other"]')
+            x.clear()
 
-            # a = m_grup.find_element(
-            #      By.CSS_SELECTOR, 'span[id^="select2-color"]')
-            # choise_duplex = m_grup.find_element(By.CSS_SELECTOR, 'ul[id^="select2-color"]')
+            x.send_keys(pressrun)
 
-            # -------------> browsingContext.currentWindowGlobal is null
-            duplex_list = m_grup.find_elements(
-                By.CSS_SELECTOR, 'li[data-select2-id^="select2-data-select2"]')
+             # Выбор 4+4 или 4+0
+
+            # TODO refactor with WebDriverWait, be cause wery long waiting and not work in other time. 
+            a = m_grup.find_element(
+                By.CSS_SELECTOR, 'span[id^="select2-color"]')
+            a.click()
+            m_grup.implicitly_wait(10)
+            a.click()
+            m_grup.implicitly_wait(10)
+
+            b = m_grup.find_element(By.CSS_SELECTOR, 'ul[id^="select2-color"]')
+            
+            duplex_list = b.find_elements(
+                By.CSS_SELECTOR, 'li[role="option"]')
 
             print(duplex_list)
+
             for i in duplex_list:
-                m_grup.implicitly_wait(2)
                 if color_duplex == True and i.text == 'С двух сторон':
                     
                     btn_duplex = i
@@ -124,7 +134,6 @@ if __name__ == '__main__':
                 elif color_duplex == False and i.text == 'С одной стороны':
                     btn_duplex = i
                     break
-
             btn_duplex.click()
 
             # Итоговая цена тиража
