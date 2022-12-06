@@ -17,25 +17,6 @@
 
 
 # # print(dir(con)).0
+import getpass
 
-class Solution:
-    def twoSum(self, nums: list, target: int):
-        
-        for i in nums:
-            count = 0
-            for x in nums[nums.index(i)+1:]:
-                # print([nums.index(i),nums.index(x)])
-                count += 1
-                
-                if x + i == target:
-                    # print([nums.index(i),count])
-                    if x == i:
-                        return [nums.index(i),count]
-                    else: 
-                        return [nums.index(i),nums.index(x)]
-
-                        
-
-x = Solution()
-print(x.twoSum([3,3],6))
-print(x.twoSum([2,5,5,11],10))
+print(getpass.getuser())

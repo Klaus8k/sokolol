@@ -1,5 +1,5 @@
 import os
-
+import getpass
 from pyvirtualdisplay import Display
 
 import logging
@@ -26,7 +26,7 @@ class Parse_unit(webdriver.Firefox):
     def __init__(self):
         # Check the system and add path and driver options
         if os.name == 'posix':
-            os.environ['PATH'] += f":/home/{os.getlogin()}/www/Selenium_drivers"
+            os.environ['PATH'] += f":/home/{getpass.getuser()}/www/Selenium_drivers"
             self.run_in_xvfb()
             super(Parse_unit, self).__init__()
         else:
