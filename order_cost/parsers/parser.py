@@ -36,7 +36,7 @@ class Parse_unit(webdriver.Firefox):
             super(Parse_unit, self).__init__(options=options)
 
     def run_in_xvfb(self):
-        self.display = Display(visible=True)
+        self.display = Display(visible=False)
         self.display.start()
 
     def land_first_page(self):
@@ -66,6 +66,9 @@ if __name__ == '__main__':
             # Главная страница
             m_grup.land_first_page()
 
+            m_grup.implicitly_wait(10)
+
+
             # Проверка города
             m_grup.find_element(By.ID, 'its_my_city').click()
 
@@ -73,20 +76,38 @@ if __name__ == '__main__':
             btn_leaflets = m_grup.find_element(By.CLASS_NAME, 'menu_leaflets')
             m_grup.click_on_element(btn_leaflets)
 
-            # Выбор бумаги
-            m_grup.find_element(
-                By.CSS_SELECTOR, 'span[id^="select2-density"]').click()
-            choise_density = m_grup.find_element(By.CSS_SELECTOR, 'ul[id^="select2-density"]')
-            # choise_density = m_grup.find_element(
-            #     By.CLASS_NAME, 'select2-results__options')
-            density_list = choise_density.find_elements(
-                By.CSS_SELECTOR, 'li[role="option"]')
+            # Выбор 4+4 или 4+0
+            # TODO Кликает через раз.
+            # a = m_grup.find_element(
+            #     By.CSS_SELECTOR, 'span[aria-labelledby^="select2-color"]')
+            # a.click()
+            # b = m_grup.find_element(By.CSS_SELECTOR, 'ul[id^="select2-color"]')
 
-            for i in density_list:
-                if i.text.startswith(str(density_order)):
-                    density_paper = i
-                    break
-            density_paper.click()
+            # duplex_list = b.find_elements(
+            #     By.CSS_SELECTOR, 'li[role="option"]')
+
+            # for i in duplex_list:
+            #     if color_duplex == True and i.text == 'С двух сторон':
+                    
+            #         btn_duplex = i
+            #         break
+            #     elif color_duplex == False and i.text == 'С одной стороны':
+            #         btn_duplex = i
+            #         break
+            # btn_duplex.click()
+
+            # # Выбор бумаги
+            # m_grup.find_element(
+            #     By.CSS_SELECTOR, 'span[id^="select2-density"]').click()
+            # choise_density = m_grup.find_element(By.CSS_SELECTOR, 'ul[id^="select2-density"]')
+            # density_list = choise_density.find_elements(
+            #     By.CSS_SELECTOR, 'li[role="option"]')
+
+            # for i in density_list:
+            #     if i.text.startswith(str(density_order)):
+            #         density_paper = i
+            #         break
+            # density_paper.click()
 
             # Установка формата изделия
             other_format = m_grup.find_element(By.ID, 'other_format_button')
@@ -98,47 +119,20 @@ if __name__ == '__main__':
             x.send_keys(formatX)
             y.send_keys(formatY)
 
-           
-
             # Установка своего тиража
             other_pressrun = m_grup.find_element(By.ID, 'other_circul_button')
             other_pressrun.click()
             x = m_grup.find_element(
                 By.CSS_SELECTOR, 'input[name="circulation_other"]')
             x.clear()
-
             x.send_keys(pressrun)
 
-             # Выбор 4+4 или 4+0
 
-            # TODO refactor with WebDriverWait, be cause wery long waiting and not work in other time. 
-            a = m_grup.find_element(
-                By.CSS_SELECTOR, 'span[id^="select2-color"]')
-            a.click()
-            m_grup.implicitly_wait(10)
-            a.click()
-            m_grup.implicitly_wait(10)
-
-            b = m_grup.find_element(By.CSS_SELECTOR, 'ul[id^="select2-color"]')
-            
-            duplex_list = b.find_elements(
-                By.CSS_SELECTOR, 'li[role="option"]')
-
-            print(duplex_list)
-
-            for i in duplex_list:
-                if color_duplex == True and i.text == 'С двух сторон':
-                    
-                    btn_duplex = i
-                    break
-                elif color_duplex == False and i.text == 'С одной стороны':
-                    btn_duplex = i
-                    break
-            btn_duplex.click()
 
             # Итоговая цена тиража
             WebDriverWait(m_grup, 20).until(EC.visibility_of_element_located(
                 (By.CSS_SELECTOR, 'span[class="b-price__text"')))
+            
 
             print('result ------->', m_grup.find_element(By.CSS_SELECTOR,
                   'span[class="b-price__text"').text)
