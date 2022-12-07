@@ -13,6 +13,7 @@ source_for_talpo
 *.json
 /static/
 *.py.sw[op]
+log_parser.txt
 # media
 
 # # Backup files #
