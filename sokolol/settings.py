@@ -24,11 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECRET_KEY = os.environ['SKsokolol']
-SECRET_KEY = os.environ.get('DJ_SK', 'vnoqvnwovkjnr3or3;lkn43;kj4vklahdsdhjf')
+SECRET_KEY = os.getenv('DJ_SK', 'vnoqvnwovkjnr3or3;lkn43;kj4vklahdsdhjf')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJ_DEBUG', True))
+DEBUG = bool(os.getenv('DJ_DEBUG', False))
 
 ALLOWED_HOSTS = ['37.230.141.81', 'sokolol.ru', '*']
 
