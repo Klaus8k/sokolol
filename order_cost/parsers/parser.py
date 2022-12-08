@@ -15,7 +15,9 @@ from selenium.webdriver.firefox.options import Options
 
 # from .constants import url_m_grup
 
-logging.basicConfig(level=logging.WARNING, filename='log_parser.txt')
+logging.basicConfig(level=logging.DEBUG,
+                    filename='log_parser.txt',
+                    filemode='w')
 
 
 url_m_grup = r'https://gmprint.ru/calc/leaflets'
@@ -85,7 +87,8 @@ def parce_m_grup(offset_obj: dict):
         # TODO Кликает через раз.
         # a = m_grup.find_element(
         #     By.CSS_SELECTOR, 'span[aria-labelledby^="select2-color"]')
-        # a.click()
+        # logging.warning('-------------------------------->>>>')
+        # WebDriverWait(m_grup, 10).until(EC.element_to_be_clickable(a))
         # b = m_grup.find_element(By.CSS_SELECTOR, 'ul[id^="select2-color"]')
 
         # duplex_list = b.find_elements(
