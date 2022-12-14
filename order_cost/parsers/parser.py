@@ -16,7 +16,7 @@ from selenium.webdriver.firefox.options import Options
 logger = logging.getLogger('parser_log.txt')
 file_handler = logging.FileHandler('logs/parser_log.txt')
 logger.addHandler(file_handler)
-logger.warning('dddddddddddddddddddddddddddddddddddd')
+logger.warning('START_PARSE')
 
 url_m_grup = r'https://gmprint.ru/calc/leaflets'
 
