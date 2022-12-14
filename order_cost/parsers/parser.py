@@ -4,7 +4,6 @@ from pyvirtualdisplay import Display
 
 import logging
 
-
 from selenium import webdriver
 from selenium.webdriver.remote.command import Command
 from selenium.webdriver.common.by import By
@@ -12,12 +11,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
-
-# from .constants import url_m_grup
-
-logging.basicConfig(level=logging.DEBUG,
-                    filename='log_parser.txt',
-                    filemode='w')
 
 
 url_m_grup = r'https://gmprint.ru/calc/leaflets'
@@ -32,7 +25,6 @@ class Parse_unit(webdriver.Firefox):
             os.environ['PATH'] += f":/home/{getpass.getuser()}/www/Selenium_drivers"
             self.run_in_xvfb()
             super(Parse_unit, self).__init__()
-            logging.warning('------------------->' + os.environ['PATH'])
         else:
             os.environ['PATH'] += r";C:/Selenium_drivers"
             options = Options()
