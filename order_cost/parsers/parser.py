@@ -30,7 +30,7 @@ class Parse_unit(webdriver.Firefox):
             os.environ['PATH'] += ':'+ str(pathlib.Path.home() / 'www/Selenium_drivers/')
             logger.warning(f'{os.environ["PATH"]}')
             self.run_in_xvfb()
-            super(Parse_unit, self).__init__()
+            super(Parse_unit, self).__init__(service_log_path='logs/geckodriver_log.txt')
         else:
             os.environ['PATH'] += r";C:/Selenium_drivers"
             options = Options()
@@ -45,7 +45,6 @@ class Parse_unit(webdriver.Firefox):
 
     def land_first_page(self):
         self.get(target_url)
-        print(self.title)
 
     def click_on_element(self, element: object):
         self.execute_script("arguments[0].click();", element)
@@ -138,7 +137,7 @@ def parce_m_grup(offset_obj: dict):
             (By.CSS_SELECTOR, 'span[class="b-price__text"')))
         
 
-        print('result ------->', m_grup.find_element(By.CSS_SELECTOR,
+        logger.warning('result -------> %s', m_grup.find_element(By.CSS_SELECTOR,
                 'span[class="b-price__text"').text)
         return(m_grup.find_element(By.CSS_SELECTOR,
                 'span[class="b-price__text"').text)
