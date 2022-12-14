@@ -1,4 +1,5 @@
 import os
+import pathlib
 import getpass
 from pyvirtualdisplay import Display
 
@@ -12,6 +13,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
 
+logger = logging.getLogger('parser_log.txt')
+file_handler = logging.FileHandler('logs/parser_log.txt')
+logger.addHandler(file_handler)
+logger.warning('dddddddddddddddddddddddddddddddddddd')
 
 url_m_grup = r'https://gmprint.ru/calc/leaflets'
 
@@ -22,7 +27,8 @@ class Parse_unit(webdriver.Firefox):
     def __init__(self):
         # Check the system and add path and driver options
         if os.name == 'posix':
-            os.environ['PATH'] += f":/home/{getpass.getuser()}/www/Selenium_drivers"
+            os.environ['PATH'] += ':'+ str(pathlib.Path.home() / 'www/Selenium_drivers/')
+            logger.warning(f'{os.environ["PATH"]}')
             self.run_in_xvfb()
             super(Parse_unit, self).__init__()
         else:
