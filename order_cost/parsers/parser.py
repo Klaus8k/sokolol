@@ -72,7 +72,7 @@ def parce_m_grup(offset_obj: object):
         m_grup.land_first_page()
         m_grup.implicitly_wait(10)
 
-        # Проверка города TODO проверить, или по обычному ищем и кликаем на город. 
+        # Проверка города TODO проверить, или по обычному ищем и кликаем на город.
         # Но возможно надо переключить окно на всплывающее
 
         # m_grup.find_element(By.ID, 'change_city').click()
@@ -85,7 +85,6 @@ def parce_m_grup(offset_obj: object):
         #                    'a[data-city_name="Москва"]').click()
 
         m_grup.find_element(By.ID, 'its_my_city').click()
-
 
         # Переход в меню листовок
         btn_leaflets = m_grup.find_element(By.CLASS_NAME, 'menu_leaflets')
@@ -143,9 +142,8 @@ def parce_m_grup(offset_obj: object):
             By.CSS_SELECTOR, 'input[name="circulation_other"]')
         x.clear()
         x.send_keys(pressrun)
-        m_grup.implicitly_wait(5)
 
-        # Итоговая цена тиража
+        # Итоговая цена тиража - TODO не всегда результат отдает
         WebDriverWait(m_grup, 20).until(EC.visibility_of_element_located(
             (By.CSS_SELECTOR, 'span[class="b-price__text"')))
         result = m_grup.find_element(By.CSS_SELECTOR,
