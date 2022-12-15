@@ -15,6 +15,9 @@ from selenium.webdriver.firefox.options import Options
 
 logger = logging.getLogger('parser_log.txt')
 file_handler = logging.FileHandler('logs/parser_log.txt')
+file_format = logging.Formatter(
+    '%(asctime)s PID - %(process)d. %(relativeCreated)d ms ---> [[%(message)s]]', datefmt='%Y-%m-%d %H:%M:%S')
+file_handler.setFormatter(file_format)
 logger.addHandler(file_handler)
 logger.warning('START_PARSE')
 
@@ -27,17 +30,21 @@ class Parse_unit(webdriver.Firefox):
     def __init__(self):
         # Check the system and add path and driver options
         if os.name == 'posix':
-            os.environ['PATH'] += ':'+ str(pathlib.Path.home() / 'www/Selenium_drivers/')
+            os.environ['PATH'] += ':' + \
+                str(pathlib.Path.home() / 'www/Selenium_drivers/')
             logger.warning(f'{os.environ["PATH"]}')
             self.run_in_xvfb()
-            super(Parse_unit, self).__init__(service_log_path='logs/geckodriver_log.txt')
+            super(Parse_unit, self).__init__(
+                service_log_path='logs/geckodriver_log.txt')
         else:
-            os.environ['PATH'] += r";C:/Selenium_drivers"
+            os.environ['PATH'] += r";C:\Selenium_drivers"
+            logger.warning(f'{os.environ["PATH"]}')
             options = Options()
             options.page_load_strategy = 'normal'
-            # options.headless = True
+            options.headless = True
             options.binary_location = r'C:/Program Files/Mozilla Firefox/firefox.exe'
-            super(Parse_unit, self).__init__(options=options)
+            super(Parse_unit, self).__init__(options=options,
+                                             service_log_path='logs/geckodriver_log.txt')
 
     def run_in_xvfb(self):
         self.display = Display(visible=False)
@@ -62,7 +69,7 @@ def parce_m_grup(offset_obj: dict):
     density_order = int(offset_obj['weigh'])
     formatX = offset_obj['width']
     formatY = offset_obj['higth']
-    color_duplex = False # offset_obj.__dict__['dublicate']
+    color_duplex = False  # offset_obj.__dict__['dublicate']
     pressrun = offset_obj['order']
 
     with Parse_unit() as m_grup:
@@ -71,7 +78,6 @@ def parce_m_grup(offset_obj: dict):
         m_grup.land_first_page()
 
         m_grup.implicitly_wait(10)
-
 
         # Проверка города
         m_grup.find_element(By.ID, 'its_my_city').click()
@@ -93,7 +99,7 @@ def parce_m_grup(offset_obj: dict):
 
         # for i in duplex_list:
         #     if color_duplex == True and i.text == 'С двух сторон':
-                
+
         #         btn_duplex = i
         #         break
         #     elif color_duplex == False and i.text == 'С одной стороны':
@@ -104,7 +110,8 @@ def parce_m_grup(offset_obj: dict):
         # Выбор бумаги
         m_grup.find_element(
             By.CSS_SELECTOR, 'span[id^="select2-density"]').click()
-        choise_density = m_grup.find_element(By.CSS_SELECTOR, 'ul[id^="select2-density"]')
+        choise_density = m_grup.find_element(
+            By.CSS_SELECTOR, 'ul[id^="select2-density"]')
         density_list = choise_density.find_elements(
             By.CSS_SELECTOR, 'li[role="option"]')
 
@@ -133,12 +140,9 @@ def parce_m_grup(offset_obj: dict):
         x.send_keys(pressrun)
 
         # Итоговая цена тиража
-        WebDriverWait(m_grup, 20).until(EC.visibility_of_element_located(
+        result = WebDriverWait(m_grup, 20).until(EC.visibility_of_element_located(
             (By.CSS_SELECTOR, 'span[class="b-price__text"')))
-        
+        logger.warning('%s', result)
 
-        logger.warning('result -------> %s', m_grup.find_element(By.CSS_SELECTOR,
-                'span[class="b-price__text"').text)
-        return(m_grup.find_element(By.CSS_SELECTOR,
-                'span[class="b-price__text"').text)
-
+        return (m_grup.find_element(By.CSS_SELECTOR,
+                                    'span[class="b-price__text"').text)
