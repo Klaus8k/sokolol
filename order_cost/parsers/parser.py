@@ -3,7 +3,7 @@ import pathlib
 import getpass
 from pyvirtualdisplay import Display
 
-import logging
+from my_logger import logger_parser as logger
 
 from selenium import webdriver
 from selenium.webdriver.remote.command import Command
@@ -12,14 +12,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
-
-logger = logging.getLogger('parser_log.txt')
-file_handler = logging.FileHandler('logs/parser_log.txt')
-file_format = logging.Formatter(
-    '%(asctime)s PID - %(process)d. %(relativeCreated)d ms ---> [[%(message)s]]', datefmt='%Y-%m-%d %H:%M:%S')
-file_handler.setFormatter(file_format)
-logger.addHandler(file_handler)
-logger.warning('START_PARSE')
 
 url_m_grup = r'https://gmprint.ru/calc/leaflets'
 
@@ -32,13 +24,13 @@ class Parse_unit(webdriver.Firefox):
         if os.name == 'posix':
             os.environ['PATH'] += ':' + \
                 str(pathlib.Path.home() / 'www/Selenium_drivers/')
-            logger.warning(f'{os.environ["PATH"]}')
+            # logger.warning(f'{os.environ["PATH"]}')
             self.run_in_xvfb()
             super(Parse_unit, self).__init__(
                 service_log_path='logs/geckodriver_log.txt')
         else:
             os.environ['PATH'] += r";C:\Selenium_drivers"
-            logger.warning(f'{os.environ["PATH"]}')
+            # logger.warning(f'{os.environ["PATH"]}')
             options = Options()
             options.page_load_strategy = 'normal'
             options.headless = True
@@ -62,25 +54,38 @@ class Parse_unit(webdriver.Firefox):
         self.quit()
 
 
-# TODO из объекта заказа берем данные по заказу
+def parce_m_grup(offset_obj: object):
+    logger.warning('Start parse m_grup')
+    logger.warning('input params - %s', offset_obj)
+    # из объекта заказа берем данные по заказу словарем
 
-def parce_m_grup(offset_obj: dict):
-
-    density_order = int(offset_obj['weigh'])
-    formatX = offset_obj['width']
-    formatY = offset_obj['higth']
-    color_duplex = False  # offset_obj.__dict__['dublicate']
-    pressrun = offset_obj['order']
+    density = offset_obj['density']
+    formatX = offset_obj['formatX']
+    formatY = offset_obj['formatY']
+    # offset_obj.__dict__['duplex'] --- TODO выбор дуплекса не работет!
+    duplex = False
+    pressrun = offset_obj['pressrun']
 
     with Parse_unit() as m_grup:
 
         # Главная страница
         m_grup.land_first_page()
-
         m_grup.implicitly_wait(10)
 
-        # Проверка города
+        # Проверка города TODO проверить, или по обычному ищем и кликаем на город. 
+        # Но возможно надо переключить окно на всплывающее
+
+        # m_grup.find_element(By.ID, 'change_city').click()
+        # city_menu = m_grup.find_element(By.CLASS_NAME, 'b-popup')
+        # city_list = city_menu.find_elements(
+        #     By.CSS_SELECTOR, 'li[class="b-list__item"]')
+
+        # for i in city_list:
+        #     i.find_element(By.CSS_SELECTOR,
+        #                    'a[data-city_name="Москва"]').click()
+
         m_grup.find_element(By.ID, 'its_my_city').click()
+
 
         # Переход в меню листовок
         btn_leaflets = m_grup.find_element(By.CLASS_NAME, 'menu_leaflets')
@@ -116,7 +121,7 @@ def parce_m_grup(offset_obj: dict):
             By.CSS_SELECTOR, 'li[role="option"]')
 
         for i in density_list:
-            if i.text.startswith(str(density_order)):
+            if i.text.startswith(str(density)):
                 density_paper = i
                 break
         density_paper.click()
@@ -138,11 +143,13 @@ def parce_m_grup(offset_obj: dict):
             By.CSS_SELECTOR, 'input[name="circulation_other"]')
         x.clear()
         x.send_keys(pressrun)
+        m_grup.implicitly_wait(5)
 
         # Итоговая цена тиража
-        result = WebDriverWait(m_grup, 20).until(EC.visibility_of_element_located(
+        WebDriverWait(m_grup, 20).until(EC.visibility_of_element_located(
             (By.CSS_SELECTOR, 'span[class="b-price__text"')))
-        logger.warning('%s', result)
+        result = m_grup.find_element(By.CSS_SELECTOR,
+                                     'span[class="b-price__text"').text
+        logger.warning('result - %s', result)
 
-        return (m_grup.find_element(By.CSS_SELECTOR,
-                                    'span[class="b-price__text"').text)
+        return result

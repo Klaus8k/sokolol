@@ -3,6 +3,8 @@ from django.http import HttpResponseRedirect
 from .logic import Json_obj, calc_solvent
 from .parsers.parser import parce_m_grup
 
+from my_logger import logger_view as logger
+
 from .forms import OffsetForm, SolventForm, SolventSetForm
 
 # Create your views here.
@@ -33,7 +35,6 @@ def offset(request, context, cost_settings):
             context.update(data)
             context['result'] = parce_m_grup(data)  # выполняестя расчет заказа
             context['form'] = form
-            print(context)
         else:
             context['form'] = OffsetForm()
     return render(request, template_name='order_cost/offset.html', context=context)
@@ -47,7 +48,7 @@ def solvent(request, context, cost_settings):
         if form.is_valid():
             data = form.cleaned_data
             context.update(data)
-            context['result'] = calc_solvent(data, cost_settings) 
+            context['result'] = calc_solvent(data, cost_settings)
             context['form'] = form
         else:
             context['form'] = SolventForm()
@@ -64,19 +65,18 @@ def solvent(request, context, cost_settings):
     context['cost'] = cost_settings.read()
     return render(request, template_name='order_cost/solvent.html', context=context)
 
+
 @view_decorator
 def riso(request, context, cost_settings):
     return render(request, template_name='order_cost/riso.html', context=context)
+
 
 @view_decorator
 def stamp(request, context, cost_settings):
     return render(request, template_name='order_cost/stamp.html', context=context)
 
+
 @view_decorator
 def oki(request, context, cost_settings):
-    
-
-
-
 
     return render(request, template_name='order_cost/oki.html', context=context)

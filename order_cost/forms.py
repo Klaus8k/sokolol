@@ -2,23 +2,23 @@ from django import forms
 from django.forms import widgets
 
 paper_weigh = [(130, 130), (170, 170), (300, 300)]
-dublicate_choise = [(True, '4+4'), (False, '4+0')]
+duplex_choise = [(True, '4+4'), (False, '4+0')]
 form_wiget = widgets.NumberInput(attrs={'class': 'offset_form'}) # class html for css preference 'offset_form'
 
 
 class OffsetForm(forms.Form):
     type_order = forms.CharField(initial='offset', label='Офсетная печать',
                                  widget=widgets.TextInput(attrs={'style': 'display: none'}))
-    width = forms.IntegerField(required=None, min_value=0, max_value=1000,
+    formatX = forms.IntegerField(required=None, min_value=0, max_value=1000,
                                label='Ширина (мм)', widget=form_wiget)
-    higth = forms.IntegerField(required=None, min_value=0, max_value=1000,
+    formatY = forms.IntegerField(required=None, min_value=0, max_value=1000,
                                label='Высота (мм)', widget=form_wiget)
-    weigh = forms.ChoiceField(required=None,
+    density = forms.ChoiceField(required=None,
                               label='Плотность (г/м)', choices=paper_weigh)
-    order = forms.IntegerField(required=None, min_value=0, max_value=100000,
+    pressrun = forms.IntegerField(required=None, min_value=0, max_value=100000,
                                label='Тираж (шт)', widget=form_wiget)
-    dublicate = forms.BooleanField(required=None, label='4+4/4+0',
-                                   widget=widgets.RadioSelect(choices=dublicate_choise))
+    duplex = forms.BooleanField(required=None, label='4+4/4+0',
+                                   widget=widgets.RadioSelect(choices=duplex_choise))
 
     
 
