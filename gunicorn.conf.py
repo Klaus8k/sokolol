@@ -18,8 +18,9 @@
 #       range.
 #
 
-bind = '127.0.0.1:8000'
-backlog = 2048
+bind = 'HOST'
+# bind = '127.0.0.1:8000'
+backlog = 1024
 
 #
 # Worker processes
@@ -65,11 +66,11 @@ backlog = 2048
 #       A positive integer. Generally set in the 1-5 seconds range.
 #
 
-workers = 1
+workers = 2
 worker_class = 'sync'
 worker_connections = 1000
 timeout = 30
-keepalive = 2
+keepalive = 5
 
 #
 #   spew - Install a trace function that spews every line of Python
@@ -124,8 +125,8 @@ spew = False
 
 daemon = False
 raw_env = [
-    'DJANGO_SECRET_KEY=something',
     'SPAM=eggs',
+    'DJ_DEBUG=False'
 ]
 pidfile = None
 umask = 0
@@ -145,9 +146,9 @@ tmp_upload_dir = None
 #       A string of "debug", "info", "warning", "error", "critical"
 #
 
-errorlog = '-'
+errorlog = 'logs/gunicorn_log.txt'
 loglevel = 'info'
-accesslog = '-'
+accesslog = 'logs/gunicorn_log.txt'
 access_log_format = '%(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"'
 
 #
