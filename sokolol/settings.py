@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('DJ_SK', 'vnoqvnwovkjnr3or3;lkn43;kj4vklahdsdhjf')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DJ_DEBUG', False) == 'True'
+DEBUG = os.getenv('DJ_DEBUG', False) == True
 
 ALLOWED_HOSTS = ['37.230.141.81', 'sokolol.ru', '*']
 
