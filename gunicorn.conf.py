@@ -126,7 +126,7 @@ spew = False
 daemon = False
 raw_env = [
     'SPAM=eggs',
-    'DJ_DEBUG=False'
+    # 'DJ_DEBUG=False'
 ]
 pidfile = None
 umask = 0
