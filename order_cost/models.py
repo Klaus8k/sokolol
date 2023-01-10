@@ -6,3 +6,5 @@ class Solvent(models.Model):
     type = models.CharField('type', max_length=20)
     cost = models.IntegerField('cost')
 
+    def __str__(self) -> str:
+        return f'{self.date} {self.type} {self.cost}'
