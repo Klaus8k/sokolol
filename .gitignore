@@ -14,6 +14,7 @@ source_for_talpo
 /static/
 *.py.sw[op]
 *_log.txt
+migrations
 # media
 
 # # Backup files #
