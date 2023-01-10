@@ -150,5 +150,6 @@ def parce_m_grup(offset_obj: object):
         result = m_grup.find_element(By.CSS_SELECTOR,
                                      'span[class="b-price__text"').text
         logger.warning('result - %s', result)
+        del(m_grup)
 
         return result
