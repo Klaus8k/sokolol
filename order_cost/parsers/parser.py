@@ -30,7 +30,7 @@ class Parse_unit(webdriver.Firefox):
                 service_log_path='logs/geckodriver_log.txt')
         else:
             os.environ['PATH'] += r";C:\Selenium_drivers"
-            # logger.warning(f'{os.environ["PATH"]}')
+            logger.warning(f'{os.environ["PATH"]}')
             options = Options()
             options.page_load_strategy = 'normal'
             options.headless = True
