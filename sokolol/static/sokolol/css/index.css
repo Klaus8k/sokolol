@@ -1,6 +1,6 @@
 .body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 h1,
@@ -14,13 +14,13 @@ h6 {
 }
 
 .header {
-    height: 150px;
-    background-color: #75CFE2;
-    padding-top: 50px;
+    height: 100px;
+    background-color: hsl(185, 67%, 59%);
+    padding-top: 35px;
 }
 
 .my-logo {
-    text-transform: uppercase;
+    font-weight: 500;
 }
 
 .search-form__icon {
@@ -38,11 +38,11 @@ h6 {
 }
 
 .resume-content {
-    margin-top: 70px;
+    margin-top: 50px;
 }
 
 .resume-content__text {
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .resume-content__dwnld {
@@ -91,8 +91,8 @@ h6 {
 }
 
 .my_photo {
-    width: 405px;
-    height: 580px;
+    width: 300px;
+    height: auto;
 }
 
 .title_project {
