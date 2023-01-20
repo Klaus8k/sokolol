@@ -1,4 +1,5 @@
-# import sqlite3
+# # ------ Пример работы с sql-lite
+# import sqlite3 
 
 # con = sqlite3.connect('db.sqlite3')
 # cur = con.cursor()
@@ -12,11 +13,26 @@
 
 
 # show_test_table()
-# # fff
 
 
 
-# # print(dir(con)).0
-import getpass
+# import getpass
+# print(getpass.getuser())
 
-print(getpass.getuser())
+
+a = '5'
+b = '10'
+
+
+c = '1'
+
+print(id(a), id(b), id(c))
+b = b[:1]
+
+a = str(int(b) +4)
+
+print(a, b, c)
+
+print(id(a), id(b), id(c))
+
+
