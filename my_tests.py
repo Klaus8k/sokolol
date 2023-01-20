@@ -35,4 +35,4 @@ print(a, b, c)
 
 print(id(a), id(b), id(c))
 
-
+https://medium.com/@kirushenski/visual-studio-code-настройка-и-применение-часть-1-7f1a26806522
