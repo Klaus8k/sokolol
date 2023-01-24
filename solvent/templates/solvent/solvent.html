@@ -11,11 +11,11 @@
         <div class="content_block me-4 col-md-6 shadow rounded">
             <div class="solvent_order_in p-3">
                 <h4>Расчет заказ широкоформатной печати</h4>
-                <form action="{% url 'order_cost:solvent' %}" method="get">
+                <form action="{% url '/solvent' %}" method="get">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit" class="btn btn-primary" value="offset">Расчет</button>
-                    <a href="{% url 'order_cost:solvent' %}" class="btn btn-danger">Сброс</a>
+                    <a href="{% url '/solvent' %}" class="btn btn-danger">Сброс</a>
                 </form>
             </div>
         </div>
