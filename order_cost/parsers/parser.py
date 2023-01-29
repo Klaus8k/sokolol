@@ -28,8 +28,9 @@ class Parse_unit(webdriver.Firefox):
             self.run_in_xvfb()
             super(Parse_unit, self).__init__(
                 service_log_path='logs/geckodriver_log.txt')
-        else:
-            os.environ['PATH'] += r";C:\Selenium_drivers"
+        elif 'Selenium_drivers' not in os.environ['PATH'].split():
+            os.environ['PATH'] = os.environ['PATH'] + r";C:\Selenium_drivers"
+
             logger.warning(f'{os.environ["PATH"]}')
             options = Options()
             options.page_load_strategy = 'normal'

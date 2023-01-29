@@ -63,7 +63,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'sokolol/templates/sokolol',
-            # BASE_DIR / 'order_cost/templates/order_cost',
+            BASE_DIR / 'order_cost/templates/order_cost',
             BASE_DIR / 'solvent/templates/solvent',
             ],
         'APP_DIRS': True,
