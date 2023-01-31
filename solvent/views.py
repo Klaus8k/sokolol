@@ -1,5 +1,5 @@
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+# from django.
 from django.views.generic.edit import FormView
 
 from . import forms
@@ -8,10 +8,13 @@ from . import forms
 
 class Solvent_view(FormView):
     form_class = forms.SolventForm
-    template_name = 'solvent.html'
+    template_name = 'solvent_app.html'
+    
+    def form_valid(self, form: object) -> HttpResponse:
+        return super().form_valid(form)
 
-    def get(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
-        return self.form_valid
+    def post(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
 
-
+        
+        return super().post(request, *args, **kwargs)
     

@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('DJ_SK', 'vnoqvnwovkjnr3or3;lkn43;kj4vklahdsdhjf')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DJ_DEBUG', False)
+DEBUG = os.getenv('DJ_D', False)
 
 ALLOWED_HOSTS = ['37.230.141.81', 'sokolol.ru', '*']
 
@@ -63,8 +63,9 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'sokolol/templates/sokolol',
-            # BASE_DIR / 'order_cost/templates/order_cost',
+            BASE_DIR / 'order_cost/templates/order_cost',
             BASE_DIR / 'solvent/templates/solvent',
+            BASE_DIR / ''
             ],
         'APP_DIRS': True,
         'OPTIONS': {
