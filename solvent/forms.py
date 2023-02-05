@@ -14,3 +14,10 @@ class SolventForm(forms.Form):
                                label='Высота (м)', widget=form_wiget)
     material = forms.ChoiceField(required=None,
                               label='Материал', choices=material_choise)
+
+
+class SolventSetForm(forms.Form):
+
+    material = forms.ChoiceField(required=None,
+                                label='Материал (квм)', choices=material_choise)
+    price = forms.IntegerField(required=None, label='Цена закупки')
