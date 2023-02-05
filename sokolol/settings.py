@@ -65,7 +65,7 @@ TEMPLATES = [
             BASE_DIR / 'sokolol/templates/sokolol',
             BASE_DIR / 'order_cost/templates/order_cost',
             BASE_DIR / 'solvent/templates/solvent',
-            BASE_DIR / ''
+            BASE_DIR / '',
             ],
         'APP_DIRS': True,
         'OPTIONS': {

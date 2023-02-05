@@ -12,7 +12,7 @@
         <div class="content_block me-4 col-md-6 shadow rounded">
             <div class="solvent_order_in p-3">
                 <h4>Расчет заказ широкоформатной печати</h4>
-                <form method="get">
+                <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit" class="btn btn-primary" value="solvent">Расчет</button>
