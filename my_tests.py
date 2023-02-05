@@ -20,19 +20,28 @@
 # print(getpass.getuser())
 
 
-a = '5'
-b = '10'
+# a = '5'
+# b = '10'
 
 
-c = '1'
+# c = '1'
 
-print(id(a), id(b), id(c))
-b = b[:1]
+# print(id(a), id(b), id(c))
+# b = b[:1]
 
-a = str(int(b) +4)
+# a = str(int(b) +4)
 
-print(a, b, c)
+# print(a, b, c)
 
-print(id(a), id(b), id(c))
+# print(id(a), id(b), id(c))
 
 # https://medium.com/@kirushenski/visual-studio-code-настройка-и-применение-часть-1-7f1a26806522
+
+
+a = 'Минобороны РФ сообщило, что украинские спецслужбы планируют подорвать в Краматорске несколько медучреждений'
+
+def rev(a: str):
+    return ' '.join(a.split(' ')[::-1])
+
+
+print(rev(a))
