@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from .logic import Json_obj, calc_solvent
+from .logic import Json_obj, calc_solvent, solvent_check_and_save_or_return, save_to_db
 from .parsers.parser import parce_m_grup
 
 from my_logger import logger_view as logger
@@ -17,12 +17,12 @@ def view_decorator(view):
     """Decorator for view functions
     with pages param and cost settings"""
     def wrapp_context(request):
-        cost_settings = Json_obj(PREFERENCE)
+        # cost_settings = Json_obj(PREFERENCE)
         context = {}
         context.update(pages_service)
         context['page_name'] = view.__name__
-        context['cost'] = cost_settings.read()
-        return view(request, context=context,   cost_settings=cost_settings)
+        # context['cost'] = cost_settings.read()
+        return view(request, context=context)
     return wrapp_context
 
 
@@ -41,28 +41,32 @@ def offset(request, context, cost_settings):
 
 
 @view_decorator
-def solvent(request, context, cost_settings):
+def solvent(request, context):
+
+    # Надо с запросами разобраться, если гет - то 2 пустых формы, если пост - то ту форму, которая меняется
 
     if request.method == 'GET':
-        form = SolventForm(request.GET)
+        context['form'] = SolventForm()
+        context['form_set'] = SolventSetForm()
+
+    else:
+        form = SolventForm(request.POST)
+
         if form.is_valid():
             data = form.cleaned_data
             context.update(data)
-            context['result'] = calc_solvent(data, cost_settings)
+            context['result'] = solvent_check_and_save_or_return(data)
+            # context['result'] = calc_solvent(data, cost_settings)
             context['form'] = form
-        else:
-            context['form'] = SolventForm()
 
-    if request.method == 'GET':
-        form_set = SolventSetForm(request.GET)
-        if form_set.is_valid():
-            data = form_set.cleaned_data
-            new_cost = {data['material']: data['price']}
-            context['form_set'] = form_set
-            cost_settings.write(new_cost, 'solvent')
-    else:
-        form_set = SolventSetForm()
-    context['cost'] = cost_settings.read()
+        else:
+            form_set = SolventSetForm(request.POST)
+            if form_set.is_valid():
+                data = form_set.cleaned_data
+                new_cost = save_to_db(data)
+                context['form_set'] = form_set
+                # cost_settings.write(new_cost, 'solvent')
+                context['cost'] = new_cost
     return render(request, template_name='order_cost/solvent.html', context=context)
 
 

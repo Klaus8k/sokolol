@@ -13,10 +13,10 @@
         <div class="content_block me-4 col-md-6 shadow rounded">
             <div class="solvent_order_in p-3">
                 <h4>Расчет заказ широкоформатной печати</h4>
-                <form action="{% url 'order_cost:solvent' %}" method="get">
+                <form action="{% url 'order_cost:solvent' %}" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary" value="offset">Расчет</button>
+                    <button type="submit" class="btn btn-primary" value="solvent">Расчет</button>
                     <a href="{% url 'order_cost:solvent' %}" class="btn btn-danger">Сброс</a>
                 </form>
             </div>
@@ -29,7 +29,7 @@
                 <h4> {{ cost.solvent }}</h4>
                 <h4>Изменение себестоимости</h4>
                 <br>
-                <form action="{% url 'order_cost:solvent' %}" method="get">
+                <form action="{% url 'order_cost:solvent' %}" method="POST">
                     {% csrf_token %}
                     {{ form_set.as_p }}
                     <button type="submit" class="btn btn-danger">Изменить</button>
