@@ -16,6 +16,6 @@ class Solvent_view(FormView):
     def post(self, request: HttpRequest, *args: str, **kwargs) -> HttpResponse:
         print(request)
         context = {}
-        context['result'] = 300
+        context['result'] = 1000
         return render(request=self.request, template_name=self.template_name, *args, **kwargs, context=context)
     

@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 from re import template
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -65,7 +65,7 @@ TEMPLATES = [
             BASE_DIR / 'sokolol/templates/sokolol',
             BASE_DIR / 'order_cost/templates/order_cost',
             BASE_DIR / 'solvent/templates/solvent',
-            BASE_DIR / '',
+            # BASE_DIR / '/', - Добавить отдельную папку для общего шаблоно приложений приложений
             ],
         'APP_DIRS': True,
         'OPTIONS': {
