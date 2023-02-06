@@ -22,7 +22,7 @@ def view_decorator(view):
         context.update(pages_service)
         context['page_name'] = view.__name__
         context['cost'] = cost_settings.read()
-        return view(request, context=context, cost_settings=cost_settings)
+        return view(request, context=context,   cost_settings=cost_settings)
     return wrapp_context
 
 
