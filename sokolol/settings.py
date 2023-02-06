@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'order_cost',
-    'solvent',
 ]
 
 MIDDLEWARE = [
@@ -64,8 +63,6 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR / 'sokolol/templates/sokolol',
             BASE_DIR / 'order_cost/templates/order_cost',
-            BASE_DIR / 'solvent/templates/solvent',
-            # BASE_DIR / '/', - Добавить отдельную папку для общего шаблоно приложений приложений
             ],
         'APP_DIRS': True,
         'OPTIONS': {

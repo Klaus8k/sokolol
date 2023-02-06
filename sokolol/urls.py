@@ -21,5 +21,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html')),
     path('order_cost/', include('order_cost.urls')),
-    path('solvent/', include('solvent.urls')),
 ]

@@ -2,7 +2,7 @@ from django.db import models
 import datetime
 
 # Create your models here.
-class Solvent(models.Model):
+class Solvent_model(models.Model):
     date = models.DateField(verbose_name='date', auto_now_add=True)
     type = models.CharField('type', max_length=20)
     cost = models.IntegerField('cost')
