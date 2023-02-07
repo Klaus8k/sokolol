@@ -1,5 +1,5 @@
 # # ------ Пример работы с sql-lite
-# import sqlite3 
+# import sqlite3
 
 # con = sqlite3.connect('db.sqlite3')
 # cur = con.cursor()
@@ -13,7 +13,6 @@
 
 
 # show_test_table()
-
 
 
 # import getpass
@@ -38,10 +37,23 @@
 # https://medium.com/@kirushenski/visual-studio-code-настройка-и-применение-часть-1-7f1a26806522
 
 
-a = 'Минобороны РФ сообщило, что украинские спецслужбы планируют подорвать в Краматорске несколько медучреждений'
-
-def rev(a: str):
-    return ' '.join(a.split(' ')[::-1])
+a = 'Аргентина анит негра'
 
 
-print(rev(a))
+class Polin():
+
+    def __init__(self, string: str) -> None:
+        self.string = ''.join(string.split()).lower()
+        half = len(self.string) // 2
+        if half == 0:
+            return 0
+        self.half_str = self.string[:half]
+        self.half_rev = self.half_str[::-1]
+
+    def polin(self):
+        print(self.string[len(self.string) // 2:])
+        return self.half_rev == self.string[len(self.string) // 2:]
+
+
+x = Polin(a)
+print(x.polin())
