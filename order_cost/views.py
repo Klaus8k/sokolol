@@ -43,30 +43,22 @@ def offset(request, context, cost_settings):
 @view_decorator
 def solvent(request, context):
 
-    # Надо с запросами разобраться, если гет - то 2 пустых формы, если пост - то ту форму, которая меняется
+    context['form'] = SolventForm()
+    context['form_set'] = SolventSetForm()
 
-    if request.method == 'GET':
-        context['form'] = SolventForm()
-        context['form_set'] = SolventSetForm()
-
-    else:
+    if request.method == 'POST':
         form = SolventForm(request.POST)
-
+        form_set = SolventSetForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
             context.update(data)
             context['result'] = solvent_check_and_save_or_return(data)
-            # context['result'] = calc_solvent(data, cost_settings)
             context['form'] = form
-
-        else:
-            form_set = SolventSetForm(request.POST)
-            if form_set.is_valid():
-                data = form_set.cleaned_data
-                new_cost = save_to_db(data)
-                context['form_set'] = form_set
-                # cost_settings.write(new_cost, 'solvent')
-                context['cost'] = new_cost
+        elif form_set.is_valid():
+            data = form_set.cleaned_data
+            new_cost = save_to_db(data)
+            context['form_set'] = form_set
+            context['cost'] = new_cost
     return render(request, template_name='order_cost/solvent.html', context=context)
 
 

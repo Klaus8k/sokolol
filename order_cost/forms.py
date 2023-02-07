@@ -30,16 +30,16 @@ material_choise = [('banner', 'Баннер'),
 class SolventForm(forms.Form):
     type_order = forms.CharField(initial='solvent', label='Широкоформатная печать',
                                  widget=widgets.TextInput(attrs={'style': 'display: none'}))
-    width = forms.FloatField(required=None, min_value=0, max_value=100,
+    width = forms.FloatField(required=True, min_value=0, max_value=100,
                              label='Ширина (м)', widget=form_wiget)
-    higth = forms.FloatField(required=None, min_value=0, max_value=100,
+    higth = forms.FloatField(required=True, min_value=0, max_value=100,
                              label='Высота (м)', widget=form_wiget)
-    type = forms.ChoiceField(required=None,
+    type = forms.ChoiceField(required=True,
                              label='Материал', choices=material_choise)
 
 
 class SolventSetForm(forms.Form):
 
-    type = forms.ChoiceField(required=None,
+    type = forms.ChoiceField(required=True,
                                  label='Материал (квм)', choices=material_choise)
-    cost = forms.IntegerField(required=None, label='Цена закупки')
+    cost = forms.IntegerField(required=True, label='Цена закупки')
