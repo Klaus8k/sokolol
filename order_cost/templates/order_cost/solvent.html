@@ -37,7 +37,21 @@
             </div>
         </div>
     </div>
-    {% include 'description.html' %}
+    <div class="row pt-3">
+        <div class="content_block me-4 col-12 shadow rounded">
+            <div class="solvent_db p-3">
+                <h4>из базы данных информация</h4>
+
+
+                <div> {% for item in solvent_db %}
+                    <p>{{ item }}</p>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </div>
 
 

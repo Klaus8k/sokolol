@@ -10,7 +10,7 @@ class Solvent_model(models.Model):
     cost = models.IntegerField('cost')
 
     def __str__(self) -> str:
-        return f'Дата изменеия: {self.date}, Материал: {self.type}, Цена за единицу: {self.cost} руб.'
+        return f'Дата: {self.date.strftime("%m/%d/%y %H:%M:%S")}, Материал: {self.type}, Цена за m2: {self.cost} руб.'
 
 class Offset_model(models.Model):
     date = models.DateTimeField(verbose_name='date', auto_now_add=True)
@@ -23,5 +23,9 @@ class Offset_model(models.Model):
     cost = models.IntegerField(default=None)
 
     def __str__(self) -> str:
-        return f'{self.formatX}X{self.formatY}мм, {self.density}г/м, {self.pressrun}шт, duplex{self.duplex}, цена: {self.cost}'
+        if self.duplex:
+            duplex = '4+4'
+        else:
+            duplex = '4+0'
+        return f'{self.formatX}x{self.formatY}мм, {self.density}г/м, {self.pressrun}шт, {duplex}, цена: {self.cost} руб.'
 

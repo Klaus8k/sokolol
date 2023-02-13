@@ -5,6 +5,7 @@ from my_logger import logger_view as logger
 
 from .forms import OffsetForm, SolventForm, SolventSetForm
 from .logic import check_db_or_calc_and_save, save_to_db
+from .models import Solvent_model, Offset_model
 
 # Create your views here.
 PAGES = ['offset', 'solvent', 'riso', 'stamp', 'oki']
@@ -24,6 +25,8 @@ def view_decorator(view):
 
 @view_decorator
 def offset(request, context):
+    context['offset_db'] = Offset_model.objects.all()
+
     if request.method == 'GET':
         form = OffsetForm(request.GET)
         if form.is_valid():
@@ -38,7 +41,7 @@ def offset(request, context):
 
 @view_decorator
 def solvent(request, context):
-
+    context['solvent_db'] = Solvent_model.objects.all()
     context['form'] = SolventForm()
     context['form_set'] = SolventSetForm()
 
