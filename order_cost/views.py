@@ -9,7 +9,6 @@ from .logic import check_db_or_calc_and_save, save_to_db
 # Create your views here.
 PAGES = ['offset', 'solvent', 'riso', 'stamp', 'oki']
 pages_service = {'pages': PAGES, 'active': 'active', 'page_name': None}
-PREFERENCE = 'order_cost/preference.json'
 
 
 def view_decorator(view):
