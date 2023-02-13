@@ -62,7 +62,7 @@ def solvent(request, context):
 
 
 @view_decorator
-def riso(request, context, cost_settings):
+def riso(request, context):
     return render(request, template_name='order_cost/riso.html', context=context)
 
 
