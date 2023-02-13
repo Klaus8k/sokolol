@@ -1,5 +1,6 @@
-import os, time
 import json
+import os
+import time
 
 # print(os.getcwd())
 # b = os.popen('cat 1.txt', 'r') # open file r or w

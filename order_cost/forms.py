@@ -23,8 +23,8 @@ class OffsetForm(forms.Form):
 
 
 material_choise = [('banner', 'Баннер'),
-                    ('sticker','Наклейка'),
-                    ('tabl', 'Табличка')]
+                   ('sticker', 'Наклейка'),
+                   ('tabl', 'Табличка')]
 
 
 class SolventForm(forms.Form):
@@ -39,7 +39,8 @@ class SolventForm(forms.Form):
 
 
 class SolventSetForm(forms.Form):
-
+    type_order = forms.CharField(initial='solvent', label='Широкоформатная печать',
+                                 widget=widgets.TextInput(attrs={'style': 'display: none'}))
     type = forms.ChoiceField(required=True,
-                                 label='Материал (квм)', choices=material_choise)
+                             label='Материал (квм)', choices=material_choise)
     cost = forms.IntegerField(required=True, label='Цена закупки')
