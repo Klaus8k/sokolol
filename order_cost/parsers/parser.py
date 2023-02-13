@@ -1,17 +1,17 @@
+import getpass
 import os
 import pathlib
-import getpass
+
 from pyvirtualdisplay import Display
-
-from my_logger import logger_parser as logger
-
 from selenium import webdriver
-from selenium.webdriver.remote.command import Command
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.remote.command import Command
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
+from my_logger import logger_parser as logger
 
 url_m_grup = r'https://gmprint.ru/calc/leaflets'
 
@@ -56,17 +56,18 @@ class Parse_unit(webdriver.Firefox):
         self.quit()
 
 
-def parce_m_grup(offset_obj: object):
+def parce_m_grup(formatX, formatY, density, pressrun, duplex):
     logger.warning('Start parse m_grup')
-    logger.warning('input params - %s', offset_obj)
+    params = [formatX, formatY, density, pressrun, duplex]
+    logger.warning('input params - %s', params)
     # из объекта заказа берем данные по заказу словарем
 
-    density = offset_obj['density']
-    formatX = offset_obj['formatX']
-    formatY = offset_obj['formatY']
-    # offset_obj.__dict__['duplex'] --- TODO выбор дуплекса не работет!
-    duplex = False
-    pressrun = offset_obj['pressrun']
+    # density = offset_obj['density']
+    # formatX = offset_obj['formatX']
+    # formatY = offset_obj['formatY']
+    # # offset_obj.__dict__['duplex'] --- TODO выбор дуплекса не работет!
+    # duplex = False
+    # pressrun = offset_obj['pressrun']
 
     with Parse_unit() as m_grup:
 

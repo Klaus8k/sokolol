@@ -1,4 +1,3 @@
-from .parsers.parser import parce_m_grup
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
@@ -31,7 +30,7 @@ def offset(request, context):
         if form.is_valid():
             data = form.cleaned_data
             context.update(data)
-            context['result'] = parce_m_grup(data)  # выполняестя расчет заказа
+            context['result'] = check_db_or_calc_and_save(data)  # выполняестя расчет заказа
             context['form'] = form
         else:
             context['form'] = OffsetForm()
