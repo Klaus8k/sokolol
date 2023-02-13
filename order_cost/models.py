@@ -23,6 +23,5 @@ class Offset_model(models.Model):
     cost = models.IntegerField(default=None)
 
     def __str__(self) -> str:
-        size = f'{self.formatX}X{self.formatY}мм, {self.density}г/м, {self.pressrun}шт, duplex{self.duplex}'
-        return size
+        return f'{self.formatX}X{self.formatY}мм, {self.density}г/м, {self.pressrun}шт, duplex{self.duplex}, цена: {self.cost}'
 

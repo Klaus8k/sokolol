@@ -2,7 +2,8 @@ from .models import Offset_model, Solvent_model
 from .parsers.parser import parce_m_grup
 
 
-def check_in_db(order_info):
+def check_in_db(order_info): # функцию для проверки наличия в бд,
+    # или декоратор, который сразу проверяет если есть отдает
     pass
 
 
@@ -23,14 +24,18 @@ def offset_calc(order_info: dict):
     formatX, formatY, density, pressrun, duplex = [
         i for i in list(order_info.values())[1:]]
 
-    x = parce_m_grup(formatX, formatY, density, pressrun, duplex)
-    order_info['cost'] = int(''.join(x.split(' '))) # Проверка на инт
+    target_query = Offset_model.objects.filter(
+        formatX=formatX, formatY=formatY, pressrun=pressrun, duplex=duplex)
+    if target_query.exists(): # if query in db return result = cost
+        return target_query.get().cost
 
-    save_to_db(order_info)
+    result_from_parce = parce_m_grup(formatX, formatY, density, pressrun, duplex)
+    if result_from_parce != '':
+        cost = int(''.join(result_from_parce.split(' ')))  # to integer
 
-    # Здесь проверка наличия в модели записи с такими же параметрами
-    # если нет такого то идем в парсер
-    return x
+    save_to_db(order_info, cost=cost)
+
+    return cost
 
 
 def riso_calc(order_info):
@@ -64,22 +69,21 @@ def check_db_or_calc_and_save(order_info):
         return None
 
 
-def save_to_db(order_info):
+def save_to_db(order_info, **kwargs):
 
     if order_info.get('type_order') == 'solvent':
         new_cost = Solvent_model(type=order_info['type'],
                                  cost=order_info['cost'])
     elif order_info.get('type_order') == 'offset':
-
+        cost = kwargs.get('cost')
         new_cost = Offset_model(formatX=order_info['formatX'],
-                                 formatY=order_info['formatY'],
-                                 density=order_info['density'],
-                                 pressrun=order_info['pressrun'],
-                                 duplex=order_info['duplex'],
-                                 cost=order_info['cost'])
+                                formatY=order_info['formatY'],
+                                density=order_info['density'],
+                                pressrun=order_info['pressrun'],
+                                duplex=order_info['duplex'],
+                                cost=cost)
 
     new_cost.save()
-
 
 
 # https://django.fun/ru/docs/django/4.1/topics/db/queries/ - !!!
