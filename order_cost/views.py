@@ -42,10 +42,12 @@ def offset(request, context):
 @view_decorator
 def solvent(request, context):
     context['solvent_db'] = Solvent_model.objects.all()
-    context['form'] = SolventForm()
-    context['form_set'] = SolventSetForm()
 
-    if request.method == 'POST':
+    if request.method == 'GET':
+        context['form'] = SolventForm()
+        context['form_set'] = SolventSetForm()
+
+    elif request.method == 'POST':
         form = SolventForm(request.POST)
         form_set = SolventSetForm(request.POST)
         if form.is_valid():
