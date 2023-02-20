@@ -32,7 +32,8 @@ def offset(request, context):
         if form.is_valid():
             data = form.cleaned_data
             context.update(data)
-            context['result'] = check_db_or_calc_and_save(data)  # выполняестя расчет заказа
+            context['result'] = check_db_or_calc_and_save(
+                data)  # выполняестя расчет заказа
             context['form'] = form
         else:
             context['form'] = OffsetForm()
@@ -41,6 +42,7 @@ def offset(request, context):
 
 @view_decorator
 def solvent(request, context):
+
     context['solvent_db'] = Solvent_model.objects.all()
 
     if request.method == 'GET':
@@ -48,18 +50,25 @@ def solvent(request, context):
         context['form_set'] = SolventSetForm()
 
     elif request.method == 'POST':
-        form = SolventForm(request.POST)
-        form_set = SolventSetForm(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            context.update(data)
-            context['result'] = check_db_or_calc_and_save(data)
-            context['form'] = form
-        elif form_set.is_valid():
-            data = form_set.cleaned_data
-            new_cost = save_to_db(data)
-            context['form_set'] = form_set
-            context['cost'] = new_cost
+        if 'cost' in request.POST.keys():
+            context['form'] = SolventForm()
+            form_set = SolventSetForm(request.POST)
+            if form_set.is_valid():
+                data = form_set.cleaned_data
+                new_cost = save_to_db(data)
+                context['form_set'] = form_set
+                context['cost'] = new_cost
+
+        else:
+            context['form_set'] = SolventSetForm()
+            form = SolventForm(request.POST)
+
+            if form.is_valid():
+                data = form.cleaned_data
+                context.update(data)
+                context['result'] = check_db_or_calc_and_save(data)
+                context['form'] = form
+
     return render(request, template_name='order_cost/solvent.html', context=context)
 
 
