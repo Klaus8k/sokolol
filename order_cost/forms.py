@@ -18,8 +18,9 @@ class OffsetForm(forms.Form):
                                 label='Плотность (г/м)', choices=paper_weigh)
     pressrun = forms.IntegerField(required=None, min_value=0, max_value=100000,
                                   label='Тираж (шт)', widget=form_wiget)
-    duplex = forms.BooleanField(required=None, label='4+4/4+0',
+    duplex = forms.BooleanField(required=None, label='4+4/4+0', 
                                 widget=widgets.RadioSelect(choices=duplex_choise))
+    
 
 
 material_choise = [('banner', 'Баннер'),

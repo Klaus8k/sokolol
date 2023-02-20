@@ -43,9 +43,12 @@
                 <h4>из базы данных информация</h4>
 
 
-                <div> {% for item in solvent_db %}
+                <div> {% for item in solvent_db|dictsortreversed:'date'  %}
                     <p>{{ item }}</p>
                     {% endfor %}
+                </div>
+                <div>
+
                 </div>
 
             </div>
