@@ -1,9 +1,10 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.views import View
 
 from my_logger import logger_view as logger
 
-from .forms import OffsetForm, SolventForm, SolventSetForm
+from .forms import OffsetForm, SolventForm, SolventSetForm, RisoForm, RisoSetForm
 from .logic import check_db_or_calc_and_save, save_to_db
 from .models import Solvent_model, Offset_model
 
@@ -72,9 +73,36 @@ def solvent(request, context):
     return render(request, template_name='order_cost/solvent.html', context=context)
 
 
-@view_decorator
-def riso(request, context):
-    return render(request, template_name='order_cost/riso.html', context=context)
+# Вьюха на основе класса
+class Riso_view(View):
+    """"""
+    form_class = RisoForm
+    set_form_class = RisoSetForm
+    initial = {'key': 'value'}
+    template_name = 'order_cost/riso.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        form_set = self.set_form_class(initial=self.initial)
+        context = {'form': form, 'form_set': form_set}
+        context.update(pages_service)
+        context['page_name'] = 'riso'
+        return render(request, self.template_name, context=context)
+
+    def post(self, request, *args, **kwargs):
+        pass
+    # Здесь надо обработку при запросе гет.
+    # Надо посмотреть как формы классами обрабатываются
+
+    # context = pages_service
+
+    # def get(self, request):
+    #     return render(request, template_name='order_cost/riso.html', context=pages_service)
+
+
+# @view_decorator
+# def riso(request, context):
+#     return render(request, template_name='order_cost/riso.html', context=context)
 
 
 @view_decorator

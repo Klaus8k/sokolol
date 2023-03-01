@@ -40,3 +40,10 @@ class Offset_model(models.Model):
         else:
             duplex = '4+0'
         return f'{self.formatX}x{self.formatY}мм, {self.density}г/м, {self.pressrun}шт, {duplex}, цена: {self.cost} руб.'
+
+
+class Riso_model(models.Model):
+    date = models.DateTimeField(verbose_name='date', auto_now_add=True)
+    paper_cost_80 = models.IntegerField()
+    black_ink_cost = models.IntegerField()
+    master_list_cost = models.IntegerField()
