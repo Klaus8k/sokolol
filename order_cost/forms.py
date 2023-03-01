@@ -3,6 +3,7 @@ from django.forms import widgets
 
 paper_weigh = [(130, 130), (170, 170), (300, 300)]
 duplex_choise = [(True, '4+4'), (False, '4+0')]
+riso_formats = [('A4', 'A4',), ('A5', 'A5',), ('A6', 'A6',)]
 # class html for css preference 'offset_form'
 form_wiget = widgets.NumberInput(attrs={'class': 'offset_form'})
 
@@ -18,9 +19,8 @@ class OffsetForm(forms.Form):
                                 label='Плотность (г/м)', choices=paper_weigh)
     pressrun = forms.IntegerField(required=None, min_value=0, max_value=100000,
                                   label='Тираж (шт)', widget=form_wiget)
-    duplex = forms.BooleanField(required=None, label='4+4/4+0', 
+    duplex = forms.BooleanField(required=None, label='4+4/4+0',
                                 widget=widgets.RadioSelect(choices=duplex_choise))
-    
 
 
 material_choise = [('banner', 'Баннер'),
@@ -45,3 +45,18 @@ class SolventSetForm(forms.Form):
     type = forms.ChoiceField(required=True,
                              label='Материал (квм)', choices=material_choise)
     cost = forms.IntegerField(required=True, label='Цена закупки')
+
+
+class RisoForm(forms.Form):
+    format = forms.ChoiceField(
+        required=True, label='Формат:', choices=riso_formats)
+    pressrun = forms.IntegerField(min_value=200, label='Тираж', required=True)
+
+
+class RisoSetForm(forms.Form):
+    paper_cost_80 = forms.IntegerField(
+        label='Цена за пачку 500л', required=True)
+    black_ink_cost = forms.IntegerField(
+        label='Цена за банку краски', required=True)
+    master_list_cost = forms.IntegerField(
+        required=True, label='Цена мастер пленки')
