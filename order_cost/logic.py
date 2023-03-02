@@ -1,8 +1,8 @@
-from .models import Offset_model, Solvent_model
+from .models import Offset_model, Riso_model, Solvent_model
 from .parsers.parser import parce_m_grup
 
 
-def check_in_db(order_info): # функцию для проверки наличия в бд,
+def check_in_db(order_info):  # функцию для проверки наличия в бд,
     # или декоратор, который сразу проверяет если есть отдает
     pass
 
@@ -26,10 +26,11 @@ def offset_calc(order_info: dict):
 
     target_query = Offset_model.objects.filter(
         formatX=formatX, formatY=formatY, pressrun=pressrun, duplex=duplex)
-    if target_query.exists(): # if query in db return result = cost
+    if target_query.exists():  # if query in db return result = cost
         return target_query.get().cost
 
-    result_from_parce = parce_m_grup(formatX, formatY, density, pressrun, duplex)
+    result_from_parce = parce_m_grup(
+        formatX, formatY, density, pressrun, duplex)
     if result_from_parce != '':
         cost = int(''.join(result_from_parce.split(' ')))  # to integer
 
@@ -38,8 +39,22 @@ def offset_calc(order_info: dict):
     return cost
 
 
-def riso_calc(order_info):
-    pass
+def riso_calc(order_info: dict):
+    if 'paper_cost_80' in order_info.keys():
+        paper_cost_80 = order_info['paper_cost_80']
+        black_ink_cost = order_info['black_ink_cost']
+        master_list_cost = order_info['master_list_cost']
+
+        new_to_save = Riso_model(paper_cost_80=paper_cost_80,
+                                black_ink_cost=black_ink_cost,
+                                master_list_cost=master_list_cost
+                                )
+        new_to_save.save()
+        
+    else:
+        pressrun, format = int(order_info['pressrun']), order_info['format']
+        
+        return pressrun * format
 
 
 def stamp_calc(order_info):
