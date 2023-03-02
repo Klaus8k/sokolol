@@ -16,7 +16,7 @@ class Solvent_model(models.Model):
     type = models.CharField('type', max_length=20)
     cost = models.IntegerField('cost')
     type_order = models.ForeignKey(
-        Type_Order, on_delete=models.CASCADE, default='4', verbose_name='solvent')
+        Type_Order, on_delete=models.CASCADE, default='2', verbose_name='solvent')
 
     def __str__(self) -> str:
         return f'Дата: {self.date.strftime("%m/%d/%y %H:%M:%S")}, Материал: {self.type}, Цена за m2: {self.cost} руб.'
@@ -32,7 +32,7 @@ class Offset_model(models.Model):
     duplex = models.BooleanField()
     cost = models.IntegerField(default=None)
     type_order = models.ForeignKey(
-        Type_Order, on_delete=models.CASCADE, default='3', verbose_name='offset')
+        Type_Order, on_delete=models.CASCADE, default='1', verbose_name='offset')
 
     def __str__(self) -> str:
         if self.duplex:
