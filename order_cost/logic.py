@@ -40,21 +40,15 @@ def offset_calc(order_info: dict):
 
 
 def riso_calc(order_info: dict):
-    if 'paper_cost_80' in order_info.keys():
-        paper_cost_80 = order_info['paper_cost_80']
-        black_ink_cost = order_info['black_ink_cost']
-        master_list_cost = order_info['master_list_cost']
-
-        new_to_save = Riso_model(paper_cost_80=paper_cost_80,
-                                black_ink_cost=black_ink_cost,
-                                master_list_cost=master_list_cost
-                                )
-        new_to_save.save()
-        
+    if 'pressrun' not in order_info.keys():
+        Riso_model.objects.create(paper_cost_80=order_info['paper_cost_80'],
+                                  black_ink_cost=order_info['black_ink_cost'],
+                                  master_list_cost=order_info['master_list_cost'])
     else:
-        pressrun, format = int(order_info['pressrun']), order_info['format']
-        
-        return pressrun * format
+        last_update = Riso_model.objects.order_by('-date')[0]
+        one_list_cost = (last_update.paper_cost_80 / 500) + (last_update.black_ink_cost / 5000)
+        print(one_list_cost)
+        return int(order_info['pressrun']) * one_list_cost + (last_update.master_list_cost / 20)
 
 
 def stamp_calc(order_info):

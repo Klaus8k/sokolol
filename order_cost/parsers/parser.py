@@ -31,7 +31,7 @@ class Parse_unit(webdriver.Firefox):
         elif 'Selenium_drivers' not in os.environ['PATH'].split():
             os.environ['PATH'] = os.environ['PATH'] + r";C:\Selenium_drivers"
 
-            logger.warning(f'{os.environ["PATH"]}')
+            # logger.warning(f'{os.environ["PATH"]}')
             options = Options()
             options.page_load_strategy = 'normal'
             options.headless = True
@@ -60,14 +60,6 @@ def parce_m_grup(formatX, formatY, density, pressrun, duplex):
     logger.warning('Start parse m_grup')
     params = [formatX, formatY, density, pressrun, duplex]
     logger.warning('input params - %s', params)
-    # из объекта заказа берем данные по заказу словарем
-
-    # density = offset_obj['density']
-    # formatX = offset_obj['formatX']
-    # formatY = offset_obj['formatY']
-    # # offset_obj.__dict__['duplex'] --- TODO выбор дуплекса не работет!
-    # duplex = False
-    # pressrun = offset_obj['pressrun']
 
     with Parse_unit() as m_grup:
 

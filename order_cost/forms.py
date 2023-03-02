@@ -54,9 +54,9 @@ class RisoForm(forms.Form):
 
 
 class RisoSetForm(forms.Form):
-    paper_cost_80 = forms.IntegerField(
-        label='Цена за пачку 500л', required=True)
-    black_ink_cost = forms.IntegerField(
-        label='Цена за банку краски', required=True)
-    master_list_cost = forms.IntegerField(
-        required=True, label='Цена мастер пленки')
+    paper_cost_80 = forms.IntegerField(required=True,
+        label='Цена за пачку 500л')
+    black_ink_cost = forms.IntegerField(required=True,
+        label='Цена за банку краски')
+    master_list_cost = forms.IntegerField(required=True,
+        label='Цена мастер пленки')
