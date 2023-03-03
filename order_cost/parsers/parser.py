@@ -57,7 +57,6 @@ class Parse_unit(webdriver.Firefox):
 
 
 def parce_m_grup(formatX, formatY, density, pressrun, duplex):
-    result =''
     logger.warning('Start parse m_grup')
     params = [formatX, formatY, density, pressrun, duplex]
     logger.warning('input params - %s', params)
@@ -138,6 +137,8 @@ def parce_m_grup(formatX, formatY, density, pressrun, duplex):
             By.CSS_SELECTOR, 'input[name="circulation_other"]')
         x.clear()
         x.send_keys(pressrun)
+
+        result =''
 
         # Итоговая цена тиража - TODO не всегда результат отдает
         WebDriverWait(m_grup, 20).until(EC.visibility_of_element_located(
