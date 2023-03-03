@@ -23,20 +23,6 @@ h6 {
     font-weight: 500;
 }
 
-.search-form__icon {
-    height: 46px;
-    width: 46px;
-    margin-left: 15px;
-}
-
-.form_placeholder {
-    border-style: double;
-    margin-left: 20px;
-    border-color: #292929;
-    height: 47px;
-    width: 235px;
-}
-
 .resume-content {
     margin-top: 50px;
 }

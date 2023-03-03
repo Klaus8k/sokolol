@@ -12,7 +12,7 @@ from .logic import check_db_or_calc_and_save, riso_calc, save_to_db
 from .models import Offset_model, Riso_model, Solvent_model
 
 # Create your views here.
-PAGES = ['offset', 'solvent', 'riso', 'stamp', 'oki']
+PAGES = ['offset', 'solvent', 'riso']
 pages_service = {'pages': PAGES, 'active': 'active', 'page_name': None}
 
 
@@ -112,13 +112,3 @@ class Riso_view(View, ContextMixin):
             context.update({'result': result})
         return render(request, self.template_name, context=context)
 
-
-@view_decorator
-def stamp(request, context, cost_settings):
-    return render(request, template_name='order_cost/stamp.html', context=context)
-
-
-@view_decorator
-def oki(request, context, cost_settings):
-
-    return render(request, template_name='order_cost/oki.html', context=context)

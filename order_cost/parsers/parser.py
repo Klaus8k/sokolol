@@ -57,6 +57,7 @@ class Parse_unit(webdriver.Firefox):
 
 
 def parce_m_grup(formatX, formatY, density, pressrun, duplex):
+    result =''
     logger.warning('Start parse m_grup')
     params = [formatX, formatY, density, pressrun, duplex]
     logger.warning('input params - %s', params)
@@ -144,6 +145,6 @@ def parce_m_grup(formatX, formatY, density, pressrun, duplex):
         result = m_grup.find_element(By.CSS_SELECTOR,
                                      'span[class="b-price__text"').text
         logger.warning('result - %s', result)
-        del(m_grup)
+        # del(m_grup)
 
         return result

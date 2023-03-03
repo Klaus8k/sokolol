@@ -70,10 +70,6 @@ def check_db_or_calc_and_save(order_info):
         return solvent_calc(order_info)
     elif type_order_request == 'riso':
         return riso_calc(order_info)
-    elif type_order_request == 'stam':
-        return stamp_calc(order_info)
-    elif type_order_request == 'oki':
-        return oki_calc(order_info)
     else:
         return None
 

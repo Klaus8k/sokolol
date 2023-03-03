@@ -1,23 +1,17 @@
 from unicodedata import name
-from django.views.generic.base import TemplateView
+
 from django.urls import path
-from .views import offset, solvent, Riso_view
+from django.views.generic.base import TemplateView
+
 from order_cost import views
 
+from .views import Riso_view, offset, solvent
 
 app_name = 'order_cost'
 urlpatterns = [
     path('', TemplateView.as_view(template_name='order_cost_index.html')),
     path('offset/', views.offset, name='offset'),
     path('solvent/', views.solvent, name='solvent'),
-    # path('riso/', views.riso, name='riso'),
     path('riso/', Riso_view.as_view(), name='riso'), 
-
-
-    path('stamp/', views.stamp, name='stamp'),
-    path('oki/', views.oki, name='oki'),
-
-
-
-]
+    ]
 # Add path's for other page in app order_cost
