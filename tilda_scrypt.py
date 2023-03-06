@@ -1,7 +1,7 @@
 import socket
 import requests
 
-host = ('', 50000)
+host = ('37.230.141.81', 50000)
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
     sock.bind(host)
