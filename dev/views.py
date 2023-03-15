@@ -6,4 +6,4 @@ from django.http.response import HttpResponse
 class Dev_view(View):
 
     def get(sefl, *args, **kwargs):
-        return HttpResponse('test')
+        return HttpResponse('<h1>Sub Domen dev.####.ru</h1>')
