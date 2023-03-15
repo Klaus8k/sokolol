@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('DJ_SK', 'vnoqvnwovkjnr3or3;lkn43;kj4vklahdsdhjf')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJ_D', False)
 
-ALLOWED_HOSTS = ['37.230.141.81', 'sokolol.ru', '*']
+ALLOWED_HOSTS = ['37.230.141.81', 'sokolol.ru', '*', 'dev.localhost',]
 
 
 # Application definition
@@ -43,9 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'order_cost',
+    'dev',
 ]
 
 MIDDLEWARE = [
+    'django_hosts.middleware.HostsRequestMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,7 +55,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_hosts.middleware.HostsRequestMiddleware',
 ]
+
+ROOT_HOSTCONF = 'sokolol.hosts'
+DEFAULT_HOST = ' '
 
 ROOT_URLCONF = 'sokolol.urls'
 
@@ -63,7 +69,7 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR / 'sokolol/templates/sokolol',
             BASE_DIR / 'order_cost/templates/order_cost',
-            ],
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
