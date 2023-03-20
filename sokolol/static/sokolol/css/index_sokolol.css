@@ -13,26 +13,29 @@ p {
 }
 
 .my_photo {
-    width: 280px;
-    height: auto;
+    width: 350px;
+    height: 350px;
+}
+
+.projects_img {
+    width: 350px;
+    height: 350px;
+}
+
+.git_svg {
+    height: 38px;
+    width: 38px;
 }
 
 
 
 
-
-/* Media requests */
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 992px) {
     .my_photo {
-        display: none;
-    }
-
-    .projects_img {
-        display: none;
-    }
-
-    .container > .offset-1 {
-        offset: none;
+        width: 250px;
+        height: 250px;
+        margin-top: 30px !important;
+        align-items: start;
     }
     
 }

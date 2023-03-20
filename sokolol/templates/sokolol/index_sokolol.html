@@ -12,98 +12,245 @@
     <link rel="stylesheet" type="text/css" href="{% static 'sokolol/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'sokolol/css/index_sokolol.css' %}">
     <script src="{% static 'sokolol/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'sokolol/js/sokolol.js' %}"></script>
+
 
 
 </head>
 
 <body class="body">
-
-    <div class="container">
-
-        <header class="header my-4 border">
-            <div class="row">
-
+    <header class="header my-4">
+        <div class="container">
+            <div class="row border">
                 <div class="col my-logo">
                     <h1>Sokolol.ru</h1>
                 </div>
-                <div class="offset col-lg-3">
-                    <h3>Klaus8k - git link</h3>
+    </header>
+
+    <div class="resume my-4">
+        <div class="container">
+            <div class="row border">
+                <div class="col border">
+                    <p class="text">
+                        Здравствуйте.
+                        Меня зовут Олег. Я сделал этот сайт для того что бы собрать на нем свои проекты. Чем то
+                        я пользуюсь на работе. Какие то из них - просто демонстрация навыков и место где эти
+                        навыки
+                        можно развить. Что то просто было интересно, поэтому оно здесь.
+                        <br><br>
+                        Возможно этот сайт будет интересен работодателям и людям заинтерисованным в моих
+                        навыках.
+                        <br><br>
+                        Здесь есть ссылка на резюме (pdf). Так же все проекты опубликованы на github.com.
+                        <br><br>
+                        Контакты для связи внизу и по иконкам.
+                        <br><br><br>
+                        Спасибо за внимание =)
+                    </p>
+
+                    <div class="resume-content__dwnld">
+                        <p class="explain">посмотреть полное резюме или скачать</p>
+                        <div class="icon-dwn d-flex">
+                            <button class="btn btn-primary px-4" type="button" href="#">
+                                РЕЗЮМЕ</button>
+                            <button class="btn btn-primary mx-3 px-4" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse_contacts" aria-expanded="false"
+                                aria-controls="collapse_contacts">
+                                ПОСМОТРЕТЬ КОНТАКТЫ</button>
+
+                            <img href="#" class="ms-2" src="{% static 'sokolol/img/download.svg' %}" alt="resume"></img>
+                        </div>
+                    </div>
                 </div>
-        </header>
 
+                <div class="col-lg-5 d-flex">
+                    <img class="my_photo mx-auto rounded" src="{% static 'sokolol/img/photo.jpg' %}" alt="my_photo">
+                </div>
+                <div class="collapse" id="collapse_contacts">
+                    <div class="card p-3">
+                        телефон для связи 8 964 555 555 555 555
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="projects-title">
+        <div class="container mt-4 pt-4">
+            <div class="row border">
+                <div class="col-12 d-flex justify-content-center">
+                    <h1 class="title_project">Проекты</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- d-none -->
+    <div class="order_cost">
+        <div class="container mt-4">
+            <div class="row border">
+                <div class="block-l col d-flex">
+                    <img class="projects_img me-auto mb-3 rounded" src="{% static 'sokolol/img/plholder_project.jpg' %}"
+                        alt="order_cost_img">
+                </div>
+                <div class="projects-text col border" style="flex-direction: column;">
+                    <h2>Расчет себестоимости заказов</h2>
+                    <p>Сервис расчета себестоимости заказов в различных сферах полиграфии и
+                        печати, разными способами,
+                        на разных размерах.
+                        Расчет расхода носителя, расходных материалов и амортизации.
+                        Сервис расчета себестоимости заказов в различных сферах полиграфии и
+                        печати, разными способами,
+                        на разных размерах.
+                        Расчет расхода носителя, расходных материалов и амортизации.
+                    </p>
+                    <div>
+                        <a href="/order_cost" type="button" class="btn btn-primary">order_cost</a>
+                        <a href="/order_cost/offset" type="button" class="btn btn-info">offset</a>
+                        <a href="/order_cost/solvent" type="button" class="btn btn-info">solvent</a>
+                        <a href="/order_cost/riso" type="button" class="btn btn-info">riso</a>
+                        <img href="GIT" class="git_svg ms-2" src="{% static 'sokolol/img/git.svg' %}"
+                            alt="git_order_cost"></img>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <div class="working-timer">
+        <div class="container mt-4">
+            <div class="row border">
+                <div class="block-l col d-flex">
+                    <img class="projects_img me-auto mb-3 rounded" src="{% static 'sokolol/img/plholder_project.jpg' %}"
+                        alt="order_cost_img">
+                </div>
+                <div class="projects-text col border" style="flex-direction: column;">
+                    <h2>Простой таймер для учета врамени на заказ</h2>
+                    <p>Таймер с UI для замера и учета времени затраченного на определенный заказ.
+                        Таймер с UI для замера и учета времени затраченного на определенный заказ.
+                        Таймер с UI для замера и учета времени затраченного на определенный заказ.
+                        Таймер с UI для замера и учета времени затраченного на определенный заказ.
+                    </p>
+                    <div>
+                        <a href="#" type="button" class="btn btn-primary">Страница таймера</a>
+                        <img href="GIT" class="git_svg ms-2" src="{% static 'sokolol/img/git.svg' %}"
+                            alt="timer_img"></img>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <div class="learning_projects">
+        <div class="container mt-4">
+            <div class="row border">
+                <div class="block-l col d-flex">
+                    <img class="projects_img me-auto mb-3 rounded" src="{% static 'sokolol/img/plholder_project.jpg' %}"
+                        alt="order_cost_img">
+                </div>
+                <div class="projects-text col border" style="flex-direction: column;">
+                    <h2>Учебные проекты</h2>
+                    <p>Учебные и более мелкие проекты. Учебные и более мелкие проекты. Учебные и более мелкие проекты.
+                        Учебные и более мелкие проекты. Учебные и более мелкие проекты. Учебные и более мелкие проекты.
+                    </p>
+                    <div>
+                        <a href="#" type="button" class="btn btn-primary">Страница таймера</a>
+                        <img href="GIT" class="git_svg ms-2" src="{% static 'sokolol/img/git.svg' %}"
+                            alt="timer_img"></img>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+
+
+    <div class="carousel border">
         <div class="container border">
-            <div class="resume my-4 border">
-                <div class="row">
-                    <div class="col">
-                        <p class="text">
-                            Здравствуйте.
-                            Меня зовут Олег. Я сделал этот сайт для того что бы собрать на нем свои проекты. Чем то
-                            я пользуюсь на работе. Какие то из них - просто демонстрация навыков и место где эти
-                            навыки
-                            можно развить. Что то просто было интересно, поэтому оно здесь.
-                            <br><br>
-                            Возможно этот сайт будет интересен работодателям и людям заинтерисованным в моих
-                            навыках.
-                            <br><br>
-                            Здесь есть ссылка на резюме (pdf). Так же все проекты опубликованы на github.com.
-                            <br><br>
-                            Контакты для связи внизу и по иконкам.
-                            <br><br><br>
-                            Спасибо за внимание =)
-                        </p>
-                        <div class="resume-content__dwnld">
-                            <p class="explain">посмотреть полное резюме или скачать</p>
-                            <div class="icon-dwn d-flex">
-                                <button class="btn btn-primary px-4" type="button" href="#">
-                                    РЕЗЮМЕ</button>
-                                <button class="btn btn-primary mx-3 px-4" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapse_contacts" aria-expanded="false"
-                                    aria-controls="collapse_contacts">
-                                    ПОСМОТРЕТЬ КОНТАКТЫ</button>
+            <div class="row border">
+                <div class="d-flex justify-content-center">
+                    <h2>SERTIFICATION'S</h2>
+                </div>
 
-                                <img href="#" class="ms-2" src="{% static 'sokolol/img/download.svg' %}"
-                                    alt="resume"></img>
+                <div id="CarouselSert" class="carousel slide d-flex pe-4">казан следующий элемент (на
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{% static 'sokolol/img/carousel.png' %}" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Метка первого слайда</h5>
+                                <p>Некоторый репрезентативный заполнитель для первого слайда.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'sokolol/img/carousel.png' %}" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Метка второго слайда</h5>
+                                <p>Некоторый репрезентативный заполнитель для второго слайда.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'sokolol/img/carousel.png' %}" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Метка третьего слайда</h5>
+                                <p>Некоторый репрезентативный заполнитель для третьего слайда.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 d-flex justify-content-end">
-                        <img class="my_photo" src="{% static 'sokolol/img/photo.jpg' %}" alt="my_photo">
-                    </div>
-                    <div class="collapse" id="collapse_contacts">
-                        <div class="card p-3">
-                            телефон для связи 8 964 555 555 555 555
-                        </div>
-                    </div>
-
+                    <button class="carousel-control-prev" type="button" data-bs-target="#CarouselSert"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Предыдущий</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#CarouselSert"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Следующий</span>
+                    </button>
                 </div>
+
             </div>
         </div>
-
-        <div class="container mt-4 pt-4 border">
-            <div class="projects-title border">
-
-                <div class="row">
-                    <div class="col-12 d-flex justify-content-center">
-                        <h1 class="title_project">Рабочие проекты</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container mt-4 border">
-            <div class="order_cost border">
-
-                <div class="row">
-                    <div>11111111111
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-
     </div>
+    </div>
+
+
+    <br><br>
+    <br><br>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row d-flex border">
+                <div class="col">
+                    <h4>Контакты</h4>
+                    <p>
+                        КонтактыКонтактыКонтактыКонтатыКонтактыК
+                        онтактыКонтактыКонтактыКонтакты
+                        КонтактыКонтактыКонтактыКонтактыКонтакты
+                    </p>
+                </div>
+                <div class="col">
+                    <h4>Контакты</h4>
+                    <p>
+                        КонтактыКонтактыКонтактыКонтактыКонтак
+                        тыКонтактыКонтактыКонтактыКонтактыКон
+                        тактыКонтактыКонтактыКонтактыКонтакты
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
 
 </body>

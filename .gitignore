@@ -10,6 +10,8 @@ db.sqlite3
 source_for_talpo
 *.svg
 *.jpg
+*.png
+
 # *.json
 /static/
 *.py.sw[op]
