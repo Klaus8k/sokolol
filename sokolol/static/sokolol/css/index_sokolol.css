@@ -1,0 +1,38 @@
+p {
+    font-size: 15px;
+}
+
+.explain {
+    font-size: 10px;
+    color: grey;
+}
+
+.btn:hover {
+    background: #063856;
+    color: azure;
+}
+
+.my_photo {
+    width: 280px;
+    height: auto;
+}
+
+
+
+
+
+/* Media requests */
+@media screen and (max-width: 990px) {
+    .my_photo {
+        display: none;
+    }
+
+    .projects_img {
+        display: none;
+    }
+
+    .container > .offset-1 {
+        offset: none;
+    }
+    
+}
