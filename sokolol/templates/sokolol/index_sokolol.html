@@ -32,7 +32,7 @@
     <!-- Приветствие -->
     <div class="resume my-4">
         <div class="container">
-            <div class="row border">
+            <div class="resume_block row border">
                 <div class="col border">
                     <p class="text">
                         Здравствуйте.
@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="col-lg-5 d-flex">
-                    <img class="my_photo mx-auto rounded" src="{% static 'sokolol/img/photo.jpg' %}" alt="my_photo">
+                    <img class="my_photo  rounded" src="{% static 'sokolol/img/photo.jpg' %}" alt="my_photo">
                 </div>
                 <div class="collapse" id="collapse_contacts">
                     <div class="card p-3">
@@ -177,7 +177,7 @@
         <div class="container border">
             <div class="row border">
                 <div class="d-flex justify-content-center">
-                    <h2>SERTIFICATION'S</h2>
+                    <h1>СЕРТИФИКАТЫ</h1>
                 </div>
                 <div id="CarouselSert" class="carousel slide d-flex pe-4">
                     <div class="carousel-indicators">
@@ -187,29 +187,64 @@
                             aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="2"
                             aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="4"
+                            aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="5"
+                            aria-label="Slide 6"></button>
                     </div>
+
                     <div class="carousel-inner">
+
                         <div class="carousel-item active">
-                            <img src="{% static 'sokolol/img/carousel.png' %}" class="d-block w-100" alt="...">
+                            <img src="{% static 'sokolol/img/sert/cours_py.jpg' %}" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Метка первого слайда</h5>
                                 <p>Некоторый репрезентативный заполнитель для первого слайда.</p>
                             </div>
                         </div>
+
                         <div class="carousel-item">
-                            <img src="{% static 'sokolol/img/carousel.png' %}" class="d-block w-100" alt="...">
+                            <img src="{% static 'sokolol/img/sert/cours_oop.jpg' %}" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Метка второго слайда</h5>
                                 <p>Некоторый репрезентативный заполнитель для второго слайда.</p>
                             </div>
                         </div>
+
                         <div class="carousel-item">
-                            <img src="{% static 'sokolol/img/carousel.png' %}" class="d-block w-100" alt="...">
+                            <img src="{% static 'sokolol/img/sert/stepilk_py.jpg' %}" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Метка третьего слайда</h5>
-                                <p>Некоторый репрезентативный заполнитель для третьего слайда.</p>
+                                <h5>Метка второго слайда</h5>
+                                <p>Некоторый репрезентативный заполнитель для второго слайда.</p>
                             </div>
                         </div>
+
+                        <div class="carousel-item">
+                            <img src="{% static 'sokolol/img/sert/stepilk_sql.jpg' %}" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Метка второго слайда</h5>
+                                <p>Некоторый репрезентативный заполнитель для второго слайда.</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="{% static 'sokolol/img/sert/ru.jpg' %}" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Метка второго слайда</h5>
+                                <p>Некоторый репрезентативный заполнитель для второго слайда.</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="{% static 'sokolol/img/sert/en.jpg' %}" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Метка второго слайда</h5>
+                                <p>Некоторый репрезентативный заполнитель для второго слайда.</p>
+                            </div>
+                        </div>
+
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#CarouselSert"
                         data-bs-slide="prev">
