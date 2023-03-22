@@ -10,10 +10,11 @@
     background-color: rgb(255, 255, 255);
 }
 
+.card img {
+    height: 60%;
+    width: auto;
+}
 
-
-
-/* .block_box {
-    display: flex;
-    justify-content: center;
-} */
+.card-text {
+    font-size: 16px;
+}
