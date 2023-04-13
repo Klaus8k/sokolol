@@ -20,8 +20,8 @@
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-4 mb-5 border-bottom">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                <img class="me-3" width="40" height="32"></img>
-                <span class="fs-3">Back</span>
+                <img src="{% static 'sokolol/img/arrow_l.svg' %}" class="me-3" width="40px" height="32px"></img>
+                <h3>На главную</h3>
             </a>
 
             <ul class="nav nav-pills">
@@ -43,7 +43,6 @@
     </div>
 
     <div class="container shadow rounded">
-            {{ page_name }}
             {% block content %}
             {% endblock %}
 

@@ -19,13 +19,14 @@
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-4 mb-5 border-bottom">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                <img class="me-3" width="40" height="32"></img>
-                <span class="fs-3">Back</span>
+                <img src="{% static 'sokolol/img/arrow_l.svg' %}" class="me-3" width="40px" height="32px"></img>
+                <h3>На главную</h3>
             </a>
 
-            <ul class="nav nav-pills">
+            <ul class="nav nav-pills align-items-center">
                 <li class="nav-item"><a href="/order_cost" class="nav-link active">main</a></li>
-                <li class="nav-item"><a href="{% url 'order_cost:offset' %}" class="nav-link " aria-current="page">offset</a></li>
+                <li class="nav-item"><a href="{% url 'order_cost:offset' %}" class="nav-link "
+                        aria-current="page">offset</a></li>
                 <li class="nav-item"><a href="{% url 'order_cost:solvent' %}" class="nav-link">solvent</a></li>
                 <li class="nav-item"><a href="{% url 'order_cost:riso' %}" class="nav-link">riso</a></li>
             </ul>
@@ -33,12 +34,47 @@
     </div>
 
     <div class="container">
+        <div class="row row-cols-1 row-cols-md-3">
 
-        <h3 style="color: brown;">
-            Here blocks about all apps
-        </h3>
+            <!-- карточка товара -->
+            <div class="card_block p-3">
+                <div class="card p-2 border">
+                    <img src="{% static '/order_cost/img/offset.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title">Расчет оффсетной печати</h3>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="{% url 'order_cost:offset' %}" class="btn btn-primary px-5">OFFSET</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card_block p-3">
+                <div class="card p-2 border">
+                    <img src="{% static '/order_cost/img/solvent.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title">Расчет сольветной печати</h3>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="{% url 'order_cost:solvent' %}" class="btn btn-primary px-5">SOLVENT</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card_block p-3">
+                <div class="card p-2 border">
+                    <img src="{% static '/order_cost/img/riso.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title">Расчет тиражирования на ризографе</h3>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="{% url 'order_cost:riso' %}" class="btn btn-primary px-5">RISO</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-
 </body>
 
 </html>
