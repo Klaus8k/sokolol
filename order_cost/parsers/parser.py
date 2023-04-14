@@ -145,13 +145,15 @@ def parce_m_grup(formatX, formatY, density, pressrun, duplex):
         result =''
 
         # Итоговая цена тиража - TODO не всегда результат отдает
-        WebDriverWait(m_grup, 20).until(EC.visibility_of_element_located(
-            (By.CSS_SELECTOR, 'span[class="b-price__text"')))
-        result = m_grup.find_element(By.CSS_SELECTOR,
-                                     'span[class="b-price__text"').text
-        logger.warning('result - %s', result)
-        
-        if not result:
+
+        try:
+            WebDriverWait(m_grup, 20).until(EC.visibility_of_element_located(
+                (By.CSS_SELECTOR, 'span[class="b-price__text"')))
+            result = m_grup.find_element(By.CSS_SELECTOR,
+                                        'span[class="b-price__text"').text
+            logger.warning('result - %s', result)
+            return result
+
+        except:
             return 'not result'
 
-        return result

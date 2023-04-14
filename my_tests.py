@@ -1,15 +1,15 @@
-def romanToInt(s: str) -> int:
-    roman_letter = ('I', 'V', 'X', 'L', 'C', 'D', 'M')
-    sum = 0
-    mid_sum = s[0]
-    for i in s:
-        index = s.index(i)
-        if  index < len(s) and index < s.index(i+1):
-            mid_sum += 1
+import os
+from datetime import timedelta, datetime
 
+start = datetime.now()
 
+x = 1
+while x < 1000000000:
+    x += 1
+    print(x)
 
-
-
-
-assert romanToInt('III') != 3, 'not true'
+    from_start = datetime.now() - start
+    print(from_start.seconds)
+    my_pid = os.getpid()
+    if from_start.seconds >= 2:
+        os.kill(my_pid, 15)
