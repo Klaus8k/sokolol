@@ -6,9 +6,9 @@ file_handler = logging.FileHandler(f'logs/parser_log.txt', mode='a')
 cons_handler.setLevel(logging.WARNING)
 file_handler.setLevel(logging.DEBUG)
 cons_format = logging.Formatter(
-    '%(levelname)s : %(relativeCreated)d ms %(message)s')
+    '%(levelname)s||| %(message)s')
 file_format = logging.Formatter(
-    '%(asctime)s PID - %(process)d. %(relativeCreated)d ms %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+    '%(asctime)s||| %(message)s', datefmt='%H:%M:%S')
 cons_handler.setFormatter(cons_format)
 file_handler.setFormatter(file_format)
 

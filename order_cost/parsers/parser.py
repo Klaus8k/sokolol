@@ -51,6 +51,7 @@ class Parse_unit(webdriver.Firefox):
 
     def click_on_element(self, element: object):
         self.execute_script("arguments[0].click();", element)
+        
 
     # def __del__(self):  # stop display if on linux, and quit from webdriver
     #     if os.name == 'posix':
@@ -156,4 +157,3 @@ def parce_m_grup(formatX, formatY, density, pressrun, duplex):
 
         except:
             return 'not result'
-
