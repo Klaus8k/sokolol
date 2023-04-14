@@ -32,7 +32,7 @@ def offset_calc(order_info: dict):
     result_from_parce = parce_m_grup(
         formatX, formatY, density, pressrun, duplex)
     print(result_from_parce)
-    if result_from_parce != '':
+    if result_from_parce != 'not result':
         cost = int(''.join(result_from_parce.split(' '))) # to integer
     else: return 'Try again'
 

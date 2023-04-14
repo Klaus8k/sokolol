@@ -28,6 +28,7 @@ class Parse_unit(webdriver.Firefox):
             self.run_in_xvfb()
             super(Parse_unit, self).__init__(
                 service_log_path='logs/geckodriver_log.txt')
+            self.pid = os.getpid()
         elif 'Selenium_drivers' not in os.environ['PATH'].split():
             os.environ['PATH'] = os.environ['PATH'] + r";C:\Selenium_drivers"
 
@@ -39,6 +40,8 @@ class Parse_unit(webdriver.Firefox):
             super(Parse_unit, self).__init__(options=options,
                                              service_log_path='logs/geckodriver_log.txt')
 
+            self.pid = os.getpid()
+
     def run_in_xvfb(self):
         self.display = Display(visible=False)
         self.display.start()
@@ -49,19 +52,20 @@ class Parse_unit(webdriver.Firefox):
     def click_on_element(self, element: object):
         self.execute_script("arguments[0].click();", element)
 
-    def __del__(self):  # stop display if on linux, and quit from webdriver
-        if os.name == 'posix':
-        # if self.__dict__['caps']['platformName'] != 'windows':
-            self.display.stop()
-        self.quit()
+    # def __del__(self):  # stop display if on linux, and quit from webdriver
+    #     if os.name == 'posix':
+    #     # if self.__dict__['caps']['platformName'] != 'windows':
+    #         self.display.stop()
+    #     self.quit()
 
 
 def parce_m_grup(formatX, formatY, density, pressrun, duplex):
-    logger.warning('Start parse m_grup')
     params = [formatX, formatY, density, pressrun, duplex]
-    logger.warning('input params - %s', params)
+    logger.warning('start_func_parse - %s', params)
 
     with Parse_unit() as m_grup:
+        logger.warning('pid of webdriver %s', m_grup.pid)
+        
 
         # Главная страница
         m_grup.land_first_page()
@@ -146,6 +150,8 @@ def parce_m_grup(formatX, formatY, density, pressrun, duplex):
         result = m_grup.find_element(By.CSS_SELECTOR,
                                      'span[class="b-price__text"').text
         logger.warning('result - %s', result)
-        # del(m_grup)
+        
+        if not result:
+            return 'not result'
 
         return result
