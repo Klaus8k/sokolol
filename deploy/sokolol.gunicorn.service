@@ -7,7 +7,8 @@ User=o_adm
 Group=www
 WorkingDirectory=/home/o_adm/www/sokolol
 ExecStart=/home/o_adm/www/dj_venv/bin/gunicorn \
-        --access-logfile - \
+        --log-file /home/o_adm/www/sokolol/logs/gunicorn_log \
+        --log-level 'debug' \
         --workers 3 \
         --bind unix:/home/o_adm/www/sokolol/deploy/sokolol.gunicorn.sock \
         sokolol.wsgi:application
