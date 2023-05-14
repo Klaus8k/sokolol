@@ -1,0 +1,16 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=o_adm 
+Group=www
+WorkingDirectory=/home/o_adm/www/sokolol
+ExecStart=/home/o_adm/www/dj_venv/bin/gunicorn \
+        --access-logfile - \
+        --workers 3 \
+        --bind unix:/home/o_adm/www/sokolol/deploy/sokolol.gunicorn.sock \
+        sokolol.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
