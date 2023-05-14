@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 from re import template
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('DJ_SK', 'vnoqvnwovkjnr3or3;lkn43;kj4vklahdsdhjf')
@@ -22,11 +21,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'order_cost',
-    'dev',
 ]
 
 MIDDLEWARE = [
-    'django_hosts.middleware.HostsRequestMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -34,11 +31,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_hosts.middleware.HostsRequestMiddleware',
 ]
-
-ROOT_HOSTCONF = 'sokolol.hosts'
-DEFAULT_HOST = ' '
 
 ROOT_URLCONF = 'sokolol.urls'
 
