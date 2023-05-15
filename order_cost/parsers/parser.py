@@ -55,7 +55,6 @@ class Parse_unit(webdriver.Firefox):
 
     def __del__(self):  # stop display if on linux, and quit from webdriver
         if os.name == 'posix':
-        # if self.__dict__['caps']['platformName'] != 'windows':
             os.kill(self.display.pid, 9)
         self.quit()
 
@@ -156,4 +155,5 @@ def parce_m_grup(formatX, formatY, density, pressrun, duplex):
             return result
 
         except:
+            m_grup.__del__()
             return 'not result'
