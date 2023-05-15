@@ -2,7 +2,7 @@
 Description=gunicorn socket
 
 [Socket]
-ListenStream=/run/sokolol.gunicorn.sock
+ListenStream=/home/o_adm/www/sokolol/deploy/sokolol.gunicorn.sock
 
 [Install]
 WantedBy=sockets.target
