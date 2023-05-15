@@ -1,15 +1,8 @@
-import os
-from datetime import timedelta, datetime
+import requests
 
-start = datetime.now()
+url = "http://79.133.181.123/"
+host = 'www.sokolol.ru'
+r = requests.get(url, headers={'host': host})
 
-x = 1
-while x < 1000000000:
-    x += 1
-    print(x)
-
-    from_start = datetime.now() - start
-    print(from_start.seconds)
-    my_pid = os.getpid()
-    if from_start.seconds >= 2:
-        os.kill(my_pid, 15)
+print(r.status_code)
+print(r.text)

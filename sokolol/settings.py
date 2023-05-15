@@ -8,7 +8,7 @@ SECRET_KEY = os.getenv('DJ_SK', 'vnoqvnwovkjnr3or3;lkn43;kj4vklahdsdhjf')
 
 DEBUG = os.getenv('DJ_D', False)
 
-ALLOWED_HOSTS = ['37.230.141.81', '79.133.181.123', 'sokolol.ru', '*', 'localhost',]
+ALLOWED_HOSTS = ['79.133.181.123', 'sokolol.ru', '*', 'localhost',]
 
 
 # Application definition
