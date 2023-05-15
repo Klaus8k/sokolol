@@ -53,11 +53,11 @@ class Parse_unit(webdriver.Firefox):
         self.execute_script("arguments[0].click();", element)
         
 
-    # def __del__(self):  # stop display if on linux, and quit from webdriver
-    #     if os.name == 'posix':
-    #     # if self.__dict__['caps']['platformName'] != 'windows':
-    #         self.display.stop()
-    #     self.quit()
+    def __del__(self):  # stop display if on linux, and quit from webdriver
+        if os.name == 'posix':
+        # if self.__dict__['caps']['platformName'] != 'windows':
+            self.display.stop()
+        self.quit()
 
 
 def parce_m_grup(formatX, formatY, density, pressrun, duplex):
