@@ -1,0 +1,49 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>sokolol-order_cost</title>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- insert href of fonts -->
+    <link rel="icon" href="{% static 'order_cost/img/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'sokolol/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'sokolol/css/index_sokolol.css' %}">
+
+</head>
+
+<body>
+
+    <div class="container  bg-light shadow border rounded p-3 mt-4">
+        <div class="row">
+            <div class="col">
+                <header class="d-flex flex-wrap justify-content-center py-4">
+                    <a href="/"
+                        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                        <img src="{% static 'sokolol/img/arrow_l.svg' %}" class="me-3" width="40px" height="32px"></img>
+                        <h3>Главная</h3>
+                    </a>
+                </header>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-light shadow border rounded p-3 mt-3">
+
+
+        {% block content %}
+        {% endblock %}
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>
