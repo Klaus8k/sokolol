@@ -22,8 +22,8 @@
 
     <!-- Шапка -->
     <header class="header my-4">
-        <div class="container">
-            <div class="row border">
+        <div class="container bg-light shadow border rounded p-3">
+            <div class="row ">
                 <div class="col my-logo">
                     <h1>Sokolol.ru</h1>
                 </div>
@@ -31,9 +31,9 @@
 
     <!-- Приветствие -->
     <div class="resume my-4">
-        <div class="container">
-            <div class="resume_block row border">
-                <div class="col border">
+        <div class="container bg-light shadow border rounded p-3">
+            <div class="resume_block row ">
+                <div class="col col-8">
                     <p class="text">
                         Здравствуйте.
                         Меня зовут Олег. Я сделал этот сайт для того что бы собрать на нем свои проекты. Чем то
@@ -61,12 +61,13 @@
                                 aria-controls="collapse_contacts">
                                 ПОСМОТРЕТЬ КОНТАКТЫ</button>
 
-                            <img href="#" class="ms-2 svg-dwn" src="{% static 'sokolol/img/download.svg' %}" alt="resume"></img>
+                            <img href="#" class="ms-2 svg-dwn" src="{% static 'sokolol/img/download.svg' %}"
+                                alt="resume"></img>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-5 d-flex">
+                <div class="col col-md-4 d-flex">
                     <img class="my_photo  rounded" src="{% static 'sokolol/img/photo.jpg' %}" alt="my_photo">
                 </div>
                 <div class="collapse p-3" id="collapse_contacts">
@@ -80,8 +81,8 @@
 
 
     <div class="projects-title">
-        <div class="container mt-4 pt-4">
-            <div class="row border">
+        <div class="container my-4 pt-4">
+            <div class="row">
                 <div class="col-12 d-flex justify-content-center">
                     <h1 class="title_project">Проекты</h1>
                 </div>
@@ -89,15 +90,15 @@
         </div>
     </div>
 
-    <!-- заказ себестоимость -->
-    <div class="order_cost">
-        <div class="container mt-4">
-            <div class="row border">
+    <!-- Tipkor.ru  -->
+    <div class="tipkor">
+        <div class="container bg-light shadow border border-3 border-info rounded p-3">
+            <div class="row">
                 <div class="block-l col d-flex">
                     <img class="projects_img me-auto mb-3 rounded" src="{% static 'sokolol/img/order_cost.jpg' %}"
                         alt="order_cost_img">
                 </div>
-                <div class="projects-text col border" style="flex-direction: column;">
+                <div class="projects-text col" style="flex-direction: column;">
                     <h2>Расчет себестоимости заказов</h2>
                     <p>Сервис расчета себестоимости заказов в различных сферах полиграфии и
                         печати, разными способами,
@@ -120,12 +121,43 @@
             </div>
         </div>
     </div>
-    <br><br>
+
+    <!-- заказ себестоимость -->
+    <div class="order_cost">
+        <div class="container bg-light shadow border rounded p-3 mt-3">
+            <div class="row">
+                <div class="block-l col d-flex">
+                    <img class="projects_img me-auto mb-3 rounded" src="{% static 'sokolol/img/order_cost.jpg' %}"
+                        alt="order_cost_img">
+                </div>
+                <div class="projects-text col" style="flex-direction: column;">
+                    <h2>Расчет себестоимости заказов</h2>
+                    <p>Сервис расчета себестоимости заказов в различных сферах полиграфии и
+                        печати, разными способами,
+                        на разных размерах.
+                        Расчет расхода носителя, расходных материалов и амортизации.
+                        Сервис расчета себестоимости заказов в различных сферах полиграфии и
+                        печати, разными способами,
+                        на разных размерах.
+                        Расчет расхода носителя, расходных материалов и амортизации.
+                    </p>
+                    <div>
+                        <a href="/order_cost" type="button" class="btn btn-primary">order_cost</a>
+                        <a href="/order_cost/offset" type="button" class="btn btn-info">offset</a>
+                        <a href="/order_cost/solvent" type="button" class="btn btn-info">solvent</a>
+                        <a href="/order_cost/riso" type="button" class="btn btn-info">riso</a>
+                        <img href="GIT" class="git_svg ms-2" src="{% static 'sokolol/img/git.svg' %}"
+                            alt="git_order_cost"></img>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- таймер -->
     <div class="working-timer">
-        <div class="container mt-4">
-            <div class="row border">
+        <div class="container bg-light shadow border rounded p-3 mt-3">
+            <div class="row">
                 <div class="block-l col d-flex">
                     <img class="projects_img me-auto mb-3 rounded" src="{% static 'sokolol/img/plholder_project.jpg' %}"
                         alt="order_cost_img">
@@ -149,8 +181,8 @@
 
     <!-- Учебные проекты -->
     <div class="learning_projects">
-        <div class="container mt-4">
-            <div class="row border">
+        <div class="container bg-light shadow border rounded p-3  mt-3">
+            <div class="row">
                 <div class="block-l col d-flex">
                     <img class="projects_img me-auto mb-3 rounded" src="{% static 'sokolol/img/plholder_project.jpg' %}"
                         alt="order_cost_img">
