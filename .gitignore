@@ -149,3 +149,4 @@ migrations
 # .history
 # ```
 env_for_sokolol
+.sokolol_env

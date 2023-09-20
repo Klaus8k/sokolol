@@ -6,11 +6,9 @@ After=network.target
 User=o_adm 
 Group=www
 WorkingDirectory=/home/o_adm/www/sokolol
+EnvironmentFile=/home/o_adm/www/sokolol/.sokolol_env
 ExecStart=/home/o_adm/www/dj_venv/bin/gunicorn \
-        --log-file /home/o_adm/www/sokolol/logs/gunicorn_log \
-        --log-level 'debug' \
-        --env DJ_D=True \
-        --workers 3 \
+        --workers 2 \
         --bind unix:/home/o_adm/www/sokolol/deploy/sokolol.gunicorn.sock \
         sokolol.wsgi:application
 
