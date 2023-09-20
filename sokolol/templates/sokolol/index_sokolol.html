@@ -55,14 +55,13 @@
                         <p class="explain">посмотреть полное резюме или скачать</p>
                         <div class="icon-dwn d-flex">
                             <button class="btn btn-primary px-4" type="button" href="#">
-                                РЕЗЮМЕ</button>
+
+                                СКАЧАТЬ РЕЗЮМЕ</button>
                             <button class="btn btn-primary mx-2 px-4" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapse_contacts" aria-expanded="false"
                                 aria-controls="collapse_contacts">
                                 ПОСМОТРЕТЬ КОНТАКТЫ</button>
 
-                            <img href="#" class="ms-2 svg-dwn" src="{% static 'sokolol/img/download.svg' %}"
-                                alt="resume"></img>
                         </div>
                     </div>
                 </div>
@@ -95,25 +94,23 @@
         <div class="container bg-light shadow border border-3 border-info rounded p-3">
             <div class="row">
                 <div class="block-l col d-flex">
-                    <img class="projects_img me-auto mb-3 rounded" src="{% static 'sokolol/img/order_cost.jpg' %}"
+                    <img class="projects_img me-auto mb-3 rounded" src="{% static 'sokolol/img/tipkor.jpg' %}"
                         alt="order_cost_img">
                 </div>
                 <div class="projects-text col" style="flex-direction: column;">
-                    <h2>Расчет себестоимости заказов</h2>
-                    <p>Сервис расчета себестоимости заказов в различных сферах полиграфии и
-                        печати, разными способами,
-                        на разных размерах.
-                        Расчет расхода носителя, расходных материалов и амортизации.
-                        Сервис расчета себестоимости заказов в различных сферах полиграфии и
-                        печати, разными способами,
-                        на разных размерах.
-                        Расчет расхода носителя, расходных материалов и амортизации.
+                    <h2 style="color: red;">Основной проект</h2>
+                    <h2>Сайт типографии tipkor.ru</h2>
+                    <p>Cайт для небольшой типографии. Предоставляет кроме статичной информации (контакты, карта,
+                        описание) еще модули расчета заказов по 3м разным направлениям деятельности компании.
+                        Производится расчет цены и сроков готовности продукции.
+                        После расчет есть возмоность оформить заказ. Клиент получает письмо.
+                        Вся информация по заказу, расчету, клиенту записывается в базу данных.
                     </p>
                     <div>
-                        <a href="/order_cost" type="button" class="btn btn-primary">order_cost</a>
-                        <a href="/order_cost/offset" type="button" class="btn btn-info">offset</a>
-                        <a href="/order_cost/solvent" type="button" class="btn btn-info">solvent</a>
-                        <a href="/order_cost/riso" type="button" class="btn btn-info">riso</a>
+                        <a href="https://tipkor.ru/" target="_blank" type="button" class="btn btn-primary">перейти на
+                            сайт</a>
+                        <a href="/order_cost/offset" type="button" class="btn btn-info">Подробное описание</a>
+
                         <img href="GIT" class="git_svg ms-2" src="{% static 'sokolol/img/git.svg' %}"
                             alt="git_order_cost"></img>
                     </div>
@@ -173,6 +170,7 @@
                         <a href="#" type="button" class="btn btn-primary">Страница таймера</a>
                         <img href="GIT" class="git_svg ms-2" src="{% static 'sokolol/img/git.svg' %}"
                             alt="timer_img"></img>
+                        <img href="#" class="svg-dwn" src="{% static 'sokolol/img/download.svg' %}" alt="resume"></img>
                     </div>
                 </div>
             </div>
@@ -205,11 +203,11 @@
 
 
     <!-- карусель с сертификатами -->
-    <div class="carousel border">
-        <div class="container border">
-            <div class="row border">
+    <div class="carousel ">
+        <div class="container ">
+            <div class="row ">
                 <div class="d-flex justify-content-center">
-                    <h1>СЕРТИФИКАТЫ</h1>
+                    <h1 class="title_project">СЕРТИФИКАТЫ</h1>
                 </div>
                 <div id="CarouselSert" class="carousel slide d-flex pe-4">
                     <div class="carousel-indicators">
@@ -311,23 +309,15 @@
 
     <!-- Подвал -->
 
-    <footer class="footer">
+    <footer class="footer bg-light shadow border rounded p-3  mt-3">
         <div class="container">
-            <div class="row d-flex border">
+            <div class="row d-flex">
                 <div class="col">
                     <h4>Контакты</h4>
                     <p>
                         КонтактыКонтактыКонтактыКонтатыКонтактыК
                         онтактыКонтактыКонтактыКонтакты
                         КонтактыКонтактыКонтактыКонтактыКонтакты
-                    </p>
-                </div>
-                <div class="col">
-                    <h4>Контакты</h4>
-                    <p>
-                        КонтактыКонтактыКонтактыКонтактыКонтак
-                        тыКонтактыКонтактыКонтактыКонтактыКон
-                        тактыКонтактыКонтактыКонтактыКонтакты
                     </p>
                 </div>
 

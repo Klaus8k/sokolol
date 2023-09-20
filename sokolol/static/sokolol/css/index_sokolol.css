@@ -36,13 +36,18 @@ h1 {
 }
 
 .icon-dwn img {
-    height: 32px;
-    width: 32px;
+    height: 24px;
+    width: 24px;
 }
 
 .git_svg {
-    height: 32px;
-    width: 32px;
+    height: 24px;
+    width: 24px;
+}
+
+.svg-dwn {
+    height: 24px;
+    width: 24px;
 }
 
 .card {
