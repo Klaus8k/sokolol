@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('DJ_SK', 'vnoqvnwovkjnr3or3;lkn43;kj4vklahdsdhjf')
 
-DEBUG = os.getenv('DJ_D', False)
+DEBUG = os.getenv('DJ_D', False) == 'True'
 
 ALLOWED_HOSTS = ['79.133.181.123', 'sokolol.ru', '*', 'localhost',]
 
