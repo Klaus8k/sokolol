@@ -49,8 +49,8 @@ def riso_calc(order_info: dict):
     else:
         last_update = Riso_model.objects.order_by('-date')[0]
         one_list_cost = (last_update.paper_cost_80 / 500) + (last_update.black_ink_cost / 5000)
-        print(one_list_cost)
-        return int(order_info['pressrun']) * one_list_cost + (last_update.master_list_cost / 20)
+        result = int(order_info['pressrun']) * one_list_cost + (last_update.master_list_cost / 20)
+        return round(result, 2)
 
 
 def stamp_calc(order_info):

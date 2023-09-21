@@ -8,7 +8,7 @@ from .views import Riso_view, offset, solvent
 
 app_name = 'order_cost'
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='order_cost_index.html')),
+    # path('', TemplateView.as_view(template_name='order_cost_index.html')),
     path('offset/', views.offset, name='offset'),
     path('solvent/', views.solvent, name='solvent'),
     path('riso/', Riso_view.as_view(), name='riso'), 

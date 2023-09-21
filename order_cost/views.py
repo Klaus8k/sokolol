@@ -5,6 +5,7 @@ from django.views.generic.base import ContextMixin
 from django.views.generic.list import MultipleObjectMixin
 
 from my_logger import logger_view as logger
+import loguru
 
 from .forms import (OffsetForm, RisoForm, RisoSetForm, SolventForm,
                     SolventSetForm)
@@ -100,15 +101,20 @@ class Riso_view(View, ContextMixin):
         return render(request, self.template_name, context=self.get_context_data())
 
     def post(self, request, *args, **kwargs):
-        date = self.request.POST.dict()
-
+        
+        data = self.request.POST.dict()
+        
         if 'paper_cost_80' in request.POST.keys():
-            riso_calc(date)
-            context = self.get_context_data()
+                riso_calc(data)
+                context = self.get_context_data()
+                
 
         else:
-            result = riso_calc(date)
-            context = self.get_context_data()
-            context.update({'result': result})
+            if len(Riso_model.objects.all()) > 0:
+                context = self.get_context_data()
+                context.update({'result': riso_calc(data)})
+            else:
+                result='В базе данных нет информации о расходника'
+
         return render(request, self.template_name, context=context)
 
