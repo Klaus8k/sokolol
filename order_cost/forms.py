@@ -9,17 +9,17 @@ form_wiget = widgets.NumberInput(attrs={'class': 'offset_form'})
 
 
 class OffsetForm(forms.Form):
-    type_order = forms.CharField(initial='offset', label='Офсетная печать',
+    type_order = forms.CharField(initial='offset', label='Офсетная печать', 
                                  widget=widgets.TextInput(attrs={'style': 'display: none'}))
-    formatX = forms.IntegerField(required=None, min_value=0, max_value=1000,
+    formatX = forms.IntegerField(required=True, min_value=0, max_value=1000,
                                  label='Ширина (мм)', widget=form_wiget)
-    formatY = forms.IntegerField(required=None, min_value=0, max_value=1000,
+    formatY = forms.IntegerField(required=True, min_value=0, max_value=1000,
                                  label='Высота (мм)', widget=form_wiget)
-    density = forms.ChoiceField(required=None,
+    density = forms.ChoiceField(required=True,
                                 label='Плотность (г/м)', choices=paper_weigh)
-    pressrun = forms.IntegerField(required=None, min_value=0, max_value=100000,
+    pressrun = forms.IntegerField(required=True, min_value=0, max_value=100000,
                                   label='Тираж (шт)', widget=form_wiget)
-    duplex = forms.BooleanField(required=None, label='4+4/4+0',
+    duplex = forms.BooleanField(required=True, label='4+4/4+0', initial=True,
                                 widget=widgets.RadioSelect(choices=duplex_choise))
 
 

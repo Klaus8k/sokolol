@@ -16,7 +16,6 @@
             <div class="offset_order_in p-3">
                 <h4>Расчет заказов на оффсетную печать</h4>
                 <br>
-                <h5>Расчет заказ печати у партнеров. Срок поставки 1-2 дня</h5>
                 <form class="ml-auto pb-3" action="{% url 'order_cost:offset' %}" method="get">
                     {% csrf_token %}
                     {{ form.as_p }}
@@ -28,29 +27,26 @@
 
         <div class="content_block col shadow rounded">
             <div class="offset_input p-3">
-                <h4>Текущие значения расходников</h4>
-                <br>
-                <br>
-                <h4 style="color: rgb(3, 154, 8);">Здесь вывод цены заказа у партнеров</h4>
-                <br>
-                <br>
+                <div class="offset_db p-3">
+                    <h4>10 Последних расчетов:</h4>
 
-                <h4>Изменение себестоимости</h4>
+
+                    <div> {% for item in offset_db|slice:":10" %}
+                        <p>{{ item }}</p>
+                        {% endfor %}
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
     <div class="row pt-3">
         <div class="content_block me-4 col-12 shadow rounded">
-            <div class="offset_db p-3">
-                <h4>из базы данных информация</h4>
-
-
-                <div> {% for item in offset_db %}
-                    <p>{{item }}</p>
-                    {% endfor %}
-                </div>
-
-            </div>
+            <h3>Описание проекта</h3>
+            <br><br><br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic aspernatur consequatur labore ducimus
+            cupiditate, sequi vel impedit cumque, omnis dolorum quas neque accusamus reprehenderit esse itaque modi
+            velit vitae iure.
         </div>
     </div>
 
