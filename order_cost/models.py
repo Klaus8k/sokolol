@@ -4,12 +4,12 @@ from django.db import models
 # Create your models here.
 class Solvent_model(models.Model):
     date = models.DateTimeField(verbose_name='date', auto_now_add=True)
-    type = models.CharField('type', max_length=20)
+    type_prod = models.CharField('type_prod', max_length=20, default='banner')  
     cost = models.IntegerField('cost')
     type_order = models.CharField('solvent', max_length=20, default='solvent')
 
     def __str__(self) -> str:
-        return f'Дата: {self.date.strftime("%m/%d/%y %H:%M:%S")}, Материал: {self.type}, Цена за m2: {self.cost} руб.'
+        return f'Дата: {self.date.strftime("%m/%d/%y %H:%M:%S")}, Материал: {self.type_prod}, Цена за m2: {self.cost} руб.'
 
 
 class Offset_model(models.Model):

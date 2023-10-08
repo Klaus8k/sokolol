@@ -35,14 +35,14 @@ class SolventForm(forms.Form):
                              label='Ширина (м)', widget=form_wiget)
     higth = forms.FloatField(required=True, min_value=0, max_value=100,
                              label='Высота (м)', widget=form_wiget)
-    type = forms.ChoiceField(required=True,
+    type_prod = forms.ChoiceField(required=True,
                              label='Материал', choices=material_choise)
 
 
 class SolventSetForm(forms.Form):
     type_order = forms.CharField(initial='solvent', label='Широкоформатная печать',
                                  widget=widgets.TextInput(attrs={'style': 'display: none'}))
-    type = forms.ChoiceField(required=True,
+    type_prod = forms.ChoiceField(required=True,
                              label='Материал (квм)', choices=material_choise)
     cost = forms.IntegerField(required=True, label='Цена закупки')
 

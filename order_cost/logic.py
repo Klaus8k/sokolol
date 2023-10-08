@@ -9,11 +9,11 @@ def check_in_db(order_info):  # функцию для проверки нали�
 
 def solvent_calc(order_info: dict):
 
-    type_sol, width, higth = order_info['type'], order_info['width'], order_info['higth']
+    type_prod_sol, width, higth = order_info['type_prod'], order_info['width'], order_info['higth']
 
-    if Solvent_model.objects.filter(type=type_sol):
+    if Solvent_model.objects.filter(type_prod=type_prod_sol):
         cost_per_m2 = Solvent_model.objects.filter(
-            type=type_sol).order_by('-date')[0].cost
+            type_prod=type_prod_sol).order_by('-date')[0].cost
         result = cost_per_m2 * width * higth
     else:
         return f'Нет в таблице материала - {type_sol}'
@@ -79,7 +79,7 @@ def check_db_or_calc_and_save(order_info):
 def save_to_db(order_info, **kwargs):
 
     if order_info.get('type_order') == 'solvent':
-        new_cost = Solvent_model(type=order_info['type'],
+        new_cost = Solvent_model(type_prod=order_info['type_prod'],
                                  cost=order_info['cost'])
     elif order_info.get('type_order') == 'offset':
         cost = kwargs.get('cost')
