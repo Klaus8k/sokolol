@@ -31,11 +31,11 @@
 
         <div class="col rounded" style="background-color: rgb(211, 211, 211);">
             <div class="p-3">
-                    <h4>10 Последних расчетов:</h4>
-<br>
-                    <div> {% for item in offset_db|slice:":10" %}
-                        <p>{{ item }}</p>
-                        {% endfor %}
+                <h4>10 Последних расчетов:</h4>
+                <br>
+                <div> {% for item in offset_db|slice:":10" %}
+                    <p>{{ item }}</p>
+                    {% endfor %}
 
                 </div>
             </div>

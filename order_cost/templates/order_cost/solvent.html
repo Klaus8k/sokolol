@@ -3,16 +3,23 @@
 
 {% block content %}
 
-<div class="solvent p-4">
-    <div class="row">
-        <div class="result col-12  pb-3">
-            <h3 style="color: rgb(117, 15, 15);">Себестоимость заказа: {{ result }} руб.</h3>
+<div class="p-4">
+
+    <div class="row border border-info border-3 rounded mb-2">
+        <div class="result py-2">
+            {% if result %}
+            <h3>Себестоимость заказа: {{ result }} руб.</h3>
+            {% else %}
+            <h3>Введите параметры изделия</h3>
+            {% endif %}
         </div>
     </div>
+
     <div class="row">
-        <div class="content_block me-4 col-md-6 shadow rounded">
-            <div class="solvent_order_in p-3">
+        <div class="col">
+            <div class="p-3">
                 <h4>Расчет заказ широкоформатной печати</h4>
+                <br>
                 <form action="{% url 'order_cost:solvent' %}" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
@@ -22,11 +29,27 @@
             </div>
         </div>
 
-        <div class="content_block col shadow rounded">
-            <div class="solvent_input p-3">
+
+        <div class="col rounded" style="background-color: rgb(211, 211, 211);">
+            <div class="p-3">
                 <h4>Текущие значения расходников</h4>
-                <!-- Точечная тотация для значений словаря. Списком с жесткой версткой пока -->
-                <h4> {{ cost.solvent }}</h4>
+                <br>
+                <div> {% for item in solvent_db|dictsortreversed:'date' %}
+                    {% if item.type_prod == "banner" %}
+                    <p>Баннер: {{ item.cost }}</p>
+                    {% endif %}
+                    {% if item.type_prod == "sticker" %}
+                    <p>Наклейка: {{ item.cost }}</p>
+                    {% endif %}
+                    {% if item.type_prod == "tabl" %}
+                    <p>Табличка: {{ item.cost }}</p>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+
+            <div class="p-3">
                 <h4>Изменение себестоимости</h4>
                 <br>
                 <form action="{% url 'order_cost:solvent' %}" method="POST">
@@ -37,21 +60,16 @@
             </div>
         </div>
     </div>
+    <hr>
+
+
     <div class="row pt-3">
-        <div class="content_block me-4 col-12 shadow rounded">
-            <div class="solvent_db p-3">
-                <h4>из базы данных информация</h4>
-
-
-                <div> {% for item in solvent_db|dictsortreversed:'date'  %}
-                    <p>{{ item }}</p>
-                    {% endfor %}
-                </div>
-                <div>
-
-                </div>
-
-            </div>
+        <div class="me-4 col-12 ">
+            <h3>Описание проекта</h3>
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic aspernatur consequatur labore ducimus
+            cupiditate, sequi vel impedit cumque, omnis dolorum quas neque accusamus reprehenderit esse itaque modi
+            velit vitae iure.
         </div>
     </div>
 

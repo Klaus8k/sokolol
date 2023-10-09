@@ -98,7 +98,7 @@ class Riso_view(View, ContextMixin):
         context = {'form': form, 'form_set': form_set}
         context.update(pages_service)
         context['page_name'] = 'riso'
-        context['riso_db'] = Riso_model.objects.all()
+        context['riso_db'] = Riso_model.objects.latest('date')
         return context
 
     def get(self, request, *args, **kwargs):

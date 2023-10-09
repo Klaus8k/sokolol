@@ -4,16 +4,23 @@
 
 {% block content %}
 
-<div class="riso p-4">
-    <div class="row">
-        <div class="result col-12  pb-3">
-            <h3 style="color: rgb(117, 15, 15);">Себестоимость заказа: {{ result }} руб.</h3>
+<div class="p-4">
+
+    <div class="row border border-info border-3 rounded mb-2">
+        <div class="result py-2">
+            {% if result %}
+            <h3>Себестоимость заказа: {{ result }} руб.</h3>
+            {% else %}
+            <h3>Введите параметры изделия</h3>
+            {% endif %}
         </div>
     </div>
+
     <div class="row">
-        <div class="content_block me-4 col-md-6 shadow rounded">
-            <div class="riso_order_in p-3">
-                <h4>Расчет заказ</h4>
+        <div class="col">
+            <div class="p-3">
+                <h4>Расчет заказ для ризографии</h4>
+                <br>
                 <form action="{% url 'order_cost:riso' %}" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
@@ -23,36 +30,46 @@
             </div>
         </div>
 
-        <div class="content_block col shadow rounded">
-            <div class="riso_input p-3">
+        <div class="col rounded" style="background-color: rgb(211, 211, 211);">
+            <div class="p-3">
                 <h4>Текущие значения расходников</h4>
-                <h4> {{ page_name }}</h4>
-                <h4>Изменение себестоимости</h4>
-                <br>
-                <form action="{% url 'order_cost:riso' %}" method="post">
-                    {% csrf_token %}
-                    {{ form_set.as_p }}
-                    <button type="submit" class="btn btn-danger">Изменить</button>
-                </form>
-            </div>
-        </div>
-        <div class="row pt-3">
-            <div class="content_block me-4 col-12 shadow rounded">
-                <div class="riso_db p-3">
-                    <h4>из базы данных информация</h4>
+                <h4> {{ riso_db.date }}</h4>
+                <h4>Цена за пачку: {{ riso_db.paper_cost_80 }} руб.</h4>
+                <h4>Цена за краску: {{ riso_db.black_ink_cost }} руб.</h4>
+                <h4>Цена мастер-пленку: {{ riso_db.master_list_cost }} руб.</h4>
 
 
-                    <div> {% for item in riso_db|dictsortreversed:'date' %}
-                        <p>{{ item }}</p>
-                        {% endfor %}
-                    </div>
-                    <div>
 
-                    </div>
 
+                <div class="p-3">
+                    <h4>Изменение себестоимости</h4>
+                    <br>
+                    <form action="{% url 'order_cost:riso' %}" method="post">
+                        {% csrf_token %}
+                        {{ form_set.as_p }}
+                        <button type="submit" class="btn btn-danger">Изменить</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
-    {% endblock %}
+    <hr>
+
+
+    <div class="row pt-3">
+        <div class="me-4 col-12 ">
+            <h3>Описание проекта</h3>
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic aspernatur consequatur labore ducimus
+            cupiditate, sequi vel impedit cumque, omnis dolorum quas neque accusamus reprehenderit esse itaque
+            modi
+            velit vitae iure.
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
