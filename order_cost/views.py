@@ -7,7 +7,7 @@ from django.views.generic.list import MultipleObjectMixin
 from my_logger import logger_view as logger
 import loguru
 
-from .forms import (OffsetForm, RisoForm, RisoSetForm, SolventForm,
+from .forms import (OffsetForm, RisoForm, RisoSetForm, SolventForm, material_choise,
                     SolventSetForm)
 from .logic import check_db_or_calc_and_save, riso_calc, save_to_db
 from .models import Offset_model, Riso_model, Solvent_model
@@ -48,17 +48,23 @@ def offset(request, context):
 @view_decorator
 def solvent(request, context):
 
-    if Solvent_model.objects.exists():
-        context['solvent_db'] = Solvent_model.objects.all()
-    else:
-        context['result'] = 'Для расчета нет данных о расходниках'
-        
 
     if request.method == 'GET':
         context['form'] = SolventForm()
         context['form_set'] = SolventSetForm()
 
     elif request.method == 'POST':
+        
+        current_cost_solvent = []
+
+        if Solvent_model.objects.exists():
+            mat_choise_clean = [i[0] for i in material_choise]
+            for field in mat_choise_clean:
+                current_cost_solvent.append(Solvent_model.objects.filter(type_prod=field).latest('date'))
+            context['solvent_db'] = current_cost_solvent
+        else:
+            context['result'] = 'Для расчета нет данных о расходниках'
+            
         if 'cost' in request.POST.keys():
             context['form'] = SolventForm()
             form_set = SolventSetForm(request.POST)

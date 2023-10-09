@@ -34,7 +34,9 @@
             <div class="p-3">
                 <h4>Текущие значения расходников</h4>
                 <br>
-                <div> {% for item in solvent_db|dictsortreversed:'date' %}
+
+                
+                <div> {% for item in solvent_db %}
                     {% if item.type_prod == "banner" %}
                     <p>Баннер: {{ item.cost }}</p>
                     {% endif %}
