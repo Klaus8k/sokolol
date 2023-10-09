@@ -48,7 +48,11 @@ def offset(request, context):
 @view_decorator
 def solvent(request, context):
 
-    context['solvent_db'] = Solvent_model.objects.all()
+    if Solvent_model.objects.exists():
+        context['solvent_db'] = Solvent_model.objects.all()
+    else:
+        context['result'] = 'Для расчета нет данных о расходниках'
+        
 
     if request.method == 'GET':
         context['form'] = SolventForm()
