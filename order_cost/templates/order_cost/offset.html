@@ -42,15 +42,32 @@
         </div>
     </div>
     <hr>
-    <div class="row pt-3">
-        <div class="me-4 col-12 ">
-            <h3>Описание проекта</h3>
+
+    <div class="row">
+
+        <div class="col">
+
+            <h3>Расчет офсетной печати/парсер поставщика.</h3>
+            <p> Ссылка гит
+                <a target="_blank"
+                    href="https://github.com/Klaus8k/sokolol/blob/main/order_cost/parsers/parser.py">Github</a>
+            </p>
+            <p>Сайт поставщика <a href="https://gmprint.ru/" target="_blank">https://gmprint.ru/</a> на js.</p>
+            <p>Поэтому использовалась библиотека Selenium.</p>
+            <li>Для win платформ в webdriver.Firefox - в опции добавляем headless</li>
+            <li>Для “posix” работает виртуальный дисплей xvfb</li>
+            <li>После чего в экземпляр парсера с нужными настройками вебдрайвера обрабатывается код браузера.</li>
+            <li>Далее процесс парсера, вебдрайвера и виртуального дисплея убивается переопределенным методом __del__ по
+                pid процесса.</li>
             <br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic aspernatur consequatur labore ducimus
-            cupiditate, sequi vel impedit cumque, omnis dolorum quas neque accusamus reprehenderit esse itaque modi
-            velit vitae iure.
+            <p>При успешной работе расчет записывается в базу.</p>
+        </div>
+        <div class="col">
+            <img class="img-fluid" src="{% static 'order_cost/img/sel_xvfb.jpg' %}" alt="">
         </div>
     </div>
+    <br>
+    <br>
 
 </div>
 

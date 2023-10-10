@@ -128,12 +128,9 @@
                         Вся информация по заказу, расчету, клиенту записывается в базу данных.
                     </p>
                     <div>
-                        <a href="https://tipkor.ru/" target="_blank" type="button" class="btn btn-primary">перейти на
+                        <a href="https://tipkor.ru/" target="_blank" type="button" class="btn btn-primary">Перейти на
                             сайт</a>
                         <a href="/tipkor" type="button" class="btn btn-info">Подробное описание</a>
-
-                        <img href="GIT" class="git_svg ms-2" src="{% static 'sokolol/img/git.svg' %}"
-                            alt="git_order_cost"></img>
                     </div>
                 </div>
             </div>
@@ -149,22 +146,31 @@
                         src="{% static 'sokolol/img/order_cost.jpg' %}" alt="order_cost_img">
                 </div>
                 <div class="projects-text col" style="flex-direction: column;">
-                    <h2>Расчет себестоимости заказов</h2>
-                    <p>Сервис расчета себестоимости заказов в различных сферах полиграфии и
-                        печати, разными способами,
-                        на разных размерах.
-                        Расчет расхода носителя, расходных материалов и амортизации.
-                        Сервис расчета себестоимости заказов в различных сферах полиграфии и
-                        печати, разными способами,
-                        на разных размерах.
-                        Расчет расхода носителя, расходных материалов и амортизации.
-                    </p>
+                    <h2>Приложение расчета себестоимости заказов.</h2>
+                    <hr>
+                    <div class="row">
+                        <div class="col-8">
+                            <h4>Функции:</h4>
+                            <li>Расчет себестоимости заказов исходя из специфики</li>
+                            <li>Для офсетной печати парсер сайта поставщика и внесение расчета в базу</li>
+                            <li>Для широкоформатки и ризографии расчет на основе цены составляющих</li>
+                            <li>Фиксация в базе расчетов</li>
+                        </div>
+                        <div class="col">
+                            <h4>Стек:</h4>
+                            <li>Сервер VPS на Ubuntu, Nginx, Gunicorn</li>
+                            <li>Django 4.0</li>
+                            <li>Python 3.8, pip</li>
+                            <li>html, css, Bootstrap 5.</li>
+                            <li>SQLite.</li>
+                        </div>
+                    </div>
+
+                    <br>
                     <div>
                         <a href="/order_cost/offset" type="button" class="btn btn-info">Оффсетная печать</a>
                         <a href="/order_cost/solvent" type="button" class="btn btn-info">Широкоформатная печать</a>
                         <a href="/order_cost/riso" type="button" class="btn btn-info">Ризография</a>
-                        <img href="GIT" class="git_svg ms-2" src="{% static 'sokolol/img/git.svg' %}"
-                            alt="git_order_cost"></img>
                     </div>
                 </div>
             </div>
