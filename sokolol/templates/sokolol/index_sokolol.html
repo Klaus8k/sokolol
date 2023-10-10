@@ -183,181 +183,195 @@
             <div class="row">
                 <div class="block-l col d-flex">
                     <img class="projects_img img-fluid me-auto mb-3 rounded"
-                        src="{% static 'sokolol/img/plholder_project.jpg' %}" alt="order_cost_img">
+                        src="{% static 'sokolol/img/timer.jpg' %}" alt="order_cost_img">
                 </div>
-                <div class="projects-text col border" style="flex-direction: column;">
-                    <h2>Простой таймер для учета врамени на заказ</h2>
-                    <p>Таймер с UI для замера и учета времени затраченного на определенный заказ.
-                        Таймер с UI для замера и учета времени затраченного на определенный заказ.
-                        Таймер с UI для замера и учета времени затраченного на определенный заказ.
-                        Таймер с UI для замера и учета времени затраченного на определенный заказ.
+                <div class="projects-text col" style="flex-direction: column;">
+                    <h2>Десктопный таймер для учета/замера времени на задачу.</h2>
+                    <p>Однооконный таймер для учета и/или замера времени, затраченного на определенный заказ или
+                        операцию. С возможностью внесения названия задачи, сохранением расчета (json), паузой.
                     </p>
-                    <div>
-                        <a href="#" type="button" class="btn btn-primary">Страница таймера</a>
-                        <img href="GIT" class="git_svg ms-2" src="{% static 'sokolol/img/git.svg' %}"
-                            alt="timer_img"></img>
-                        <img href="#" class="svg-dwn" src="{% static 'sokolol/img/download.svg' %}" alt="resume"></img>
+                    <a href="/timer" type="button" class="btn btn-primary">Описание таймера</a>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col my-2">
+                            <h4><img href="/" class="svg-dwn pe-2" src="{% static 'sokolol/img/download.svg' %}"
+                                    alt="resume">скачать для Linux</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h4><img href="/" class="svg-dwn pe-2" src="{% static 'sokolol/img/download.svg' %}"
+                                    alt="resume">скачать для Windows</h4>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Учебные проекты -->
+        <!-- <div class="learning_projects">
+            <div class="container bg-light shadow border rounded p-3  mt-3">
+                <div class="row">
+                    <div class="block-l col d-flex">
+                        <img class="projects_img img-fluid me-auto mb-3 rounded"
+                            src="{% static 'sokolol/img/plholder_project.jpg' %}" alt="order_cost_img">
+                    </div>
+                    <div class="projects-text col border" style="flex-direction: column;">
+                        <h2>Учебные проекты</h2>
+                        <p>Учебные и более мелкие проекты. Учебные и более мелкие проекты. Учебные и более мелкие
+                            проекты.
+                            Учебные и более мелкие проекты. Учебные и более мелкие проекты. Учебные и более мелкие
+                            проекты.
+                        </p>
+                        <div>
+                            <a href="#" type="button" class="btn btn-primary">Страница таймера</a>
+                            <img href="GIT" class="git_svg ms-2" src="{% static 'sokolol/img/git.svg' %}"
+                                alt="timer_img"></img>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <br><br>
+
+
+        <!-- карусель с сертификатами -->
+        <div class="carousel ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="d-flex justify-content-center">
+                        <h1 class="title_project">СЕРТИФИКАТЫ</h1>
+                    </div>
+                    <div id="CarouselSert" class="carousel slide d-flex pe-4">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="0" class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="3"
+                                aria-label="Slide 4"></button>
+                            <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="4"
+                                aria-label="Slide 5"></button>
+                            <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="5"
+                                aria-label="Slide 6"></button>
+                        </div>
+
+                        <div class="carousel-inner">
+
+                            <div class="carousel-item active">
+                                <img src="{% static 'sokolol/img/sert/cours_py.jpg' %}" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Погружение в Python. Партнеры: МФТИ, VK, ELDF.</h3>
+                                    <p>Программа курса: Основы, IDE, venv, cтруктуры данных и функции, декораторы,
+                                        генераторы, json, ООП, многопоточное и асинхронное программирование.</br>
+                                        Финальный проект: Сервер для приема метрик. </p>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="{% static 'sokolol/img/sert/cours_oop.jpg' %}" class="d-block w-100"
+                                    alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>ООП и паттерны проектирования в Python. Партнеры: МФТИ, VK, ELDF.</h3>
+                                    <p>Программа курса: тестирование и отладка программ, ООП, SOLID, паттерны
+                                        проектирования
+                                        (Decorator, Adapter, Observer, Chain of Responsibility, Abstract Factory)</br>
+                                        Финальный проект: Игра с применением всех использованных практик.</p>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="{% static 'sokolol/img/sert/stepilk_py.jpg' %}" class="d-block w-100"
+                                    alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Python: основы и применение</h3>
+                                    <p>Содержание курса
+                                        <a target="_blank" href="https://stepik.org/course/512/syllabus"> ссылка </a>(в
+                                        новой владке)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="{% static 'sokolol/img/sert/stepilk_sql.jpg' %}" class="d-block w-100"
+                                    alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Интерактивный тренажер по SQL</h3>
+                                    <p>Содержание курса
+                                        <a target="_blank" href="https://stepik.org/course/63054/syllabus"> ссылка
+                                        </a>(в
+                                        новой владке)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="{% static 'sokolol/img/sert/ru.jpg' %}" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Освоен метод слепого десятипальцевого набора текста на русской раскладке</h3>
+                                    <!-- <p>Некоторый репрезентативный заполнитель для второго слайда.</p> -->
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="{% static 'sokolol/img/sert/en.jpg' %}" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Освоен метод слепого десятипальцевого набора текста на английской раскладке</h3>
+                                    <!-- <p>Некоторый репрезентативный заполнитель для второго слайда.</p> -->
+                                </div>
+                            </div>
+
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#CarouselSert"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Предыдущий</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#CarouselSert"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Следующий</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <br><br>
+        <br><br>
+
+
+        <!-- Подвал -->
+
+        <footer class="footer bg-light shadow border rounded p-3  mt-3">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col">
+                        <a href="https://wa.me/+79955016551?text=" target="_blank">
+                            <img id="hi_mess" src="{% static '/sokolol/img/whatsap.svg' %}" alt="">+7 (995)
+                            501-65-51</a>
+                    </div>
+
+                    <div class="col">
+                        <a href="https://t.me/Klaus8k" target="_blank">
+                            <img id="hi_mess" src="{% static '/sokolol/img/telegram.svg' %}" alt="">@Klaus8k</a>
+                    </div>
+
+                    <div class="col">
+
+                        <a href="mailto:klaus888@yandex.ru" target="_blank">
+                            <img id="hi_mess" src="{% static '/sokolol/img/email.svg' %}" alt="">klaus888@yandex.ru</a>
+                    </div>
+                </div>
+
+            </div>
     </div>
-
-    <!-- Учебные проекты -->
-    <div class="learning_projects">
-        <div class="container bg-light shadow border rounded p-3  mt-3">
-            <div class="row">
-                <div class="block-l col d-flex">
-                    <img class="projects_img img-fluid me-auto mb-3 rounded"
-                        src="{% static 'sokolol/img/plholder_project.jpg' %}" alt="order_cost_img">
-                </div>
-                <div class="projects-text col border" style="flex-direction: column;">
-                    <h2>Учебные проекты</h2>
-                    <p>Учебные и более мелкие проекты. Учебные и более мелкие проекты. Учебные и более мелкие проекты.
-                        Учебные и более мелкие проекты. Учебные и более мелкие проекты. Учебные и более мелкие проекты.
-                    </p>
-                    <div>
-                        <a href="#" type="button" class="btn btn-primary">Страница таймера</a>
-                        <img href="GIT" class="git_svg ms-2" src="{% static 'sokolol/img/git.svg' %}"
-                            alt="timer_img"></img>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br><br>
-
-
-    <!-- карусель с сертификатами -->
-    <div class="carousel ">
-        <div class="container ">
-            <div class="row ">
-                <div class="d-flex justify-content-center">
-                    <h1 class="title_project">СЕРТИФИКАТЫ</h1>
-                </div>
-                <div id="CarouselSert" class="carousel slide d-flex pe-4">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="0" class="active"
-                            aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="3"
-                            aria-label="Slide 4"></button>
-                        <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="4"
-                            aria-label="Slide 5"></button>
-                        <button type="button" data-bs-target="#CarouselSert" data-bs-slide-to="5"
-                            aria-label="Slide 6"></button>
-                    </div>
-
-                    <div class="carousel-inner">
-
-                        <div class="carousel-item active">
-                            <img src="{% static 'sokolol/img/sert/cours_py.jpg' %}" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3>Погружение в Python. Партнеры: МФТИ, VK, ELDF.</h3>
-                                <p>Программа курса: Основы, IDE, venv, cтруктуры данных и функции, декораторы,
-                                    генераторы, json, ООП, многопоточное и асинхронное программирование.</br>
-                                    Финальный проект: Сервер для приема метрик. </p>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <img src="{% static 'sokolol/img/sert/cours_oop.jpg' %}" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3>ООП и паттерны проектирования в Python. Партнеры: МФТИ, VK, ELDF.</h3>
-                                <p>Программа курса: тестирование и отладка программ, ООП, SOLID, паттерны проектирования
-                                    (Decorator, Adapter, Observer, Chain of Responsibility, Abstract Factory)</br>
-                                    Финальный проект: Игра с применением всех использованных практик.</p>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <img src="{% static 'sokolol/img/sert/stepilk_py.jpg' %}" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3>Python: основы и применение</h3>
-                                <p>Содержание курса
-                                    <a target="_blank" href="https://stepik.org/course/512/syllabus"> ссылка </a>(в
-                                    новой владке)
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <img src="{% static 'sokolol/img/sert/stepilk_sql.jpg' %}" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3>Интерактивный тренажер по SQL</h3>
-                                <p>Содержание курса
-                                    <a target="_blank" href="https://stepik.org/course/63054/syllabus"> ссылка </a>(в
-                                    новой владке)
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <img src="{% static 'sokolol/img/sert/ru.jpg' %}" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3>Освоен метод слепого десятипальцевого набора текста на русской раскладке</h3>
-                                <!-- <p>Некоторый репрезентативный заполнитель для второго слайда.</p> -->
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <img src="{% static 'sokolol/img/sert/en.jpg' %}" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3>Освоен метод слепого десятипальцевого набора текста на английской раскладке</h3>
-                                <!-- <p>Некоторый репрезентативный заполнитель для второго слайда.</p> -->
-                            </div>
-                        </div>
-
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#CarouselSert"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Предыдущий</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#CarouselSert"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Следующий</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <br><br>
-    <br><br>
-
-
-    <!-- Подвал -->
-
-    <footer class="footer bg-light shadow border rounded p-3  mt-3">
-        <div class="container">
-            <div class="row">
-
-                <div class="col">
-                    <a href="https://wa.me/+79955016551?text=" target="_blank">
-                        <img id="hi_mess" src="{% static '/sokolol/img/whatsap.svg' %}" alt="">+7 (995) 501-65-51</a>
-                </div>
-
-                <div class="col">
-                    <a href="https://t.me/Klaus8k" target="_blank">
-                        <img id="hi_mess" src="{% static '/sokolol/img/telegram.svg' %}" alt="">@Klaus8k</a>
-                </div>
-
-                <div class="col">
-
-                    <a href="mailto:klaus888@yandex.ru" target="_blank">
-                        <img id="hi_mess" src="{% static '/sokolol/img/email.svg' %}" alt="">klaus888@yandex.ru</a>
-                </div>
-            </div>
-
-        </div>
-        </div>
     </footer>
 
 </body>
